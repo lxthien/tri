@@ -23,12 +23,27 @@ use AppBundle\Entity\Tag;
 use AppBundle\Entity\Rating;
 
 use blackknight467\StarRatingBundle\Form\RatingType as RatingType;
-
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as RecaptchaTrue;
 
 class NewsController extends Controller
 {
+    /**
+     * @var UploaderHelper
+     */
+    private $helper;
+
+    /**
+     * Constructs a new instance of UploaderExtension.
+     *
+     * @param UploaderHelper $helper
+     */
+    public function __construct(UploaderHelper $helper)
+    {
+        $this->helper = $helper;
+    }
+
     /**
      * Render the list posts by the category
      * 
@@ -219,6 +234,10 @@ class NewsController extends Controller
                 'comments'      => $comments
             ]);
         } else {
+            $imagePath = $this->helper->asset($post, 'imageFile');
+            $imagePath = substr($imagePath, 1);
+            $imageSize = getimagesize($imagePath);
+
             return $this->render('news/show.html.twig', [
                 'post'          => $post,
                 'relatedNews'   => $relatedNews,
@@ -229,6 +248,7 @@ class NewsController extends Controller
                 'ratingValue'   => round($rating['ratingValue']),
                 'ratingCount'   => round($rating['ratingCount']),
                 'comments'      => $comments,
+                'imageSize'    => $imageSize
             ]);
         }
     }

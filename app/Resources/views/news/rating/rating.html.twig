@@ -2,7 +2,6 @@
     {{ ratingValue|rating }}
     <a href="form-rating-container" id="rating">
         <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-            <div itemprop="name" class="rating-title">{{ post.getTitle() }}</div>
             {% if rating > 0 %}
                 <span itemprop="ratingValue">{{ rating }}</span> ({{ ratingPercent }}%) / <span itemprop="ratingCount">{{ ratingCount }}</span> votes
             {% else %}
