@@ -46,7 +46,7 @@ function initProjectHotSlider() {
         minSlides: 1,
         maxSlides: 4,
         moveSlides: 1,
-        slideMargin: 30
+        slideMargin: 20
     });
 }
 
@@ -72,7 +72,7 @@ function initFixedMenu() {
         var $scrollUp = $('.td-scroll-up');
         var scroll = $(window).scrollTop();
     
-        if (scroll >= 42) {
+        if (scroll > 0) {
             $nav.addClass("navbar-fixed-top");
             $scrollUp.removeClass("hidden");
         } else {

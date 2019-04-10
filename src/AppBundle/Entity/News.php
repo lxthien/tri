@@ -13,7 +13,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * News
  *
- * @ORM\Table(name="news")
+ * @ORM\Table(name="news", options={"collate"="utf8_general_ci"})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\NewsRepository")
  * @Vich\Uploadable
  */

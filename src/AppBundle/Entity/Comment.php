@@ -12,7 +12,7 @@ use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="comment")
+ * @ORM\Table(name="comment", options={"collate"="utf8_general_ci"})
  */
 
 class Comment

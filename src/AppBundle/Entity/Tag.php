@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity()
  * @ORM\HasLifecycleCallbacks()
- * @ORM\Table(name="tag")
+ * @ORM\Table(name="tag", options={"collate"="utf8_general_ci"})
  */
 class Tag implements \JsonSerializable
 {

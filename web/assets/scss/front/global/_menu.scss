@@ -1,5 +1,5 @@
 #nav {
-    background: $gray94;
+    background-color: $white;
     z-index: 10000;
 
     .nav-container {
@@ -34,7 +34,7 @@
                     }
     
                     img {
-                        width: 150px;
+                        width: 200px;
     
                         @media only screen and (max-width : 768px) {
                             width: 90px;
@@ -103,6 +103,9 @@
                         color: $killarney;
                         font-weight: 500;
                         font-size: 17px;
+                        text-transform: uppercase;
+                        font-family: $robotoCondesed;
+                        color: #fdc502;
 
                         &:focus, &:hover {
                             background: $gray94;
@@ -216,7 +219,7 @@
         .nav-container .navbar {
             .navbar-header .navbar-brand {
                 img {
-                    width: 85px;
+                    width: 125px;
                 }
             }
 

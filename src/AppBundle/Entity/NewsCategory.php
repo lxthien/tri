@@ -10,7 +10,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * NewsCategory
  *
- * @ORM\Table(name="newscategory")
+ * @ORM\Table(name="newscategory", options={"collate"="utf8_general_ci"})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\NewsCategoryRepository")
  */
 class NewsCategory

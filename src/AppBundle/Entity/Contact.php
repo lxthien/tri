@@ -11,7 +11,7 @@ use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 /**
  * Contact
  *
- * @ORM\Table(name="contact")
+ * @ORM\Table(name="contact", options={"collate"="utf8_general_ci"})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ContactRepository")
  */
 class Contact
