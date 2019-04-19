@@ -26,8 +26,8 @@
     
             .navbar-header {
                 .navbar-brand {
-                    padding-top: 7px;
-                    padding-left: 0;
+                    padding: 13px 0 0 0;
+                    height: auto;
 
                     @media only screen and (max-width : 768px) {
                         padding-top: 5px;
@@ -55,10 +55,28 @@
                 border-width: 0px;
                 box-shadow: none;
                 padding: 0;
+                position: relative;
+                padding-left: 30px;
     
                 @media only screen and (max-width: 767.98px) {
                     width: 100%;
                     float: left !important;
+                }
+
+                .skew-divider {
+                    content: "";
+                    background-color: #2c3e50;
+                    height: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 10000px;
+                    -webkit-transform: skew(-45deg);
+                    -khtml-transform: skew(-45deg);
+                    -moz-transform: skew(-45deg);
+                    -ms-transform: skew(-45deg);
+                    -o-transform: skew(-45deg);
+                    transform: skew(-45deg);
                 }
     
                 .navbar-nav {
@@ -79,7 +97,7 @@
                                 bottom: 0px;
                                 left: 0;
                                 height: 3px;
-                                background: $killarney;
+                                background: $supernova;
                                 z-index: 10001;
                             }
                         }
@@ -92,7 +110,7 @@
                                 bottom: 0px;
                                 left: 0;
                                 height: 3px;
-                                background: $killarney;
+                                background: $supernova;
                                 z-index: 10001;
                             }
                         }
@@ -105,10 +123,10 @@
                         font-size: 17px;
                         text-transform: uppercase;
                         font-family: $robotoCondesed;
-                        color: #fdc502;
+                        color: $supernova;
 
                         &:focus, &:hover {
-                            background: $gray94;
+                            background: transparent;
                         }
     
                         @media only screen and (max-width: 768px) {
@@ -122,7 +140,7 @@
                     &.open {
                         a {
                             &:focus, &:hover {
-                                background: $gray94;
+                                background: transparent;
                             }
                         }
                     }
@@ -212,6 +230,8 @@
 
 #nav {
     &.navbar-fixed-top {
+        opacity: 0.9;
+
         .nav-container .navbar {
             min-height: auto;
         }

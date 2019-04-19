@@ -27,13 +27,38 @@ class HomepageController extends Controller
                                     ->find($listCategoriesOnHomepage[$i]["id"]);
 
                     if ($category) {
-                        $posts = $this->getDoctrine()
-                            ->getRepository(News::class)
-                            ->findBy(
-                                array('postType' => 'post', 'enable' => 1, 'category' => $category->getId()),
-                                array('viewCounts' => 'DESC'),
-                                $listCategoriesOnHomepage[$i]["items"]
-                            );
+                        if ($category->getId() != 5) {
+                            $posts = $this->getDoctrine()
+                                ->getRepository(News::class)
+                                ->findBy(
+                                    array('postType' => 'post', 'enable' => 1, 'category' => $category->getId()),
+                                    array('viewCounts' => 'DESC'),
+                                    $listCategoriesOnHomepage[$i]["items"]
+                                );
+                        } else {
+                            $listCategoriesIds = array($category->getId());
+
+                            $allSubCategories = $this->getDoctrine()
+                                ->getRepository(NewsCategory::class)
+                                ->createQueryBuilder('c')
+                                ->where('c.parentcat = (:parentcat)')
+                                ->setParameter('parentcat', $category->getId())
+                                ->getQuery()->getResult();
+
+                            foreach ($allSubCategories as $value) {
+                                $listCategoriesIds[] = $value->getId();
+                            }
+
+                            $posts = $this->getDoctrine()
+                                ->getRepository(News::class)
+                                ->createQueryBuilder('p')
+                                ->where('p.category IN (:listCategoriesIds)')
+                                ->andWhere('p.enable = :enable')
+                                ->setParameter('listCategoriesIds', $listCategoriesIds)
+                                ->setParameter('enable', 1)
+                                ->orderBy('p.viewCounts', 'DESC')
+                                ->getQuery()->getResult();
+                        }
                     }
 
                     $blockOnHomepage = (object) array('category' => $category, 'posts' => $posts, 'description' => $listCategoriesOnHomepage[$i]["description"]);

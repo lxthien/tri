@@ -1,7 +1,7 @@
 <div class="news-item">
     <div class="news-item-wrapper">
         <a class="media-thumb" title="{{ row.getTitle() }}" href="{{ path('news_show', {'slug': row.getUrl() }) }}">
-            <img class="mr-3 img-thumbnail" src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_382_285') }}" alt="{{row.getTitle()}}">
+            <img class="mr-3 img-thumbnail" src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_564_440') }}" alt="{{row.getTitle()}}">
         </a>
         <div class="media-body">
             <h5 class="mt-0 mb-1">
@@ -9,7 +9,7 @@
                     <span>{{ row.getTitle() }}</span>
                 </a>
             </h5>
-            <p>{{ row.getDescription()|slice(0, 85) }}</p>
+            <p>{{ row.getDescription()|slice(0, 105) }}</p>
         </div>
     </div>
 </div>

@@ -18,7 +18,12 @@ class Builder implements ContainerAwareInterface
             ),
         ));
 
-        // About Us
+        $menu->addChild('<i class="fa fa-home"></i>', [
+            'route' => 'homepage',
+            'extras' => ['safe_label' => true]
+        ])
+        ->setLinkAttribute('class', 'home');
+
         $menu->addChild('Giới thiệu', [
             'route' => 'news_show',
             'routeParameters' => ['slug' => 'gioi-thieu']
@@ -38,60 +43,43 @@ class Builder implements ContainerAwareInterface
             'routeParameters' => ['slug' => 'tuyen-dung']
         ]);
 
-        $menu->addChild('Dịch vụ', [
+        $menu->addChild('Xây nhà', [
             'route' => 'news_category',
-            'routeParameters' => ['level1' => 'dich-vu']
+            'routeParameters' => ['level1' => 'xay-dung-nha-pho']
         ]);
 
-        $menu->addChild('Xây dựng', [
+        $menu->addChild('Sửa chữa nhà', [
             'route' => 'news_category',
-            'routeParameters' => ['level1' => 'xay-dung']
-        ])
-        ->setAttribute('class', 'dropdown')
-        ->setLinkAttribute('class', 'dropdown-toggle')
-        ->setLinkAttribute('data-toggle', 'dropdown')
-        ->setChildrenAttribute('class', 'dropdown-menu');
-
-        $menu['Xây dựng']->addChild('Nhà phố', [
-            'route' => 'news_category',
-            'routeParameters' => ['level1' => 'xay-dung']
-        ]);
-
-        $menu['Xây dựng']->addChild('Dự toán chi phí', [
-            'route' => 'caculator_cost_construction'
-        ]);
-
-        $menu['Xây dựng']->addChild('Chính sách bảo hành', [
-            'route' => 'news_show',
-            'routeParameters' => ['slug' => 'chinh-sach-bao-hanh']
+            'routeParameters' => ['level1' => 'sua-chua-nha-dep']
         ]);
 
         $menu->addChild('Thiết kế', [
             'route' => 'news_category',
-            'routeParameters' => ['level1' => 'thiet-ke']
+            'routeParameters' => ['level1' => 'thiet-ke-nha-pho']
+        ]);
+
+        $menu->addChild('Bảng giá', [
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'bang-gia']
+        ]);
+
+        $menu->addChild('Dự án', [
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'du-an']
         ])
         ->setAttribute('class', 'dropdown')
         ->setLinkAttribute('class', 'dropdown-toggle')
         ->setLinkAttribute('data-toggle', 'dropdown')
         ->setChildrenAttribute('class', 'dropdown-menu');
 
-        $menu['Thiết kế']->addChild('Thiết kế quán cafe', [
-            'route' => 'list_category',
-            'routeParameters' => ['level1' => 'thiet-ke', 'level2' => 'thiet-ke-thi-cong-quan-cafe']
+        $menu['Dự án']->addChild('Xây dựng nhà phố', [
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'du-an', 'level2' => 'du-an-xay-dung-nha-pho']
         ]);
 
-        $menu->addChild('Sửa chữa nhà', array('uri' => 'https://suanhaminhduy.com/'))
-            ->setLinkAttribute('target', '_blank')
-            ->setLinkAttribute('rel', 'nofollow');
-
-        $menu->addChild('Phong thủy xây dựng', [
+        $menu['Dự án']->addChild('Sửa chữa nhà', [
             'route' => 'news_category',
-            'routeParameters' => ['level1' => 'phong-thuy-xay-dung']
-        ]);
-
-        $menu->addChild('Dự án thi công', [
-            'route' => 'news_category',
-            'routeParameters' => ['level1' => 'du-an']
+            'routeParameters' => ['level1' => 'du-an', 'level2' => 'du-an-sua-chua-nha']
         ]);
 
         $menu->addChild('Tư vấn', [
@@ -99,7 +87,11 @@ class Builder implements ContainerAwareInterface
             'routeParameters' => ['level1' => 'tu-van']
         ]);
 
-        // Contact us
+        $menu->addChild('Ý kiến khách hàng', [
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'y-kien-khach-hang']
+        ]);
+
         $menu->addChild('Liên hệ', [
             'route' => 'contact'
         ]);

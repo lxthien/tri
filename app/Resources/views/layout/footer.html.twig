@@ -2,142 +2,69 @@
 <footer>
     <div class="container">
         <div class="row footer-top">
-            <div class="col-12 col-md-12 col-lg-4">
-                <h3 class="text-uppercase">Dịch vụ của chúng tôi</h3>
-                <ul class="about-us">
-                    <li>
-                        <a href="{{ path('news_show', {'slug': 'gioi-thieu' }) }}">Về chúng tôi</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('news_show', {'slug': 'bao-gia-xay-nha-tron-goi' }) }}" title="Bảng giá xây nhà trọn gói">Bảng giá xây nhà trọn gói</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('news_show', {'slug': 'bao-gia-sua-nha-tron-goi' }) }}" title="Bảng giá sửa nhà trọn gói">Bảng giá sửa nhà trọn gói</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('news_show', {'slug': 'bang-gia-xay-dung-nha-phan-tho' }) }}" title="Bảng giá xây dựng nhà phần thô">Bảng giá xây dựng nhà phần thô</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('news_show', {'slug': 'bao-gia-nhan-cong' }) }}" title="Bảng giá nhân công">Bảng giá nhân công</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('news_show', {'slug': 'bao-gia-thiet-ke-nha-pho' }) }}" title="Bảng giá thiết kế nhà phố">Bảng giá thiết kế nhà phố</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('contact') }}">Liên hệ</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-12 col-lg-4">
-                <h3 class="text-uppercase">Từ khóa</h3>
-                {{ get_setting('topKeyword')|raw }}
-            </div>
-            <div class="col-12 col-md-12 col-lg-4">
-                <h3 class="text-uppercase">Xây Dựng Minh Duy</h3>
+            <div class="col-12 col-md-12 col-lg-3">
+                <h3 class="text-uppercase">Xây Dựng Kim Anh</h3>
                 <ul class="footer-company">
                     <li>
                         <i class="fa fa-map-marker"></i>
-                        <span>165 Đường 51, KP 4, P. Tân Quy, Quận 7, TP.HCM</span>
-                    </li>
-                    <li>
-                        <i class="fa fa-map-marker"></i>
-                        <span>108/40/10 Lê Văn Lương, KP 4, P. Tân Hưng, Quận 7, TP.HCM</span>
+                        <span>49M HT44, KP 3, P. Hiệp Thành, Quận 12, TP.HCM</span>
                     </li>
                     <li>
                         <i class="fa fa-phone"></i>
-                        <span>0982.96.93.79</span>
+                        <span>0974.776.305</span>
                     </li>
                     <li>
                         <i class="fa fa-envelope-o"></i>
-                        <span>xaydungminhduy@gmail.com</span>
+                        <span>xaydungkimanh@gmail.com</span>
                     </li>
                     <li>
                         <i class="fa fa-internet-explorer"></i>
-                        <span>www.xaydungminhduy.com</span>
+                        <span>www.xaydungkimanh.com</span>
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="row footer-middle">
-            <div class="col-12 col-md-12 col-lg-3 hidden-xs hidden-sm">
-                <img src="{{ asset('assets/images/SuaNhaMinhDuy.png') }}" alt="{{ get_setting('siteName') }}" />
-            </div>
-            <div class="col-12 col-md-12 col-lg-6">
-                <h3 class="text-uppercase">Về chúng tôi</h3>
-                <div class="footer-text-wrap">
-                    <p>Xây Dựng Minh Duy với kinh nghiệm thi công nhiều công trình lớn nhỏ tại TP Hồ Chí Minh và các tỉnh thành lân cận: Củ Chi, Long An, Bình Dương, Đồng Nai, ... Chúng tôi tự tin mang đến sự hài lòng đến toàn thể quý khách hàng khi tin tưởng đến tất cả các dịch vụ xây dựng của chúng tôi.</p>
-                    <p>Uy tín, chất lượng và chuyên nghiệp là những gì chúng tôi sẽ và luôn mang đến cho khách hàng!</p>
-                </div>
+            <div class="col-12 col-md-12 col-lg-3">
+                <h3 class="text-uppercase">Dịch vụ</h3>
+                <ul class="about-us">
+                    <li>
+                        <a href="{{ path('news_show', {'slug': 'bao-gia-xay-nha-tron-goi' }) }}" title="Xây nhà">Xây nhà</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('news_show', {'slug': 'bao-gia-sua-nha-tron-goi' }) }}" title="Sửa chữa nhà">Sửa chữa nhà</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('news_show', {'slug': 'bang-gia-xay-dung-nha-phan-tho' }) }}" title="Thiết kế nhà">Thiết kế nhà</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('news_show', {'slug': 'bao-gia-nhan-cong' }) }}" title="Xây nhà nhân công">Xây nhà nhân công</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('news_show', {'slug': 'bao-gia-thiet-ke-nha-pho' }) }}" title="Tư vấn xây dựng">Tư vấn xây dựng</a>
+                    </li>
+                </ul>
             </div>
             <div class="col-12 col-md-12 col-lg-3">
-                <h3 class="text-uppercase">Mạng xã hội</h3>
-                <span class="td-social-icon-wrap">
-                    <a target="_blank" href="{{ get_setting('linkToFacebook') }}" title="Sửa Nhà Minh Duy trên Facebook">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                </span>
-                <span class="td-social-icon-wrap">
-                    <a target="_blank" href="{{ get_setting('linkToGooglePlus') }}" title="Sửa Nhà Minh Duy trên Google plus">
-                        <i class="fa fa-google-plus"></i>
-                    </a>
-                </span>
-                <span class="td-social-icon-wrap">
-                    <a target="_blank" href="{{ get_setting('linkToTwitter') }}" title="Sửa Nhà Minh Duy trên Twitter">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </span>
-                <span class="td-social-icon-wrap">
-                    <a target="_blank" href="{{ get_setting('linkToYoutube') }}" title="Sửa Nhà Minh Duy trên Youtube">
-                        <i class="fa fa-youtube"></i>
-                    </a>
-                </span>
-                <span class="td-social-icon-wrap">
-                    <a target="_blank" href="{{ get_setting('linkToLinkedin') }}" title="Sửa Nhà Minh Duy trên Linkedin">
-                        <i class="fa fa-linkedin"></i>
-                    </a>
-                </span>
-                <div class="event-footer row">
-                    <div class="col-12 col-sm-12 col-md-12">
-                        <div class="event-footer-item" itemtype="http://data-vocabulary.org/Event" itemscope="">
-                            <meta content="➊ Sửa nhà trọn gói tại TP HCM" itemprop="eventType">
-                            <meta content="➊ Sửa nhà trọn gói tại TP HCM" itemprop="name">
-                            <meta content="➊ Sửa nhà trọn gói tại TP HCM" itemprop="description">
-                            <h6>
-                            <a href="{{ path('news_show', {'slug': 'dich-vu-sua-nha-tron-goi-tai-tp-hcm' }) }}" itemprop="url">
-                                <span itemprop="summary">➊ Sửa nhà trọn gói tại TP HCM</span> </a>
-                            </h6>
-                            <meta content="1/1/2030" itemprop="startDate">
-                            <meta content="➽ Uy Tiến, Chất Lượng" itemprop="location">
-                        </div>
-                        <div class="event-footer-item" itemtype="http://data-vocabulary.org/Event" itemscope="">
-                            <meta content="➋ Xây nhà trọn gói tại TP HCM" itemprop="eventType">
-                            <meta content="➋ Xây nhà trọn gói tại TP HCM" itemprop="name">
-                            <meta content="➋ Xây nhà trọn gói tại TP HCM" itemprop="description">
-                            <h6>
-                            <a href="{{ path('news_show', {'slug': 'xay-nha-tron-goi' }) }}" itemprop="url">
-                                <span itemprop="summary">➋ Xây nhà trọn gói tại TP HCM</span> </a>
-                            </h6>
-                            <meta content="2/2/2030" itemprop="startDate">
-                            <meta content="➽ Cam Kết Bảo Hành" itemprop="location">
-                        </div>
-                        <div class="event-footer-item" itemtype="http://data-vocabulary.org/Event" itemscope="">
-                            <meta content="➌ Báo giá xây nhà trọn gói" itemprop="eventType">
-                            <meta content="➌ Báo giá xây nhà trọn gói" itemprop="name">
-                            <meta content="➌ Báo giá xây nhà trọn gói" itemprop="description">
-                            <h6>
-                            <a href="{{ path('news_show', {'slug': 'bao-gia-xay-nha-tron-goi' }) }}" itemprop="url">
-                                <span itemprop="summary">➌ Báo giá xây nhà trọn gói</span> </a>
-                            </h6>
-                            <meta content="3/3/2030" itemprop="startDate">
-                            <meta content="☎️ Báo Giá 0982.96.93.79" itemprop="location">
-                        </div>
-                    </div>
+                <h3 class="text-uppercase">Từ khóa</h3>
+                {{ get_setting('topKeyword')|raw }}
+            </div>
+            <div class="col-12 col-md-12 col-lg-3">
+                <h3 class="text-uppercase">Fanpage</h3>
+                <div>
+                    <div class="fb-page" data-href="https://www.facebook.com/xaydungkimanh/" data-tabs="timeline" data-width="277" data-height="277" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/xaydungkimanh/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/xaydungkimanh/">Xây Nhà, Sửa Chữa Nhà Kim Anh</a></blockquote></div>
+                </div>
+            </div>
+        </div>
+        <div class="row footer-middle">
+            <div class="col-12 col-md-12 col-lg-12">
+                <img src="{{ asset('assets/images/logo.png') }}" alt="{{ get_setting('siteName') }}" />
+                <div class="footer-text-wrap  text-center">
+                    <p>Xây Dựng Kim Anh : Công ty, nhà thầu xây dựng chuyên thi công xây dựng nhà phố, biệt thự, sửa chữa nhà uy tín và chất lượng tại Thành phố Hồ Chí Minh. Chúng tôi luôn mang đến sự hài lòng đến toàn thể quý khách hàng đã tin tưởng đến công ty. Công ty chúng tôi rất hân hạnh khi được làm việc với toàn thể quý khách hàng đã tin tưởng chúng tôi.</p>
                 </div>
             </div>
         </div>
         <div class="row copyright">
             <div class="col-sm-12 text-center">
-                <p>Copyright © {{ "now"|date('Y') }} <a href="https://xaydungminhduy.com" title="Xây Dựng Minh Duy">Xây Dựng Minh Duy</a>, all rights reserved.</p>
+                <p>Copyright © {{ "now"|date('Y') }} <a href="https://xaydungkimanh.com" title="Xây Dựng Kim Anh">Xây Dựng Kim Anh</a>, all rights reserved.</p>
             </div>
         </div>
     </div>

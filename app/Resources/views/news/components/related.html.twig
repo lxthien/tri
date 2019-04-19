@@ -6,7 +6,7 @@
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="related-wrapper">
                         <a class="related-img" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
-                            <img class="mr-3 img-thumbnail" src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_thumb') }}" alt="{{row.getTitle()}}">
+                            <img class="mr-3 img-thumbnail" src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_494_340') }}" alt="{{row.getTitle()}}">
                         </a>
                         <a class="related-title" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
                             {{ row.getTitle() }}
