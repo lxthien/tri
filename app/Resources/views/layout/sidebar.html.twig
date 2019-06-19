@@ -1,10 +1,11 @@
-<div class="col-lg-4 d-none hidden-xs hidden-sm" id="sidebar">
+<div class="col-lg-3 d-none hidden-xs hidden-sm" id="sidebar">
     <div class="row">
         <div class="col-md-12">
-            {{ include('news/formSearch.html.twig') }}
-            {{ include('widgets/recentNews.html.twig') }}
-            {{ include('widgets/hotNews.html.twig') }}
-            {{ include('layout/fanpage.html.twig') }}
+            <div class="sidebar">
+                {{ include('widgets/recentNews.html.twig') }}
+                {{ include('widgets/hotNews.html.twig') }}
+                {{ include('layout/fanpage.html.twig') }}
+            </div>
         </div>
     </div>
 </div>

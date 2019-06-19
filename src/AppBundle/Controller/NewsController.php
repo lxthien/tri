@@ -254,8 +254,7 @@ class NewsController extends Controller
     }
 
     /**
-     * @Route("/tags/{slug}.html",
-     *      defaults={"_format"="html"},
+     * @Route("/tag/{slug}",
      *      name="tags",
      *      requirements={
      *          "slug": "[^\n]+"
@@ -347,12 +346,24 @@ class NewsController extends Controller
             ->getRepository(NewsCategory::class)
             ->find($categoryId);
 
+        $listCategoriesIds = array($category->getId());
+        $allSubCategories = $this->getDoctrine()
+                            ->getRepository(NewsCategory::class)
+                            ->createQueryBuilder('c')
+                            ->where('c.parentcat = (:parentcat)')
+                            ->setParameter('parentcat', $category->getId())
+                            ->getQuery()->getResult();
+
+        foreach ($allSubCategories as $value) {
+            $listCategoriesIds[] = $value->getId();
+        }
+
         $posts = $this->getDoctrine()
             ->getRepository(News::class)
             ->createQueryBuilder('r')
-            ->where('r.category = :category')
+            ->where('r.category IN (:listCategoriesIds)')
             ->andWhere('r.enable = :enable')
-            ->setParameter('category', $categoryId)
+            ->setParameter('listCategoriesIds', $listCategoriesIds)
             ->setParameter('enable', 1)
             ->setMaxResults( 10 )
             ->orderBy('r.viewCounts', 'DESC')

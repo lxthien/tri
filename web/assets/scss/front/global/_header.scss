@@ -1,13 +1,14 @@
 .header {
+    display: none;
     padding: 0;
-    background: $killarney;
+    background: #0053a5;
     color: $white;
-    height: 42px;
+    height: 32px;
 
     .col-md-6 {
         span {
-            line-height: 42px;
-            font-size: 15px;
+            line-height: 32px;
+            font-size: 14px;
             margin-right: 10px;
 
             @media only screen and (max-width: 767.98px) {
@@ -17,7 +18,7 @@
 
         a {
             color: $white;
-            line-height: 42px;
+            line-height: 32px;
 
             &:hover {
                 text-decoration: none;
@@ -28,6 +29,95 @@
     .header-social {
         a {
             padding: 0 5px;
+        }
+    }
+}
+
+.banner {
+    height: 120px;
+    font-family: $robotoCondesed;
+    background: #f1f1f1;
+
+    #logo_top {
+        padding: 0;
+
+        #logo {
+            float: left;
+            padding: 0;
+
+            a {
+                img {
+                    padding: 10px 0;
+                    width: 69%;
+                }
+            }
+        }
+    }
+
+    .info-top {
+        margin-top: 22px;
+        overflow: hidden;
+
+        &.hotline-top {
+            margin-top: 42px;
+
+            .wp90 {
+                .info-nd {
+                    background: #fff;
+                    border: 2px solid #FDC502;
+                    padding: 0 15px;
+                    border-radius: 30px;
+
+                    p {
+                        font-size: 20px;
+                        line-height: 20px;
+                        padding: 5px 0;
+                    }
+                }
+            }
+        }
+
+        .wp10 {
+            width: 9%;
+            float: left;
+
+            .fa,
+            .fas {
+                font-size: 40px;
+                color: #3c3950;
+                padding-right: 10px;
+                border-right: 2px solid #FDC502;
+            }
+        }
+
+        .wp90 {
+            width: 90%;
+            float: left;
+
+            .info-nd {
+                p {
+                    margin-bottom: 0;
+                    color: #3c3950;
+                    font-family: $robotoCondesed;
+                    font-size: 17px;
+                    text-align: center;
+                    font-weight: bold;
+                }
+
+                .tel {
+                    font-weight: bold;
+                    font-family: $robotoCondesed;
+                    font-size: 23px;
+                    line-height: 27px;
+                    color: #3c3950;
+
+                    a {
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
         }
     }
 }

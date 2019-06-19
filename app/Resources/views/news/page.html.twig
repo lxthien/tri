@@ -11,14 +11,15 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container page">
-        {{ include('news/components/listPrices.html.twig') }}
-
-        {# breadcrumbs #}
-        {{ include('news/components/breadcrumbs.html.twig') }}
-        
+    <div class="container page page-detail">
         <div class="row">
-            <div class="col-12 col-md-12 col-lg-8">
+            {# Side bar #}
+            {{ include('layout/sidebar.html.twig') }}
+            
+            <div class="col-12 col-md-12 col-lg-9">
+                {# breadcrumbs #}
+                {{ include('news/components/breadcrumbs.html.twig') }}
+
                 <article id="post-{{ post.getId() }}" class="news hentry" itemscope itemtype="http://schema.org/Article">
                     {# Begin google snippet #}
                     <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"/>
@@ -32,7 +33,7 @@
                     </div>
                     <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
                         <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                            <meta itemprop="url" content="{{ absolute_url(asset('assets/images/SuaNhaMinhDuy.png')) }}">
+                            <meta itemprop="url" content="{{ absolute_url(asset('assets/images/logo.png')) }}">
                             <meta itemprop="width" content="376">
                             <meta itemprop="height" content="218">
                         </div>
@@ -61,9 +62,6 @@
                     {{ include('news/comments/form.html.twig') }}
                 </article>
             </div>
-
-            {# Side bar #}
-            {{ include('layout/sidebar.html.twig') }}
         </div>
     </div>
 {% endblock %}

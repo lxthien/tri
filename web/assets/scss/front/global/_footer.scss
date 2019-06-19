@@ -1,6 +1,7 @@
 footer {
     padding-top: 50px;
     position: relative;
+    border-top: 3px solid $supernova;
 
     &::after {
         content: "";
@@ -85,12 +86,13 @@ footer {
         li {
             list-style-type: none;
             display: inline-block;
-            border: 1px solid $white;
-            margin: 0 0 10px 0;
-            padding: 0 10px;
+            border: 1px solid $supernova;
+            margin: 0 0 8px 0;
+            padding: 0 8px;
 
             a {
-                color: $white;
+                color: $black;
+                font-size: 15px;
             }
         }
     }

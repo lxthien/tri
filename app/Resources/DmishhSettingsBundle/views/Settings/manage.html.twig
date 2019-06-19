@@ -50,6 +50,11 @@
                                             {{ form_widget(settings_form.facebookMessenger) }}
                                         </div>
                                         <div class="form-group">
+                                            {{ form_label(settings_form.listPrices) }}
+                                            {{ form_errors(settings_form.listPrices) }}
+                                            {{ form_widget(settings_form.listPrices) }}
+                                        </div>
+                                        <div class="form-group">
                                             {{ form_label(settings_form.listCategoryOnHomepage) }}
                                             {{ form_errors(settings_form.listCategoryOnHomepage) }}
                                             {{ form_widget(settings_form.listCategoryOnHomepage) }}

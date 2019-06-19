@@ -4,11 +4,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-default">
-                        <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="{{ path('homepage') }}">
-                                <img alt="{{ get_setting('siteName') }}" src="{{ asset('assets/images/logo.png') }}">
-                            </a>
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
@@ -17,14 +13,17 @@
                             </button>
                         </div>
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
-                            <div class="skew-divider"></div>
+                        <div class="collapse navbar-collapse" id="navbar-collapse">
+                            {# <div class="skew-divider"></div> #}
                             {{ knp_menu_render('AppBundle:Builder:mainMenu', {
                                 'allow_safe_labels': true,
                             })|raw }}
+                            <form class="navbar-form navbar-right" action="{{ path('news_search') }}" method="get">
+                                <div class="form-group">
+                                    <input name="q" type="text" class="form-control" placeholder="{{ 'search'|trans }}">
+                                </div>
+                            </form>
                         </div>
-                        <!-- /.navbar-collapse -->
                     </nav>
                 </div>
             </div>

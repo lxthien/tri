@@ -5,8 +5,7 @@
     }
 
     .breadcrumb {
-        padding: 8px 0px;
-        margin-top: 15px;
+        padding:  0 0 8px;
         margin-bottom: 5px;
         background: none;
 
@@ -42,12 +41,14 @@
 
 .type-category {
     color: $black;
+    padding: 30px 0;
     position: relative;
 
     &:after {
         content : "";
         background-image: url("../../assets/images/background-breadcrumb.jpg");
-        opacity: 0.3;
+        background-position: center center;
+        opacity: 0.2;
         position: absolute;
         top: 0;
         left: 0;

@@ -38,13 +38,6 @@ body {
     }
 }
 
-.wrapper {
-}
-
-.wrapper-container {
-    padding-bottom: 50px;
-}
-
 .td-wrapper {
     padding-bottom: 50px;
 }
@@ -73,6 +66,7 @@ a {
     &:hover,
     &:focus {
         outline: 0;
+        color: $black;
     }
 }
 

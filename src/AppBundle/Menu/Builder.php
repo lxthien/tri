@@ -40,7 +40,7 @@ class Builder implements ContainerAwareInterface
 
         $menu['Giới thiệu']->addChild('Tuyển dụng', [
             'route' => 'news_show',
-            'routeParameters' => ['slug' => 'tuyen-dung']
+            'routeParameters' => ['slug' => 'tuyen-dung-kien-truc-su-xay-dung']
         ]);
 
         $menu->addChild('Xây nhà', [
@@ -73,12 +73,12 @@ class Builder implements ContainerAwareInterface
         ->setChildrenAttribute('class', 'dropdown-menu');
 
         $menu['Dự án']->addChild('Xây dựng nhà phố', [
-            'route' => 'news_category',
+            'route' => 'list_category',
             'routeParameters' => ['level1' => 'du-an', 'level2' => 'du-an-xay-dung-nha-pho']
         ]);
 
         $menu['Dự án']->addChild('Sửa chữa nhà', [
-            'route' => 'news_category',
+            'route' => 'list_category',
             'routeParameters' => ['level1' => 'du-an', 'level2' => 'du-an-sua-chua-nha']
         ]);
 

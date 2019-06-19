@@ -13,8 +13,25 @@ class HomepageController extends Controller
 {
     public function indexAction(Request $request)
     {
+        $listPrices = $this->get('settings_manager')->get('listPrices');
         $listCategoriesOnHomepage = $this->get('settings_manager')->get('listCategoryOnHomepage');
+        $blockPricesOnHomepage = array();
         $blocksOnHomepage = array();
+
+        if (!empty($listPrices)) {
+            $listPricesArray = explode(',', $listPrices);
+            if (is_array($listPricesArray) && count($listPricesArray) > 0) {
+                
+                for ($i = 0; $i < count($listPricesArray); $i++) {
+                    $post = $this->getDoctrine()
+                                ->getRepository(News::class)
+                                ->find($listPricesArray[$i]);
+                    if ($post) {
+                        $blockPricesOnHomepage[] = $post;
+                    }
+                }
+            }
+        }
 
         if (!empty($listCategoriesOnHomepage)) {
             $listCategoriesOnHomepage = json_decode($listCategoriesOnHomepage, true);
@@ -69,6 +86,7 @@ class HomepageController extends Controller
 
         return $this->render('homepage/index.html.twig', [
             'blocksOnHomepage' => $blocksOnHomepage,
+            'blockPricesOnHomepage' => $blockPricesOnHomepage,
             'showSlide' => true
         ]);
     }

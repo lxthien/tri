@@ -1,13 +1,17 @@
 <div class="list-group">
     <h3 class="list-group-item list-group-item-action active text-uppercase">
-        {{ 'news.recent'|trans }}
+        Bảng giá dịch vụ
     </h3>
-    {% for row in posts %}
-        <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" class="list-group-item td-list-group-item" title="{{ row.getTitle() }}">
-            <img
-                alt="{{ row.getTitle() }}"
-                src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_70_50') }}" />
-            <span>{{ row.getTitle() }}</span>
-        </a>
-    {% endfor %}
+    <a href="{{ path('news_show', {'slug': 'bao-gia-xay-nha-tron-goi-moi-nhat' }) }}" class="list-group-item td-list-group-item item-price" title="Bảng giá xây nhà trọn gói">
+        <i class="fas fa-hand-point-right"></i><span>Bảng giá xây nhà trọn gói</span>
+    </a>
+    <a href="{{ path('news_show', {'slug': 'bao-gia-sua-chua-nha-moi-nhat' }) }}" class="list-group-item td-list-group-item item-price" title="Bảng giá sửa nhà trọn gói">
+        <i class="fas fa-hand-point-right"></i><span>Bảng giá sửa nhà trọn gói</span>
+    </a>
+    <a href="{{ path('news_show', {'slug': 'bang-gia-thiet-ke-nha-pho-tai-tphcm' }) }}" class="list-group-item td-list-group-item item-price" title="Bảng giá thiết kế nhà phố">
+        <i class="fas fa-hand-point-right"></i><span>Bảng giá thiết kế nhà phố</span>
+    </a>
+    <a href="{{ path('news_show', {'slug': 'bang-gia-thiet-ke-nha-pho-tai-tphcm' }) }}" class="list-group-item td-list-group-item item-price" title="Bảng giá xây nhà phần thô">
+        <i class="fas fa-hand-point-right"></i><span>Bảng giá xây nhà phần thô</span>
+    </a>
 </div>

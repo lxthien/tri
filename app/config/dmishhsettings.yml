@@ -8,6 +8,10 @@ dmishh_settings:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
                 required: false
+        listPrices:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
         listCategoryOnHomepage:
             type: Symfony\Component\Form\Extension\Core\Type\TextareaType
             options:

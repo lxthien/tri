@@ -46,7 +46,9 @@ function initProjectHotSlider() {
         minSlides: 1,
         maxSlides: 4,
         moveSlides: 1,
-        slideMargin: 20
+        slideMargin: 20,
+        touchEnabled: false,
+        autoHover: true
     });
 }
 
@@ -62,7 +64,9 @@ function initNewsSlider() {
         minSlides: 5,
         maxSlides: 5,
         moveSlides: 1,
-        slideWidth: 375
+        slideWidth: 375,
+        touchEnabled: false,
+        autoHover: true
     });
 }
 
@@ -72,12 +76,33 @@ function initFixedMenu() {
         var $scrollUp = $('.td-scroll-up');
         var scroll = $(window).scrollTop();
     
-        if (scroll > 0) {
+        if (scroll > 100) {
             $nav.addClass("navbar-fixed-top");
             $scrollUp.removeClass("hidden");
         } else {
             $nav.removeClass("navbar-fixed-top");
             $scrollUp.addClass("hidden");
+        }
+    });
+}
+
+function initFixedSidebar() {
+    $(window).scroll(function() {
+        var $sidebar = $("#sidebar .sidebar"),
+            $pageDetail = $('.page-detail'),
+            scrollTop = $(this).scrollTop(),
+            pageDetailHeight =  $pageDetail.outerHeight(),
+            sidebarHeight = $sidebar.height(),
+            positionFixedMax = pageDetailHeight - sidebarHeight,
+            positionFixed = scrollTop < 65 ? 65 : positionFixedMax > scrollTop ? 65 : positionFixedMax - scrollTop + 40 ;
+        
+        if (scrollTop > 65) {
+            $sidebar.css({
+                'top': positionFixed,
+                'position': 'fixed'
+            });
+        } else {
+            $sidebar.removeAttr("style");
         }
     });
 }
@@ -160,6 +185,7 @@ exports.init = function () {
     initProtectedContent();
     initGoToTop();
     initFixedMenu();
+    initFixedSidebar();
     initCostConstruction();
     initFancybox();
 };
