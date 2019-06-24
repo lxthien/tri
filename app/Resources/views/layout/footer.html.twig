@@ -2,7 +2,7 @@
 <footer>
     <div class="container">
         <div class="row footer-top">
-            <div class="col-12 col-md-12 col-lg-3">
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
                 <h3 class="text-uppercase">Xây Dựng Kim Anh</h3>
                 <ul class="footer-company">
                     <li>
@@ -23,7 +23,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-12 col-md-12 col-lg-3">
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
                 <h3 class="text-uppercase">Dịch vụ</h3>
                 <ul class="about-us">
                     <li>
@@ -41,16 +41,29 @@
                     <li>
                         <a href="{{ path('news_category', {'level1': 'tu-van' }) }}" title="Tư vấn xây dựng">Tư vấn xây dựng</a>
                     </li>
+                    <li>
+                        <a href="{{ path('news_category', {'level1': 'phong-thuy-xay-dung' }) }}" title="Phong thủy xây dựng">Phong thủy xây dựng</a>
+                    </li>
                 </ul>
             </div>
-            <div class="col-12 col-md-12 col-lg-3">
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
                 <h3 class="text-uppercase">Từ khóa</h3>
                 {{ get_setting('topKeyword')|raw }}
             </div>
-            <div class="col-12 col-md-12 col-lg-3">
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
                 <h3 class="text-uppercase">Fanpage</h3>
                 <div>
-                    <div class="fb-page" data-href="https://www.facebook.com/xaydungkimanh/" data-tabs="timeline" data-width="277" data-height="277" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/xaydungkimanh/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/xaydungkimanh/">Xây Nhà, Sửa Chữa Nhà Kim Anh</a></blockquote></div>
+                    <div class="fb-page"
+                        data-href="https://www.facebook.com/xaydungkimanh/"
+                        data-tabs="timeline"
+                        data-width="555"
+                        data-height="277"
+                        data-small-header="true"
+                        data-adapt-container-width="true"
+                        data-hide-cover="true"
+                        data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/xaydungkimanh/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/xaydungkimanh/">Xây Nhà, Sửa Chữa Nhà Kim Anh</a></blockquote>
+                    </div>
                 </div>
             </div>
         </div>

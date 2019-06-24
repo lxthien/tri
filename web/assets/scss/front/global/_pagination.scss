@@ -1,7 +1,7 @@
 .pagination {
     margin: 20px auto 0;
     display: block;
-    border: 1px solid $killarney;
+    border: 1px solid #3c3950;
     padding: 10px 0;
     text-align: center;
     border-radius: 0;
@@ -14,8 +14,8 @@
         font-size: 13px;
 
         &.current {
-            background: $killarney;
-            border: 1px solid $killarney;
+            background: #3c3950;
+            border: 1px solid #3c3950;
             color: $white;
         }
     }

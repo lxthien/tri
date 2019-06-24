@@ -16,6 +16,10 @@
             }
         }
     }
+
+    .project-hot {
+        margin: 40px 0 0;
+    }
 }
 
 /* Slide project hot
@@ -24,12 +28,17 @@
     margin: 0;
 
     @media only screen and (max-width: 767.98px) {
-        margin: 30px 0 0;
+        margin: 0;
     }
 
     .title-list-news-items {
         h1 {
             margin: 30px 0 10px;
+
+            @media only screen and (max-width : 768px) {
+                font-size: 28px;
+                margin: 15px 0 15px;
+            }
         }
 
         .block-underline {
@@ -75,6 +84,10 @@
 ------------------------------------------------------------------------- */
 .page-detail {
     margin-top: 40px;
+
+    @media only screen and (max-width: 768px) {
+        margin-top: 20px;
+    }
 }
 
 .news {
@@ -326,6 +339,11 @@
                 &:hover {
                     text-decoration: none;
                 }
+            }
+
+            iframe {
+                max-width: 100% !important;
+                width: 100% !important;
             }
         }
     }

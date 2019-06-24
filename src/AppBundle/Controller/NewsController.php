@@ -181,7 +181,7 @@ class NewsController extends Controller
             ->setParameter('postType', $post->getPostType())
             ->setParameter('category', $post->getCategory())
             ->setParameter('enable', 1)
-            ->setMaxResults( 6 )
+            ->setMaxResults( 8 )
             ->orderBy('r.createdAt', 'DESC')
             ->getQuery()
             ->getResult();
@@ -534,7 +534,7 @@ class NewsController extends Controller
                 if (null !== $comment->getId()) {
                     $message = \Swift_Message::newInstance()
                         ->setSubject($this->get('translator')->trans('comment.email.title', ['%siteName%' => $this->get('settings_manager')->get('siteName')]))
-                        ->setFrom(['hotro.xaydungminhduy@gmail.com' => $this->get('settings_manager')->get('siteName')])
+                        ->setFrom(['hotro.xaydungkimanh@gmail.com' => $this->get('settings_manager')->get('siteName')])
                         ->setTo($this->get('settings_manager')->get('emailContact'))
                         ->setBody(
                             $this->renderView(

@@ -1,15 +1,21 @@
 .header {
-    display: none;
     padding: 0;
-    background: #0053a5;
+    /* background-color: #0053a5; */
+    background-color: $white;
     color: $white;
-    height: 32px;
+    height: 40px;
 
     .col-md-6 {
+        &.marquee {
+            height: 40px;
+        }
+
         span {
-            line-height: 32px;
+            line-height: 40px;
             font-size: 14px;
             margin-right: 10px;
+            display: inline-block;
+            float: left;
 
             @media only screen and (max-width: 767.98px) {
                 font-size: 14px;
@@ -18,17 +24,58 @@
 
         a {
             color: $white;
-            line-height: 32px;
+            line-height: 40px;
 
             &:hover {
                 text-decoration: none;
             }
         }
+
+        marquee {
+            font-size: 15px;
+            text-transform: uppercase;
+            font-family: $robotoCondesed;
+            background-color: $white;
+            color: #3c3950;
+            margin-right: 7px;
+            line-height: 40px;
+            font-weight: 600;
+
+            span {
+                margin-right: 0;
+                display: contents;
+                font-size: 15px;
+            }
+        }
     }
 
     .header-social {
-        a {
-            padding: 0 5px;
+        position: relative;
+
+        .skew-divider {
+            content: "";
+            background-color: #0053a5;
+            background-image: linear-gradient(141deg, #0053a5 0%, #0080ff 50%, #ffffff 75%);
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 10000px;
+            -webkit-transform: skew(-35deg);
+            -khtml-transform: skew(-35deg);
+            -moz-transform: skew(-35deg);
+            -ms-transform: skew(-35deg);
+            -o-transform: skew(-35deg);
+            transform: skew(-35deg);
+        }
+
+        .header-social-wrapper {
+            position: relative;
+            padding-left: 15px;
+
+            a {
+                padding: 0 5px;
+            }
         }
     }
 }
@@ -55,7 +102,7 @@
     }
 
     .info-top {
-        margin-top: 22px;
+        margin-top: 35px;
         overflow: hidden;
 
         &.hotline-top {
@@ -102,6 +149,10 @@
                     font-size: 17px;
                     text-align: center;
                     font-weight: bold;
+
+                    &#header-address {
+                        text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+                    }
                 }
 
                 .tel {
@@ -110,6 +161,10 @@
                     font-size: 23px;
                     line-height: 27px;
                     color: #3c3950;
+
+                    &#header-company {
+                        text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+                    }
 
                     a {
                         &:hover {
