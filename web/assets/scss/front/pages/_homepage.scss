@@ -409,7 +409,18 @@
         img {
             height: 25px;
             vertical-align: baseline;
-            margin-right: 10px;
+        }
+
+        span {
+            color: $selectiveYellow;
+        }
+
+        i {
+            font-size: 17px;
+            vertical-align: middle;
+            margin-top: -5px;
+            margin-right: 0;
+            color: $selectiveYellow;
         }
     }
 

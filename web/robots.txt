@@ -1,5 +1,7 @@
 User-agent: *
 
 Disallow: /admin
+Disallow: /wp-content
+Disallow: /wp-json
 
 Sitemap: https://xaydungkimanh.com/sitemap.xml

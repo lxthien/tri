@@ -76,7 +76,7 @@ function initFixedMenu() {
         var $scrollUp = $('.td-scroll-up');
         var scroll = $(window).scrollTop();
     
-        if (scroll > 100) {
+        if (scroll > 160) {
             $nav.addClass("navbar-fixed-top");
             $scrollUp.removeClass("hidden");
         } else {
@@ -94,9 +94,9 @@ function initFixedSidebar() {
             pageDetailHeight =  $pageDetail.outerHeight(),
             sidebarHeight = $sidebar.height(),
             positionFixedMax = pageDetailHeight - sidebarHeight,
-            positionFixed = scrollTop < 65 ? 65 : positionFixedMax > scrollTop ? 65 : positionFixedMax - scrollTop + 40 ;
+            positionFixed = scrollTop < 65 ? 65 : positionFixedMax > scrollTop ? 65 : positionFixedMax - scrollTop + 65 ;
         
-        if (scrollTop > 65) {
+        if (scrollTop > 160) {
             $sidebar.css({
                 'top': positionFixed,
                 'position': 'fixed'
@@ -189,9 +189,9 @@ function initTypewriterEffect() {
     ];
 
     // Speed (in milliseconds) of typing.
-    var speedForward = 100, //Typing Speed
-        speedWait = 1000, // Wait between typing and backspacing
-        speedBetweenLines = 1000, //Wait between first and second lines
+    var speedForward = 80, //Typing Speed
+        speedWait = 1500, // Wait between typing and backspacing
+        speedBetweenLines = 1500, //Wait between first and second lines
         speedBackspace = 25; //Backspace Speed
 
     //Run the loop

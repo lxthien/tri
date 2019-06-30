@@ -100,39 +100,39 @@
             </trans-unit>
             <trans-unit id="action.edit">
                 <source>action.edit</source>
-                <target>Edit</target>
+                <target>Sửa</target>
             </trans-unit>
             <trans-unit id="action.edit_post">
                 <source>action.edit_post</source>
-                <target>Edit post</target>
+                <target>Sửa bài viết</target>
             </trans-unit>
             <trans-unit id="action.save">
                 <source>action.save</source>
-                <target>Save changes</target>
+                <target>Lưu thay đổi</target>
             </trans-unit>
             <trans-unit id="action.delete_post">
                 <source>action.delete_post</source>
-                <target>Delete post</target>
+                <target>Xóa</target>
             </trans-unit>
             <trans-unit id="delete_post_modal.title">
                 <source>delete_post_modal.title</source>
-                <target>Are you sure you want to delete this post?</target>
+                <target>Bạn có muốn xóa bài viết này?</target>
             </trans-unit>
             <trans-unit id="delete_post_modal.body">
                 <source>delete_post_modal.body</source>
-                <target>This action cannot be undone.</target>
+                <target>Hành động này sẽ không thể lấy lại bài viết</target>
             </trans-unit>
             <trans-unit id="label.delete_post">
                 <source>label.delete_post</source>
-                <target>Delete post</target>
+                <target>Xóa bài viết</target>
             </trans-unit>
             <trans-unit id="label.cancel">
                 <source>label.cancel</source>
-                <target>Cancel</target>
+                <target>Không</target>
             </trans-unit>
             <trans-unit id="action.create_post">
                 <source>action.create_post</source>
-                <target>Create a new post</target>
+                <target>Tạo mới bài viết</target>
             </trans-unit>
             <trans-unit id="label.create_post">
                 <source>label.create_post</source>
@@ -140,11 +140,11 @@
             </trans-unit>
             <trans-unit id="label.save_and_create_new">
                 <source>label.save_and_create_new</source>
-                <target>Save and create new</target>
+                <target>Lưu và tạo mới</target>
             </trans-unit>
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>
-                <target>Back to the list</target>
+                <target>Trở về danh sách</target>
             </trans-unit>
             <trans-unit id="action.publish_comment">
                 <source>action.publish_comment</source>
@@ -164,15 +164,15 @@
             </trans-unit>
             <trans-unit id="action.created_successfully">
                 <source>action.created_successfully</source>
-                <target>Created successfully</target>
+                <target>Tạo mới thành công</target>
             </trans-unit>
             <trans-unit id="action.updated_successfully">
                 <source>action.updated_successfully</source>
-                <target>Updated successfully</target>
+                <target>Cập nhật thành công</target>
             </trans-unit>
             <trans-unit id="action.deleted_successfully">
                 <source>action.deleted_successfully</source>
-                <target>Deleted successfully</target>
+                <target>Xóa thành công</target>
             </trans-unit>
 
             <!-- Label -->
@@ -218,7 +218,11 @@
             </trans-unit>
             <trans-unit id="label.enable">
                 <source>label.enable</source>
-                <target>Enable</target>
+                <target>Hiển thị</target>
+            </trans-unit>
+            <trans-unit id="label.imageFile">
+                <source>label.imageFile</source>
+                <target>Hình đại diện</target>
             </trans-unit>
             <trans-unit id="label.title">
                 <source>label.title</source>
@@ -310,23 +314,23 @@
             <!-- Posts -->
             <trans-unit id="title.news_list">
                 <source>title.news_list</source>
-                <target>News</target>
+                <target>Danh sách bài viết</target>
             </trans-unit>
             <trans-unit id="lable.news.title">
                 <source>lable.news.title</source>
-                <target>Title</target>
+                <target>Tiêu đề</target>
             </trans-unit>
             <trans-unit id="label.category">
                 <source>label.category</source>
-                <target>Category</target>
+                <target>Danh mục</target>
             </trans-unit>
             <trans-unit id="row.no_posts_found">
                 <source>row.no_posts_found</source>
-                <target>No posts found</target>
+                <target>Không tìm thấy bài viết</target>
             </trans-unit>
             <trans-unit id="title.news_new">
                 <source>title.news_new</source>
-                <target>News new</target>
+                <target>Thêm mới bài viết</target>
             </trans-unit>
             <trans-unit id="label.images">
                 <source>label.images</source>
@@ -338,11 +342,15 @@
             </trans-unit>
             <trans-unit id="label.create_news">
                 <source>label.create_news</source>
-                <target>Create news</target>
+                <target>Tạo mới</target>
             </trans-unit>
             <trans-unit id="title.edit_news">
                 <source>title.edit_news</source>
-                <target>Edit news #%id%</target>
+                <target>Sửa bài viết #%id%</target>
+            </trans-unit>
+            <trans-unit id="form.label.delete">
+                <source>form.label.delete</source>
+                <target>Xóa</target>
             </trans-unit>
 
             <!-- Comment -->
@@ -370,7 +378,7 @@
             <!-- Contact -->
             <trans-unit id="contact.title.list">
                 <source>contact.title.list</source>
-                <target>Contact List</target>
+                <target>Danh sách liên hệ</target>
             </trans-unit>
 
             <!-- Menu -->
@@ -380,23 +388,23 @@
             </trans-unit>
             <trans-unit id="menu.news">
                 <source>menu.news</source>
-                <target>Posts</target>
+                <target>Bài viết</target>
             </trans-unit>
             <trans-unit id="menu.pages">
                 <source>menu.pages</source>
-                <target>Pages</target>
+                <target>Trang</target>
             </trans-unit>
             <trans-unit id="menu.page_list">
                 <source>menu.page_list</source>
-                <target>All Pages</target>
+                <target>Danh sách trang</target>
             </trans-unit>
             <trans-unit id="menu.add_new">
                 <source>menu.add_new</source>
-                <target>Add New</target>
+                <target>Thêm mới</target>
             </trans-unit>
             <trans-unit id="menu.news_list">
                 <source>menu.news_list</source>
-                <target>All Posts</target>
+                <target>Danh sách bài viết</target>
             </trans-unit>
             <trans-unit id="menu.category_list">
                 <source>menu.category_list</source>
@@ -408,11 +416,11 @@
             </trans-unit>
             <trans-unit id="menu.comments">
                 <source>menu.comments</source>
-                <target>Comments</target>
+                <target>Bình luận</target>
             </trans-unit>
             <trans-unit id="menu.comment_list">
                 <source>menu.comment_list</source>
-                <target>Comment</target>
+                <target>Bình luận</target>
             </trans-unit>
             <trans-unit id="menu.banners">
                 <source>menu.banners</source>
@@ -428,7 +436,7 @@
             </trans-unit>
             <trans-unit id="menu.contact">
                 <source>menu.contact</source>
-                <target>Contacts</target>
+                <target>Liên hệ</target>
             </trans-unit>
             <trans-unit id="menu.users">
                 <source>menu.users</source>
@@ -436,7 +444,7 @@
             </trans-unit>
             <trans-unit id="menu.users_list">
                 <source>menu.users_list</source>
-                <target>All Users</target>
+                <target>Danh sách thành viên</target>
             </trans-unit>
             <trans-unit id="title.users_list">
                 <source>title.users_list</source>
@@ -448,7 +456,7 @@
             </trans-unit>
             <trans-unit id="menu.setting">
                 <source>menu.setting</source>
-                <target>Settings</target>
+                <target>Cài đặt</target>
             </trans-unit>
             <trans-unit id="menu.logout">
                 <source>menu.logout</source>
@@ -525,7 +533,7 @@
             </trans-unit>
             <trans-unit id="post.archives.title">
                 <source>post.archives.title</source>
-                <target>%title% - Trang %currentPage% của %totalPage% | Xây Dựng Minh Duy</target>
+                <target>%title% - Trang %currentPage% của %totalPage% | Xây Dựng Kim Anh</target>
             </trans-unit>
 
             <trans-unit id="post.do_not_have_item_on_this_page">

@@ -38,6 +38,7 @@ class NewsType extends AbstractType
             ->add('imageFile', VichFileType::class, [
                 'required' => false,
                 'allow_delete' => true,
+                'label' => 'label.imageFile'
             ])
             ->add('description', TextareaType::class, [
                 'required' => false,

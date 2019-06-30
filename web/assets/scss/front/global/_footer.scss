@@ -44,6 +44,26 @@ footer {
             }
         }
 
+        .event-footer {
+            margin-top: 50px;
+    
+            .event-footer-item {
+                h6 {
+                    margin-bottom: 10px;
+                    font-size: 15px;
+                    font-style: italic;
+    
+                    a {
+                        color: $black;
+    
+                        &:hover {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+
         .fb-page,
         .fb-page span,
         .fb-page span iframe[style] {
