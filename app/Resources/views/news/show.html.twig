@@ -17,6 +17,23 @@
     <meta property="twitter:image" content="{{ vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png')) }}" />
 {% endblock %}
 
+{% block structuredReview %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "CreativeWorkSeries",
+        "name": "{{ post.getTitle() }}",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "{{ rating }}",
+            "ratingCount": "{{ ratingCount }}",
+            "bestRating" : "5",
+            "worstRating": "1"
+        }
+    }
+    </script>
+{% endblock %}
+
 {% block body %}
     <div class="container wrapper-container page-detail">
         <div class="row">
