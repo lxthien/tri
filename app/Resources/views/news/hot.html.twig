@@ -9,7 +9,9 @@
                     <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" class="list-group-item td-list-group-item" title="{{ row.getTitle() }}">
                         <img
                             alt="{{ row.getTitle() }}"
-                            src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_70_50') }}" />
+                            class="img-responsive lazyload"
+                            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                            data-src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_70_50') }}" />
                         <span>{{ row.getTitle() }}</span>
                     </a>
                 </div>

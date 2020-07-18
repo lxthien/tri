@@ -20,32 +20,10 @@
                 {# breadcrumbs #}
                 {{ include('news/components/breadcrumbs.html.twig') }}
 
-                <article id="post-{{ post.getId() }}" class="news hentry" itemscope itemtype="http://schema.org/Article">
-                    {# Begin google snippet #}
-                    <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"/>
-                    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        <meta itemprop="name" content="{{ get_setting('siteName') }}"/>
-                    </div>
-                    <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                        <meta itemprop="url" content="{{ (vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png'))) | imagine_filter('news_382_285') }}">
-                        <meta itemprop="width" content="382">
-                        <meta itemprop="height" content="285">
-                    </div>
-                    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                            <meta itemprop="url" content="{{ absolute_url(asset('assets/images/logo.png')) }}">
-                            <meta itemprop="width" content="376">
-                            <meta itemprop="height" content="218">
-                        </div>
-                        <meta itemprop="name" content="{{ get_setting('siteName') }}">
-                    </div>
-                    <meta itemprop="datePublished" content="{{ post.getCreatedAt()|date("Y-m-d h:m:s") }}"/>
-                    <meta itemprop="dateModified" content="{{ post.getUpdatedAt()|date("Y-m-d h:m:s") }}"/>
-                    {# End google snippet #}
-
-                    <h1 class="entry-title block-title" itemprop="headline">{{ post.getTitle() }}</h1>
+                <article id="post-{{ post.getId() }}" class="news">
+                    <h1 class="entry-title block-title">{{ post.getTitle() }}</h1>
                     
-                    <div class="news-container" itemprop="articleBody">
+                    <div class="news-container">
                         {{ post.getContents()|raw }}
                     </div>
 

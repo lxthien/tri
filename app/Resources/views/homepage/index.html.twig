@@ -69,7 +69,11 @@
                                     <div class="mid-img">
                                         <a href="{{ path('news_show', {'slug': priceOnHomepage.getUrl() }) }}" title="{{ priceOnHomepage.getTitle() }}">
                                             <div class="center-img">
-                                                <img alt="{{ priceOnHomepage.getTitle() }}" class="img-responsive" src="{{ (vich_uploader_asset(priceOnHomepage, 'imageFile') ? vich_uploader_asset(priceOnHomepage, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_440_440') }}" />
+                                                <img
+                                                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                    alt="{{ priceOnHomepage.getTitle() }}"
+                                                    class="img-responsive lazyload"
+                                                    data-src="{{ (vich_uploader_asset(priceOnHomepage, 'imageFile') ? vich_uploader_asset(priceOnHomepage, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_218_218') }}" />
                                             </div>
                                         </a>
                                     </div>
@@ -173,7 +177,7 @@
         </div>
 
         {% for blockOnHomepage in blocksOnHomepage %}
-            {% if blockOnHomepage.category.getUrl() != 'du-an' %}
+            {% if blockOnHomepage.category.getId() != 8 and blockOnHomepage.category.getId() != 7 and blockOnHomepage.category.getId() != 6 %}
                 <div class="wrapper-container-item">
                     <div class="container">
                         <div class="row">
@@ -202,9 +206,9 @@
                         <div class="row project-hot">
                             <div class="col-md-12 title-list-news-items">
                                 <h1 class="text-center text-uppercase">
-                                    <img alt="Dự án nổi bật" src="{{ asset('assets/images/icon-logo.png') }}" />
+                                    <img alt="{{ blockOnHomepage.category.getName() }}" src="{{ asset('assets/images/icon-logo.png') }}" />
                                     <span>Kim </span> Anh <i class="fas fa-angle-right"></i> 
-                                    Dự án nổi bật
+                                    {{ blockOnHomepage.category.getName() }}
                                 </h1>
                                 <p>{{ blockOnHomepage.description }}</p>
                             </div>

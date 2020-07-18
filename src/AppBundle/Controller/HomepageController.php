@@ -49,7 +49,7 @@ class HomepageController extends Controller
                                 ->getRepository(News::class)
                                 ->findBy(
                                     array('postType' => 'post', 'enable' => 1, 'category' => $category->getId()),
-                                    array('viewCounts' => 'DESC'),
+                                    array('createdAt' => 'DESC'),
                                     $listCategoriesOnHomepage[$i]["items"]
                                 );
                         } else {
