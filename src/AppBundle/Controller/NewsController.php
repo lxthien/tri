@@ -89,12 +89,13 @@ class NewsController extends Controller
 
             $news = $this->getDoctrine()
                 ->getRepository(News::class)
-                ->createQueryBuilder('p')
-                ->where('p.category IN (:listCategoriesIds)')
-                ->andWhere('p.enable = :enable')
+                ->createQueryBuilder('n')
+                ->innerJoin('n.category', 't')
+                ->where('t.id IN (:listCategoriesIds)')
+                ->andWhere('n.enable = :enable')
                 ->setParameter('listCategoriesIds', $listCategoriesIds)
                 ->setParameter('enable', 1)
-                ->orderBy('p.createdAt', 'DESC')
+                ->orderBy('n.createdAt', 'DESC')
                 ->getQuery()->getResult();
 
             // No items on this page
@@ -117,12 +118,13 @@ class NewsController extends Controller
         } else {
             $news = $this->getDoctrine()
                 ->getRepository(News::class)
-                ->createQueryBuilder('p')
-                ->where('p.category = :category')
-                ->andWhere('p.enable = :enable')
-                ->setParameter('category', $subCategory->getId())
+                ->createQueryBuilder('n')
+                ->innerJoin('n.category', 't')
+                ->where('t.id = :newscategory_id')
+                ->andWhere('n.enable = :enable')
+                ->setParameter('newscategory_id', $subCategory->getId())
                 ->setParameter('enable', 1)
-                ->orderBy('p.createdAt', 'DESC')
+                ->orderBy('n.createdAt', 'DESC')
                 ->getQuery()->getResult();
         }
 
@@ -169,22 +171,39 @@ class NewsController extends Controller
         $post->setViewCounts( $post->getViewCounts() + 1 );
         $this->getDoctrine()->getManager()->flush();
 
-        // Get news related
-        $relatedNews = $this->getDoctrine()
-            ->getRepository(News::class)
-            ->createQueryBuilder('r')
-            ->where('r.id <> :id')
-            ->andWhere('r.postType = :postType')
-            ->andWhere('r.category = :category')
-            ->andWhere('r.enable = :enable')
-            ->setParameter('id', $post->getId())
-            ->setParameter('postType', $post->getPostType())
-            ->setParameter('category', $post->getCategory())
-            ->setParameter('enable', 1)
-            ->setMaxResults( 8 )
-            ->orderBy('r.createdAt', 'DESC')
-            ->getQuery()
-            ->getResult();
+
+        $categoryPrimary = 0;
+        if ($post->getCategoryPrimary() > 0) {
+            $categoryPrimary = $post->getCategoryPrimary();
+        } else {
+            if (!$post->getCategory()->isEmpty()) {
+                $categoryPrimary = $post->getCategory()[0]->getId();
+            }
+        }
+
+        if ($categoryPrimary > 0) {
+            $category = $this->getDoctrine()
+                ->getRepository(NewsCategory::class)
+                ->find($categoryPrimary);
+
+            // Get news related
+            $relatedNews = $this->getDoctrine()
+                ->getRepository(News::class)
+                ->createQueryBuilder('r')
+                ->innerJoin('r.category', 't')
+                ->where('t.id = :newscategory_id')
+                ->andWhere('r.id <> :id')
+                ->andWhere('r.postType = :postType')
+                ->andWhere('r.enable = :enable')
+                ->setParameter('newscategory_id', $categoryPrimary)
+                ->setParameter('id', $post->getId())
+                ->setParameter('postType', $post->getPostType())
+                ->setParameter('enable', 1)
+                ->setMaxResults( 8 )
+                ->orderBy('r.createdAt', 'DESC')
+                ->getQuery()
+                ->getResult();
+        }
 
         // Get the list comment for post
         $comments = $this->getDoctrine()
@@ -240,7 +259,7 @@ class NewsController extends Controller
 
             return $this->render('news/show.html.twig', [
                 'post'          => $post,
-                'relatedNews'   => $relatedNews,
+                'relatedNews'   => !empty($relatedNews) ? $relatedNews : NULL,
                 'form'          => $form->createView(),
                 'formRating'    => $formRating->createView(),
                 'rating'        => !empty($rating['ratingValue']) ? str_replace('.0', '', number_format($rating['ratingValue'], 1)) : 0,
@@ -248,7 +267,8 @@ class NewsController extends Controller
                 'ratingValue'   => round($rating['ratingValue']),
                 'ratingCount'   => round($rating['ratingCount']),
                 'comments'      => $comments,
-                'imageSize'    => $imageSize
+                'imageSize'     => $imageSize,
+                'category'     => !empty($category) ? $category : NULL
             ]);
         }
     }
@@ -363,13 +383,14 @@ class NewsController extends Controller
 
         $posts = $this->getDoctrine()
             ->getRepository(News::class)
-            ->createQueryBuilder('r')
-            ->where('r.category IN (:listCategoriesIds)')
-            ->andWhere('r.enable = :enable')
+            ->createQueryBuilder('n')
+            ->innerJoin('n.category', 't')
+            ->where('t.id IN (:listCategoriesIds)')
+            ->andWhere('n.enable = :enable')
             ->setParameter('listCategoriesIds', $listCategoriesIds)
             ->setParameter('enable', 1)
             ->setMaxResults( 10 )
-            ->orderBy('r.viewCounts', 'DESC')
+            ->orderBy('n.viewCounts', 'DESC')
             ->getQuery()
             ->getResult();
 
@@ -609,7 +630,18 @@ class NewsController extends Controller
 
         // Breadcrum for post page
         if (!empty($post)) {
-            $category = $post->getCategory();
+            $category;
+            $categoryPrimary = $post->getCategoryPrimary();
+
+            if ($categoryPrimary > 0 ) {
+                $category = $this->getDoctrine()
+                    ->getRepository(NewsCategory::class)
+                    ->find($categoryPrimary);
+            } else {
+                if (!$post->getCategory()->isEmpty()) {
+                    $category = $post->getCategory()[0];
+                }
+            }
 
             if (!empty($category)) {
                 if ($category->getParentcat() === 'root') {

@@ -8,6 +8,8 @@ CKEDITOR.editorConfig = function( config ) {
     config.pasteFromWordRemoveFontStyles = false;
     config.pasteFromWordRemoveStyles = false;
     config.toolbar = 'MyEditor';
+    config.htmlEncodeOutput = false;
+    config.entities = false;
     config.toolbar_MyEditor =
     [
         { name: 'document', items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },

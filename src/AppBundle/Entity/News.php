@@ -31,8 +31,16 @@ class News
     /**
      * @var AppBundle\Entity\NewsCategory;
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\NewsCategory", inversedBy="news")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\NewsCategory", inversedBy="news")
+     * @ORM\JoinTable(
+     *  name="news_newscategory",
+     *  joinColumns={
+     *      @ORM\JoinColumn(name="news_id", referencedColumnName="id")
+     *  },
+     *  inverseJoinColumns={
+     *      @ORM\JoinColumn(name="newscategory_id", referencedColumnName="id")
+     *  }
+     * )
      */
     private $category;
 
@@ -128,6 +136,13 @@ class News
      * @ORM\Column(name="viewCounts", type="integer")
      */
     private $viewCounts = 0;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="categoryPrimary", type="integer")
+     */
+    private $categoryPrimary = 0;
 
     /**
      * @var \DateTime
@@ -253,9 +268,25 @@ class News
     }
 
     /**
-     * Get category
-     *
-     * @return \AppBundle\Entity\NewsCategory 
+     * @return NewsCategory[]
+     */
+    public function addCategory(NewsCategory $newsCategory)
+    {
+        if (!$this->category->contains($newsCategory)) {
+            $this->category->add($newsCategory);
+        }
+    }
+
+    /**
+     * @return NewsCategory[]
+     */
+    public function removeCategory(NewsCategory $newsCategory)
+    {
+        $this->category->removeElement($newsCategory);
+    }
+
+    /**
+     * @return \AppBundle\Entity\NewsCategory
      */
     public function getCategory()
     {
@@ -373,22 +404,11 @@ class News
         return $this;
     }
 
-    /**
-     * Get images
-     *
-     * @return string
-     */
     public function getImages()
     {
         return $this->images;
     }
 
-    /**
-     * Set enable
-     *
-     * @param bool $enable
-     * @return News
-     */
     public function setEnable($enable)
     {
         $this->enable = $enable;
@@ -396,23 +416,11 @@ class News
         return $this;
     }
 
-    /**
-     * Get enable
-     *
-     * @return bool
-     */
     public function getEnable()
     {
         return $this->enable;
     }
 
-    /**
-     * Set postType
-     *
-     * @param string $postType
-     *
-     * @return News
-     */
     public function setPostType($postType)
     {
         $this->postType = $postType;
@@ -420,32 +428,16 @@ class News
         return $this;
     }
 
-    /**
-     * Get postType
-     *
-     * @return string
-     */
     public function getPostType()
     {
         return $this->postType;
     }
 
-    /**
-     * Is Page
-     *
-     * @return boolean
-     */
     public function isPage()
     {
         return ($this->postType == 'page') ? true : false;
     }
 
-    /**
-     * Set pageTitle
-     *
-     * @param string $pageTitle
-     * @return News
-     */
     public function setPageTitle($pageTitle)
     {
         $this->pageTitle = $pageTitle;
@@ -453,22 +445,11 @@ class News
         return $this;
     }
 
-    /**
-     * Get pageTitle
-     *
-     * @return string
-     */
     public function getPageTitle()
     {
         return $this->pageTitle;
     }
 
-    /**
-     * Set pageDescription
-     *
-     * @param string $pageDescription
-     * @return News
-     */
     public function setPageDescription($pageDescription)
     {
         $this->pageDescription = $pageDescription;
@@ -476,22 +457,11 @@ class News
         return $this;
     }
 
-    /**
-     * Get pageDescription
-     *
-     * @return string
-     */
     public function getPageDescription()
     {
         return $this->pageDescription;
     }
 
-    /**
-     * Set pageKeyword
-     *
-     * @param string $pageKeyword
-     * @return News
-     */
     public function setPageKeyword($pageKeyword)
     {
         $this->pageKeyword = $pageKeyword;
@@ -499,22 +469,11 @@ class News
         return $this;
     }
 
-    /**
-     * Get pageKeyword
-     *
-     * @return string
-     */
     public function getPageKeyword()
     {
         return $this->pageKeyword;
     }
 
-    /**
-     * Set viewCounts
-     *
-     * @param \int $viewCounts
-     * @return News
-     */
     public function setViewCounts($viewCounts)
     {
         $this->viewCounts = $viewCounts;
@@ -522,22 +481,23 @@ class News
         return $this;
     }
 
-    /**
-     * Get viewCounts
-     *
-     * @return int
-     */
     public function getViewCounts()
     {
         return $this->viewCounts;
     }
 
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return News
-     */
+    public function setCategoryPrimary($categoryPrimary)
+    {
+        $this->categoryPrimary = $categoryPrimary;
+
+        return $this;
+    }
+
+    public function getCategoryPrimary()
+    {
+        return $this->categoryPrimary;
+    }
+
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
@@ -545,22 +505,11 @@ class News
         return $this;
     }
 
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
     public function getCreatedAt()
     {
         return $this->createdAt;
     }
     
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     * @return News
-     */
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
@@ -568,53 +517,26 @@ class News
         return $this;
     }
 
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
     public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
 
-    /**
-     * Get author
-     *
-     * @return User
-     */
     public function getAuthor()
     {
         return $this->author;
     }
 
-    /**
-     * Set author
-     *
-     * @param User $author
-     *
-     * @return News
-     */
     public function setAuthor(User $author)
     {
         $this->author = $author;
     }
 
-    /**
-     * Get comment
-     *
-     * @return Collection|Comment[]
-     */
     public function getComments()
     {
         return $this->comments;
     }
 
-    /**
-     * Add comment for news
-     *
-     * @return News
-     */
     public function addComment(Comment $comment)
     {
         $comment->setNews($this);
@@ -623,11 +545,6 @@ class News
         }
     }
 
-    /**
-     * Remove comment from news
-     *
-     * @return News
-     */
     public function removeComment(Comment $comment)
     {
         $comment->setNews(null);

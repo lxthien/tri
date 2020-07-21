@@ -1,45 +1,47 @@
-{% if post.getCategory().getUrl() != 'bang-gia' %}
-    {% if relatedNews|length > 0 %}
-        <div class="related-news">
-            <h3>{{ 'news.news_related'|trans }}</h3>
-            <div class="row">
-                {% for row in relatedNews %}
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <div class="related-wrapper">
-                            <div class="related-img">
-                                <img
-                                    class="img-thumbnail lazyload"
-                                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                    data-src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_406_280') }}"
-                                    alt="{{row.getTitle()}}" />
-                                <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
-                                    <i class="fa fa-link"></i>
+{% if category != NULL %}
+    {% if category.getUrl() != 'bang-gia' %}
+        {% if relatedNews|length > 0 %}
+            <div class="related-news">
+                <h3>{{ 'news.news_related'|trans }}</h3>
+                <div class="row">
+                    {% for row in relatedNews %}
+                        <div class="col-xs-12 col-sm-4 col-md-3">
+                            <div class="related-wrapper">
+                                <div class="related-img">
+                                    <img
+                                        class="img-thumbnail lazyload"
+                                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                        data-src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_406_280') }}"
+                                        alt="{{row.getTitle()}}" />
+                                    <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                </div>
+                                <a class="related-title" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
+                                    {{ row.getTitle() }}
                                 </a>
                             </div>
-                            <a class="related-title" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
-                                {{ row.getTitle() }}
-                            </a>
                         </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="related-news">
+            <h3>Khách hàng đánh giá về chúng tôi</h3>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="related-wrapper">
+                        <iframe width="278" height="220" src="https://www.youtube.com/embed/qZHPIqGX7pA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                {% endfor %}
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="related-wrapper">
+                        <iframe width="278" height="220" src="https://www.youtube.com/embed/Jw70fD5eZp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
         </div>
     {% endif %}
-{% else %}
-    <div class="related-news">
-        <h3>Khách hàng đánh giá về chúng tôi</h3>
-        <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <div class="related-wrapper">
-                    <iframe width="278" height="220" src="https://www.youtube.com/embed/qZHPIqGX7pA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <div class="related-wrapper">
-                    <iframe width="278" height="220" src="https://www.youtube.com/embed/Jw70fD5eZp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
 {% endif %}
 <div class="clearfix"></div>
