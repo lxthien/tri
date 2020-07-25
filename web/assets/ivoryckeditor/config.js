@@ -10,6 +10,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.toolbar = 'MyEditor';
     config.htmlEncodeOutput = false;
     config.entities = false;
+    config.basicEntities = false;
     config.toolbar_MyEditor =
     [
         { name: 'document', items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },

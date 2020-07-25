@@ -9,10 +9,10 @@
 
     .list-news-items {
         .news-item {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
 
             .news-item-wrapper {
-                border-bottom: 1px dotted $supernova;
+                border-bottom: 1px solid $supernova;
             }
         }
     }
@@ -333,12 +333,12 @@
             }
     
             a.related-title {
-                margin: 10px 0px;
-                font-size: 15px;
+                margin: 15px 0px;
+                font-size: 17px;
                 line-height: 22px;
                 height: 45px;
                 max-height: 45px;
-                color: #3c3950;
+                color: #0053a5;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
@@ -346,11 +346,15 @@
                 -webkit-box-orient: vertical;
                 font-family: $robotoCondesed;
                 font-weight: bold;
-                text-transform: uppercase;
                 text-align: center;
 
                 &:hover {
                     text-decoration: none;
+                }
+
+                @media only screen and (max-width: 767.98px) {
+                    height: auto;
+                    font-size: 18px;
                 }
             }
 
