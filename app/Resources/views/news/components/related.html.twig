@@ -13,13 +13,25 @@
                                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                         data-src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_406_280') }}"
                                         alt="{{row.getTitle()}}" />
-                                    <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
-                                        <i class="fa fa-link"></i>
-                                    </a>
+                                    {% if category is defined %}
+                                        <a href="{{ path('news_show', {'slug': row.getUrl(), 'danh-muc': category.getUrl() }) }}" title="{{ row.getTitle() }}">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                    {% else %}
+                                        <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                    {% endif %}
                                 </div>
-                                <a class="related-title" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
-                                    {{ row.getTitle() }}
-                                </a>
+                                {% if category is defined %}
+                                    <a class="related-title" href="{{ path('news_show', {'slug': row.getUrl(), 'danh-muc': category.getUrl() }) }}" title="{{ row.getTitle() }}">
+                                        {{ row.getTitle() }}
+                                    </a>
+                                {% else %}
+                                    <a class="related-title" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
+                                        {{ row.getTitle() }}
+                                    </a>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}

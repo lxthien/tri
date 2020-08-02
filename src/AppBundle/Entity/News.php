@@ -184,6 +184,7 @@ class News
 
     public function __construct()
     {
+        $this->category = new ArrayCollection();
         $this->tags = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }

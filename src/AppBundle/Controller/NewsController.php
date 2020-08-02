@@ -72,9 +72,11 @@ class NewsController extends Controller
         // Init breadcrum for category page
         $breadcrumbs = $this->buildBreadcrums(!empty($level2) ? $subCategory : $category, null, null);
 
+        $listCategories = array();
+        
         if (empty($level2)) {
             // Get all post for this category and sub category
-            $listCategoriesIds = array($category->getId());
+            $listCategoriesIds[] = $category->getId();
 
             $allSubCategories = $this->getDoctrine()
                 ->getRepository(NewsCategory::class)
@@ -84,6 +86,7 @@ class NewsController extends Controller
                 ->getQuery()->getResult();
 
             foreach ($allSubCategories as $value) {
+                $listCategories[] = $value;
                 $listCategoriesIds[] = $value->getId();
             }
 
@@ -137,6 +140,7 @@ class NewsController extends Controller
 
         return $this->render('news/list.html.twig', [
             'category' => !empty($level2) ? $subCategory : $category,
+            'listCategories' => count($listCategories) > 0 ? $listCategories : NULL,
             'pagination' => $pagination
         ]);
     }
@@ -172,13 +176,22 @@ class NewsController extends Controller
         $this->getDoctrine()->getManager()->flush();
 
 
-        $categoryPrimary = 0;
-        if ($post->getCategoryPrimary() > 0) {
-            $categoryPrimary = $post->getCategoryPrimary();
-        } else {
-            if (!$post->getCategory()->isEmpty()) {
-                $categoryPrimary = $post->getCategory()[0]->getId();
+        $categoryPrimary = $request->query->get('danh-muc');
+        
+        if (!$categoryPrimary) {
+            if ($post->getCategoryPrimary() > 0) {
+                $categoryPrimary = $post->getCategoryPrimary();
+            } else {
+                if (!$post->getCategory()->isEmpty()) {
+                    $categoryPrimary = $post->getCategory()[0]->getId();
+                }
             }
+        } else {
+            $catPrimary = $this->getDoctrine()
+                ->getRepository(NewsCategory::class)
+                ->findOneByUrl($categoryPrimary);
+            
+            $categoryPrimary = $catPrimary->getId();
         }
 
         if ($categoryPrimary > 0) {
@@ -239,7 +252,7 @@ class NewsController extends Controller
         $rating = $queryRating->setMaxResults(1)->getOneOrNullResult();
 
         // Init breadcrum for the post
-        $breadcrumbs = $this->buildBreadcrums(null, $post, null);
+        $breadcrumbs = $this->buildBreadcrums(null, $post, null, $categoryPrimary);
 
         if ($post->isPage()) {
             return $this->render('news/page.html.twig', [
@@ -332,7 +345,7 @@ class NewsController extends Controller
             ->findBy(
                 array('postType' => 'post', 'enable' => 1),
                 array('createdAt' => 'DESC'),
-                10
+                20
             );
 
         return $this->render('news/recent.html.twig', [
@@ -610,7 +623,7 @@ class NewsController extends Controller
      * 
      * @return Breadcrums
      **/
-    private function buildBreadcrums($category = null, $post = null, $page = null)
+    private function buildBreadcrums($category = null, $post = null, $page = null, $categoryPrimary = null)
     {
         // Init october breadcrum
         $breadcrumbs = $this->get("white_october_breadcrumbs");
@@ -631,16 +644,22 @@ class NewsController extends Controller
         // Breadcrum for post page
         if (!empty($post)) {
             $category;
-            $categoryPrimary = $post->getCategoryPrimary();
 
-            if ($categoryPrimary > 0 ) {
+            if (!$categoryPrimary) {
+                $categoryPrimary = $post->getCategoryPrimary();
+                if ($categoryPrimary > 0 ) {
+                    $category = $this->getDoctrine()
+                        ->getRepository(NewsCategory::class)
+                        ->find($categoryPrimary);
+                } else {
+                    if (!$post->getCategory()->isEmpty()) {
+                        $category = $post->getCategory()[0];
+                    }
+                }
+            } else {
                 $category = $this->getDoctrine()
                     ->getRepository(NewsCategory::class)
                     ->find($categoryPrimary);
-            } else {
-                if (!$post->getCategory()->isEmpty()) {
-                    $category = $post->getCategory()[0];
-                }
             }
 
             if (!empty($category)) {

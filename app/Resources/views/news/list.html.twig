@@ -26,6 +26,20 @@
                         {{ include('news/components/sort.html.twig') }}
                     {% endif %}
 
+                    {% if listCategories != NULL %}
+                        <div class="list-news-category">
+                            <div class="row">
+                                {% for cat in listCategories %}
+                                    <div class="col-xs-6 col-sm-4 col-md-3">
+                                        <div class="category-item">
+                                            <a href="{{ path('list_category', {'level1': category.getUrl(), 'level2': cat.getUrl() }) }}">{{ cat.getName() }}</a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
                     <div class="list-news-items">
                         <div class="row">
                             {% for row in pagination %}

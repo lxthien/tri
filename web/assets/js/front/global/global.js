@@ -68,6 +68,22 @@ function initNewsSlider() {
         touchEnabled: false,
         autoHover: true
     });
+
+    $('.post-sidebar-bxslider-recent').bxSlider({
+        mode: 'vertical',
+        auto: true,
+        speed: 500,
+        autoControls: false,
+        stopAutoOnClick: true,
+        pager: false,
+        controls: false,
+        minSlides: 10,
+        maxSlides: 10,
+        moveSlides: 1,
+        slideWidth: 375,
+        touchEnabled: false,
+        autoHover: true
+    });
 }
 
 function initFixedMenu() {

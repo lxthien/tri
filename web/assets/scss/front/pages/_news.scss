@@ -7,6 +7,22 @@
         margin-bottom: 30px;
     }
 
+    .list-news-category {
+        margin-bottom: 30px;
+
+        .category-item {
+            text-align: center;
+            padding: 10px;
+            background: #0053a5;
+            margin-bottom: 20px;
+
+            a {
+                text-decoration: none;
+                color: $white;
+            }
+        }
+    }
+
     .list-news-items {
         .news-item {
             margin-bottom: 25px;
@@ -113,7 +129,7 @@
         }
 
         a {
-            color: $primaryColor;
+            color: #0053a5;
         }
 
         h3 {
