@@ -43,6 +43,7 @@ class AppKernel extends Kernel
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new blackknight467\StarRatingBundle\StarRatingBundle(),
+            new SunCat\MobileDetectBundle\MobileDetectBundle(),
         ];
 
         // Some bundles are only used while developing the application or during

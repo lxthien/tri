@@ -615,6 +615,70 @@
         .media {
             display: inline-block;
             padding: 0 10px;
+
+            .youtube-video-place {
+                width: 282px;
+                height: 220px;
+
+                iframe {
+                    height: 97%;
+                }
+            }
         }
     }
+}
+
+.video {
+    position: relative;
+    padding-bottom: 56.23%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin: 5px;
+}
+
+.video div {
+    cursor: pointer;
+    -webkit-transition: .6s all;
+    -moz-transition: .6s all;
+    transition: .6s all;
+    display: block;
+}
+
+.video div:hover span {
+    -webkit-filter: brightness(100%);
+}
+
+.video div img {
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.video div span {
+    width: 94px;
+    height: 64px;
+    position: absolute;
+    background: url(https://1.bp.blogspot.com/-94QEg1Pk9tw/WGhNhfqMs-I/AAAAAAAAA1w/u3gEPfwh4hwMkWeAu-_PteMTFlSfy8pqACLcB/s1600/1483251316_5295_-_Youtube_I.png) no-repeat;
+    background-position: 50% 50%;
+    left: 50%;
+    top: 50%;
+    margin-left: -47px;
+    margin-top: -32px;
+    -webkit-filter: brightness(75%);
+}
+
+.video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: transparent;
 }

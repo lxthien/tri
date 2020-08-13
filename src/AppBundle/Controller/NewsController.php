@@ -551,6 +551,13 @@ class NewsController extends Controller
                 ->add('author', TextType::class)
                 ->add('email', EmailType::class)
                 ->add('recaptcha', EWZRecaptchaType::class, array(
+                    'attr' => array(
+                        'options' => array(
+                            'defer' => true,
+                            'async' => true,
+                            'bind'  => 'form_send'
+                        )
+                    ),
                     'mapped'      => false,
                     'constraints' => array(
                         new RecaptchaTrue()
