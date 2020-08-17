@@ -36,36 +36,38 @@
         </div>
     </div>
 </div>
-<div class="wrapper-container banner d-none hidden-xs hidden-sm">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4" id="logo_top">
-                <div id="logo">								
-                    <a href="{{ path('homepage') }}" title="{{ get_setting('siteName') }}">
-                        <img alt="{{ get_setting('siteName') }}" src="{{ asset('assets/images/logo.png') }}">
-                    </a>
+{% if is_mobile() == false and is_tablet() == false %}
+    <div class="wrapper-container banner d-none hidden-xs hidden-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" id="logo_top">
+                    <div id="logo">								
+                        <a href="{{ path('homepage') }}" title="{{ get_setting('siteName') }}">
+                            <img alt="{{ get_setting('siteName') }}" src="{{ asset('assets/images/logo.png') }}">
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="info-top">
-                    <div class="wp90">
-                        <div class="info-nd" id="output">
-                            <p class="tel text-uppercase" id="header-company"></p>
-                            <p class="text-uppercase" id="header-address"></p>
+                <div class="col-md-6">
+                    <div class="info-top">
+                        <div class="wp90">
+                            <div class="info-nd" id="output">
+                                <p class="tel text-uppercase" id="header-company"></p>
+                                <p class="text-uppercase" id="header-address"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="info-top hotline-top">
-                    <div class="wp90 pull-right">
-                        <div class="info-nd">
-                            <p class="tel text-uppercase"><i class="fas fa-mobile-alt"></i> <a href="tel:0974776305">0974776305</a></p>
+                <div class="col-md-2">
+                    <div class="info-top hotline-top">
+                        <div class="wp90 pull-right">
+                            <div class="info-nd">
+                                <p class="tel text-uppercase"><i class="fas fa-mobile-alt"></i> <a href="tel:0974776305">0974776305</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+{% endif %}
 <!-- End header -->

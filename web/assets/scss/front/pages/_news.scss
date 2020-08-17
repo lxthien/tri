@@ -273,6 +273,10 @@
         .related-wrapper {
             margin-bottom: 0;
 
+            &.video-related {
+                margin-bottom: 10px;
+            }
+
             &:hover {
                 .related-img {
                     .img-thumbnail {

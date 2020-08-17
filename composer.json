@@ -23,6 +23,7 @@
         "doctrine/doctrine-cache-bundle": "^1.2",
         "doctrine/doctrine-fixtures-bundle": "^2.2",
         "doctrine/orm": "^2.5",
+        "elephantly/amp-converter-bundle": "^1.0",
         "erusev/parsedown": "^1.5",
         "excelwebzone/recaptcha-bundle": "^1.5",
         "ezyang/htmlpurifier": "^4.7",
