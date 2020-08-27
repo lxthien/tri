@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
@@ -27,6 +28,13 @@ class BannerType extends AbstractType
             ->add('url', TextType::class, [
                 'required' => false,
                 'label' => 'label.url',
+            ])
+            ->add('alt', TextType::class, [
+                'label' => 'Alt',
+            ])
+            ->add('caption', TextareaType::class, [
+                'attr' => ['class' => 'txt-ckeditor', 'data-height' => '200'],
+                'label' => 'Caption',
             ])
             ->add('imageFile', VichFileType::class, [
                 'allow_delete' => true,

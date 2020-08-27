@@ -2,67 +2,27 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="3" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="4" class=""></li>
+            {% for row in banners %}
+                <li data-target="#myCarousel" data-slide-to="{{ loop.index - 1 }}" class="{{ loop.first ? 'active' : '' }}"></li>
+            {% endfor %}
         </ol>
         <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <a href="{{ path('homepage') }}">
-                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/images/banner/banner-thi-cong-phan-tho.jpg') }}" alt="Thi công xây dựng phần thô">
-                </a>
-                <div class="container">
-                    <div class="carousel-caption text-left">
-                        <h2 class="text-uppercase">Xây Dựng Kim Anh</h2>
-                        <p>Thi công xây dựng phần thô</p>
+            {% for row in banners %}
+                <div class="item {{ loop.first ? 'active' : '' }}">
+                    {% if (row.getUrl() != '') %}
+                        <a href="{{ row.getUrl() }}">
+                            <img src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) }}" alt="{{ row.alt }}">
+                        </a>
+                    {% else %}
+                        <img src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) }}" alt="{{ row.alt }}">
+                    {% endif %}
+                    <div class="container">
+                        <div class="carousel-caption">
+                            {{ row.caption|raw }}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="item">
-                <a href="{{ path('news_show', {'slug': 'bang-gia-thiet-ke-nha-pho-tai-tphcm'}) }}">
-                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/images/banner/banner-thiet-ke-nha.jpg') }}" alt="Chuyên thiết kế thi công nhà phố, biệt thự">
-                </a>
-                <div class="container">
-                    <div class="carousel-caption text-left">
-                        <h2 class="text-uppercase">Xây Dựng Kim Anh</h2>
-                        <p>Chuyên thiết kế thi công nhà phố, biệt thự</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <a href="{{ path('homepage') }}">
-                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/images/banner/xay-dung-kim-anh.jpg') }}" alt="Công Ty Nhà Thầu Xây Dựng Kim Anh">
-                </a>
-                <div class="container">
-                    <div class="carousel-caption text-left">
-                        <h2 class="text-uppercase">Công Ty Nhà Thầu Xây Dựng Kim Anh</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <a href="{{ path('news_show', {'slug': 'bang-bao-gia-xay-nha-phan-tho-moi-nhat'}) }}">
-                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/images/banner/banner-xay-nha-tron-goi.jpg') }}" alt="Xây Dựng Kim Anh">
-                </a>
-                <div class="container">
-                    <div class="carousel-caption text-left">
-                        <h2 class="text-uppercase">Xây Dựng Kim Anh</h2>
-                        <p>Chuyên thi công xây nhà trọn gói tại TP HCM</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <a href="{{ path('homepage') }}">
-                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('assets/images/banner/nha-thau-xay-dung-kim-anh.jpg') }}" alt="Xây Dựng Kim Anh">
-                </a>
-                <div class="container">
-                    <div class="carousel-caption text-left">
-                        <h2 class="text-uppercase">Xây Dựng Kim Anh</h2>
-                        <p>Thương hiệu của uy tín và chất lượng</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

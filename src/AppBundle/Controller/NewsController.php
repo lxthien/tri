@@ -109,14 +109,16 @@ class NewsController extends Controller
                         array('url' => $level1)
                     );
 
-                $news = $this->getDoctrine()
-                    ->getRepository(News::class)
-                    ->createQueryBuilder('n')
-                    ->innerJoin('n.tags', 't')
-                    ->where('t.id = :tags_id')
-                    ->setParameter('tags_id', $tag->getId())
-                    ->orderBy('n.createdAt', 'DESC')
-                    ->getQuery()->getResult();
+                if ($tag) {
+                    $news = $this->getDoctrine()
+                        ->getRepository(News::class)
+                        ->createQueryBuilder('n')
+                        ->innerJoin('n.tags', 't')
+                        ->where('t.id = :tags_id')
+                        ->setParameter('tags_id', $tag->getId())
+                        ->orderBy('n.createdAt', 'DESC')
+                        ->getQuery()->getResult();
+                }
             }
         } else {
             $news = $this->getDoctrine()

@@ -1,5 +1,9 @@
 {% extends 'layout.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/contact.css') }}">
+{% endblock %}
+
 {% block title %}{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}{% endblock %}
 {% block description %}{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}{% endblock %}
 {% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
@@ -9,6 +13,8 @@
     <meta property="og:title" content="{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}" />
     <meta property="og:description" content="{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}" />
 {% endblock %}
+
+
 
 {% block body %}
     <div class="container contacts page-detail">
@@ -22,20 +28,20 @@
                     <h3 class="text-uppercase">Xây Dựng Kim Anh</h3>
                     <ul>
                         <li>
-                            <i class="fa fa-map-marker"></i>
-                            <span><strong>VPGD: 50I Trần Thị Bảy, KP 3, P. Hiệp Thành, Quận 12, TP.HCM</strong></span>
+                            <i class="fas fa-map-marker"></i>
+                            <span><strong>VPGD: {{ get_setting('companyAddress') }}</strong></span>
                         </li>
                         <li>
-                            <i class="fa fa-phone"></i>
-                            <span><strong>0974.776.305 A Tuấn</strong></span>
+                            <i class="fas fa-phone"></i>
+                            <span><strong>{{ get_setting('hotLine1') }}</strong></span>
                         </li>
                         <li>
-                            <i class="fa fa-envelope-o"></i>
-                            <span><strong>xaydungkimanh@gmail.com</strong></span>
+                            <i class="fas fa-envelope"></i>
+                            <span><strong>{{ get_setting('emailContact') }}</strong></span>
                         </li>
                         <li>
-                            <i class="fa fa-internet-explorer"></i>
-                            <span><strong>www.xaydungkimanh.com</strong></span>
+                            <i class="fab fa-internet-explorer"></i>
+                            <span><strong>{{ get_setting('website') }}</strong></span>
                         </li>
                     </ul>
 

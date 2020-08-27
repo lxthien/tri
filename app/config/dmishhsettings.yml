@@ -102,3 +102,15 @@ dmishh_settings:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
                 required: false
+        companyAddress:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
+        mst:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
+        website:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false

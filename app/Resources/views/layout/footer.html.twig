@@ -3,33 +3,33 @@
     <div class="container">
         <div class="row footer-top">
             <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                <h3 class="text-uppercase">Xây Dựng Kim Anh</h3>
+                <h3 class="text-uppercase">Xây Dựng Chuyên Nghiệp</h3>
                 <ul class="footer-company">
                     <li>
-                        <i class="fa fa-map-marker"></i>
-                        <span>50I Trần Thị Bảy, KP 3, P. Hiệp Thành, Quận 12, TP.HCM</span>
+                        <i class="fas fa-map-marker"></i>
+                        <span>{{ get_setting('companyAddress') }}</span>
                     </li>
                     <li>
-                        <i class="fa fa-phone"></i>
-                        <span><a href="tel:0974776305">0974.776.305</a></span>
+                        <i class="fas fa-phone"></i>
+                        <span><a href="tel:{{ get_setting('hotLine1') }}">{{ get_setting('hotLine1') }}</a></span>
                     </li>
                     <li>
-                        <i class="fa fa-envelope-o"></i>
-                        <span><a href="mailto:xaydungkimanh@gmail.com">xaydungkimanh@gmail.com</a></span>
+                        <i class="fas fa-envelope"></i>
+                        <span><a href="mailto:{{ get_setting('emailContact') }}">{{ get_setting('emailContact') }}</a></span>
                     </li>
                     <li>
-                        <i class="fa fa-internet-explorer"></i>
-                        <span><a href="https://xaydungkimanh.com/">www.xaydungkimanh.com</a></span>
+                        <i class="fab fa-internet-explorer"></i>
+                        <span><a href="{{ get_setting('website') }}">{{ get_setting('website') }}</a></span>
                     </li>
                 </ul>
                 <div class="event-footer row">
                     <div class="col-12 col-sm-12 col-md-12">
                         <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
-                            <meta content="⭐Bảng giá sửa nhà trọn gói" itemprop="name">
-                            <meta content="⭐Bảng giá sửa nhà trọn gói" itemprop="description">
+                            <meta content="⭐Xây dựng nhà" itemprop="name">
+                            <meta content="⭐Xây dựng nhà" itemprop="description">
                             <h6>
                                 <a href="{{ path('news_show', {'slug': 'bao-gia-sua-chua-nha-moi-nhat' }) }}" itemprop="url">
-                                    <span>⭐Bảng giá sửa nhà trọn gói</span>
+                                    <span>⭐Xây dựng nhà</span>
                                 </a>
                             </h6>
                             <meta content="2021-09-09T4:00-05:00" itemprop="startDate">
@@ -62,11 +62,11 @@
                             </div>
                         </div>
                         <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
-                            <meta content="⭐Bảng giá xây nhà trọn gói" itemprop="name">
-                            <meta content="⭐Bảng giá xây nhà trọn gói" itemprop="description">
+                            <meta content="⭐Sửa chữa nhà" itemprop="name">
+                            <meta content="⭐Sửa chữa nhà" itemprop="description">
                             <h6>
                                 <a href="{{ path('news_show', {'slug': 'bao-gia-xay-nha-tron-goi-moi-nhat' }) }}" itemprop="url">
-                                    <span>⭐Bảng giá xây nhà trọn gói</span>
+                                    <span>⭐Sửa chữa nhà</span>
                                 </a>
                             </h6>
                             <meta content="2021-10-10T5:00-05:00" itemprop="startDate">
@@ -99,11 +99,11 @@
                             </div>
                         </div>
                         <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
-                            <meta content="⭐Bảng giá xây nhà phần thô" itemprop="name">
-                            <meta content="⭐Bảng giá xây nhà phần thô" itemprop="description">
+                            <meta content="⭐Thiết kế nhà" itemprop="name">
+                            <meta content="⭐Thiết kế nhà" itemprop="description">
                             <h6>
                                 <a href="{{ path('news_show', {'slug': 'bang-bao-gia-xay-nha-phan-tho-moi-nhat' }) }}" itemprop="url">
-                                    <span>⭐Bảng giá xây nhà phần thô</span>
+                                    <span>⭐Thiết kế nhà</span>
                                 </a>
                             </h6>
                             <meta content="2021-11-11T6:00-05:00" itemprop="startDate">

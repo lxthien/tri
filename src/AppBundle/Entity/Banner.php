@@ -32,7 +32,7 @@ class Banner
     /**
      * @var AppBundle\Entity\BannerCategory;
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\BannerCategory", inversedBy="bannercategory")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\BannerCategory", inversedBy="banner")
      * @ORM\JoinColumn(name="bannercategory_id", referencedColumnName="id")
      */
     private $bannercategory;
@@ -54,6 +54,20 @@ class Banner
     /**
      * @var string
      *
+     * @ORM\Column(name="alt", type="string", length=255, nullable=true)
+     */
+    private $alt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="caption", type="text", nullable=true)
+     */
+    private $caption;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
     private $url;
@@ -61,7 +75,7 @@ class Banner
     /**
      * @var string
      *
-     * @ORM\Column(name="urlImage", type="string", length=255)
+     * @ORM\Column(name="urlImage", type="string", length=255, nullable=true)
      */
     private $urlImage;
 
@@ -92,22 +106,11 @@ class Banner
         $this->createdAt = new \DateTime();
     }
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * Set banner category
-     *
-     * @param \AppBundle\Entity\BannerCategory $bannercategory
-     * @return Banner
-     */
     public function setBannerCategory(\AppBundle\Entity\BannerCategory $bannercategory)
     {
         $this->bannercategory = $bannercategory;
@@ -115,22 +118,11 @@ class Banner
         return $this;
     }
 
-    /**
-     * Get banner category
-     *
-     * @return \AppBundle\Entity\BannerCategory 
-     */
     public function getBannerCategory()
     {
         return $this->bannercategory;
     }
 
-    /**
-     * Set position
-     *
-     * @param int $position
-     * @return Banner
-     */
     public function setPosition($position)
     {
         $this->position = $position;
@@ -138,22 +130,11 @@ class Banner
         return $this;
     }
 
-    /**
-     * Get position
-     *
-     * @return int
-     */
     public function getPosition()
     {
         return $this->position;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Banner
-     */
     public function setName($name)
     {
         $this->name = $name;
@@ -161,22 +142,35 @@ class Banner
         return $this;
     }
 
-    /**
-     * Get name
-     *
-     * @return string
-     */
     public function getName()
     {
         return $this->name;
     }
 
-    /**
-     * Set url
-     *
-     * @param string $url
-     * @return Banner
-     */
+    public function setAlt($alt)
+    {
+        $this->alt = $alt;
+
+        return $this;
+    }
+
+    public function getAlt()
+    {
+        return $this->alt;
+    }
+
+    public function setCaption($caption)
+    {
+        $this->caption = $caption;
+
+        return $this;
+    }
+
+    public function getCaption()
+    {
+        return $this->caption;
+    }
+
     public function setUrl($url)
     {
         $this->url = $url;
@@ -184,22 +178,11 @@ class Banner
         return $this;
     }
 
-    /**
-     * Get url
-     *
-     * @return string
-     */
     public function getUrl()
     {
         return $this->url;
     }
 
-    /**
-     * Set urlImage
-     *
-     * @param string $urlImage
-     * @return Banner
-     */
     public function setUrlImage($urlImage)
     {
         $this->urlImage = $urlImage;
@@ -207,22 +190,11 @@ class Banner
         return $this;
     }
 
-    /**
-     * Get urlImage
-     *
-     * @return string
-     */
     public function getUrlImage()
     {
         return $this->urlImage;
     }
 
-    /**
-     * Set images file
-     *
-     * @param File $urlImage
-     * @return Banner
-     */
     public function setImageFile(File $urlImage = null)
     {
         $this->imageFile = $urlImage;
@@ -235,22 +207,11 @@ class Banner
         }
     }
 
-    /**
-     * Get images file
-     *
-     * @return string
-     */
     public function getImageFile()
     {
         return $this->imageFile;
     }
 
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Banner
-     */
     public function setcreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
@@ -258,22 +219,11 @@ class Banner
         return $this;
     }
 
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
     public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     * @return Banner
-     */
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
@@ -281,11 +231,6 @@ class Banner
         return $this;
     }
 
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
     public function getUpdatedAt()
     {
         return $this->updatedAt;

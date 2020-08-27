@@ -1,5 +1,9 @@
 {% extends 'layout.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/homepage.css') }}">
+{% endblock %}
+
 {% block structuredOrganization %}
     <script type="application/ld+json">
     {
@@ -54,7 +58,7 @@
             <div class="container slogin-title">
                 <div class="row">
                     <div class="col-12 col-md-10"><p>Bạn đang muốn thi công dự án xây dựng? Hãy liên hệ ngay với chúng tôi để được tư vấn miễn phí!</p></div>
-                    <div class="col-12 col-md-2 text-right"><a href="tel:0974776305"> <i class="fas fa-mobile-alt" aria-hidden="true"></i> 0974776305</a></div>
+                    <div class="col-12 col-md-2 text-right"><a href="tel:{{ get_setting('hotLine1') }}"> <i class="fas fa-mobile-alt" aria-hidden="true"></i> {{ get_setting('hotLine1') }}</a></div>
                 </div>
             </div>
         </div>
@@ -149,7 +153,7 @@
                     <div class="col-md-4 col-sm-6">
                         <div class="media">
                             <div class="media-left">
-                                <span><i class="fa fa-lightbulb-o"></i></span>
+                                <span><i class="fas fa-lightbulb"></i></span>
                             </div>
                             <div class="media-body">
                                 <h2 class="media-heading text-uppercase">Sáng tạo trong thiết kế</h2>
@@ -183,9 +187,9 @@
                         <div class="row">
                             <div class="col-md-12 title-list-news-items">
                                 <h1 class="text-center text-uppercase">
-                                    <img alt="{{ blockOnHomepage.category.getName() }}" src="{{ asset('assets/images/icon-logo.png') }}" />
-                                    <span>Kim </span> Anh <i class="fas fa-angle-right"></i> 
-                                    {{ blockOnHomepage.category.getName() }}
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <a href="{{ path('news_category', {'level1': blockOnHomepage.category.getUrl() }) }}" title="{{ blockOnHomepage.category.getName() }}">{{ blockOnHomepage.category.getName() }}</a>
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                 </h1>
                                 <p>{{ blockOnHomepage.description }}</p>
                             </div>
@@ -227,34 +231,5 @@
                 </div>
             {% endif %}
         {% endfor %}
-
-        <div class="wrapper-container-item y-kien-khach-hang">
-            <div class="container">
-                <div class="row">
-                    <h2 class="text-center text-uppercase">Khách hàng đánh giá về Xây Dựng Kim Anh</h2>
-                </div>
-                <div class="row media-wrapper">
-                    <div class="media">
-                        <div class="youtube-video-place embed-responsive embed-responsive-4by3" data-yt-url="https://www.youtube.com/embed/qZHPIqGX7pA?rel=0&showinfo=0&autoplay=1">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                data-src="https://img.youtube.com/vi/qZHPIqGX7pA/hqdefault.jpg"
-                                async
-                                class="play-youtube-video lazyload"
-                                alt="Ý kiến khách hàng về Xây Dựng Kim Anh">
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="youtube-video-place embed-responsive embed-responsive-4by3" data-yt-url="https://www.youtube.com/embed/Jw70fD5eZp4?rel=0&showinfo=0&autoplay=1">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                data-src="https://img.youtube.com/vi/Jw70fD5eZp4/hqdefault.jpg"
-                                async
-                                class="play-youtube-video lazyload"
-                                alt="Ý kiến khách hàng về Xây Dựng Kim Anh">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 {% endblock %}

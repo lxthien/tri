@@ -43,9 +43,14 @@ class Builder implements ContainerAwareInterface
             'routeParameters' => ['slug' => 'tuyen-dung-kien-truc-su-xay-dung']
         ]);
 
-        $menu->addChild('Xây nhà', [
+        $menu->addChild('Thiết kế', [
             'route' => 'news_category',
-            'routeParameters' => ['level1' => 'xay-dung-nha-pho']
+            'routeParameters' => ['level1' => 'thiet-ke-nha']
+        ]);
+
+        $menu->addChild('Xây dựng nhà', [
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'xay-dung-nha']
         ]);
 
         $menu->addChild('Sửa chữa nhà', [
@@ -53,14 +58,9 @@ class Builder implements ContainerAwareInterface
             'routeParameters' => ['level1' => 'sua-chua-nha-dep']
         ]);
 
-        $menu->addChild('Thiết kế', [
-            'route' => 'news_category',
-            'routeParameters' => ['level1' => 'thiet-ke-nha-pho']
-        ]);
-
         $menu->addChild('Bảng giá', [
             'route' => 'news_category',
-            'routeParameters' => ['level1' => 'bang-gia']
+            'routeParameters' => ['level1' => 'bang-gia-xay-dung']
         ]);
 
         $menu->addChild('Dự án', [
@@ -72,24 +72,24 @@ class Builder implements ContainerAwareInterface
         ->setLinkAttribute('data-toggle', 'dropdown')
         ->setChildrenAttribute('class', 'dropdown-menu');
 
-        $menu['Dự án']->addChild('Xây dựng nhà phố', [
+        $menu['Dự án']->addChild('Xây dựng nhà', [
             'route' => 'list_category',
-            'routeParameters' => ['level1' => 'du-an', 'level2' => 'du-an-xay-dung-nha-pho']
+            'routeParameters' => ['level1' => 'du-an', 'level2' => 'thi-cong-xay-dung-nha']
         ]);
 
         $menu['Dự án']->addChild('Sửa chữa nhà', [
             'route' => 'list_category',
-            'routeParameters' => ['level1' => 'du-an', 'level2' => 'du-an-sua-chua-nha']
+            'routeParameters' => ['level1' => 'du-an', 'level2' => 'thi-cong-sua-chua-nha']
         ]);
 
         $menu->addChild('Tư vấn', [
             'route' => 'news_category',
-            'routeParameters' => ['level1' => 'tu-van']
+            'routeParameters' => ['level1' => 'cam-nang-xay-dung']
         ]);
 
-        $menu->addChild('Ý kiến khách hàng', [
+        $menu->addChild('Phong thủy', [
             'route' => 'news_category',
-            'routeParameters' => ['level1' => 'y-kien-khach-hang']
+            'routeParameters' => ['level1' => 'phong-thuy-xay-dung']
         ]);
 
         $menu->addChild('Liên hệ', [

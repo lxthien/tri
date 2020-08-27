@@ -1,5 +1,9 @@
 {% extends 'layout.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/list.css') }}">
+{% endblock %}
+
 {% block title %} {{ category.getPageTitle() is not null ? category.getPageTitle() : category.getName() ~ ' - Trang ' ~ pagination.currentPageNumber }} {% endblock %}
 {% block description %} {{ category.getPageDescription() }} {% endblock %}
 {% block keyword %} {{ category.getPageKeyword() }} {% endblock %}
