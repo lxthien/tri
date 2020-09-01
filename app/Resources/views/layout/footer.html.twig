@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row footer-top">
             <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                <h3 class="text-uppercase">Xây Dựng Chuyên Nghiệp</h3>
+                <h3 class="text-uppercase">{{ get_setting('siteName') }}</h3>
                 <ul class="footer-company">
                     <li>
                         <i class="fas fa-map-marker"></i>
@@ -28,7 +28,7 @@
                             <meta content="⭐Xây dựng nhà" itemprop="name">
                             <meta content="⭐Xây dựng nhà" itemprop="description">
                             <h6>
-                                <a href="{{ path('news_show', {'slug': 'bao-gia-sua-chua-nha-moi-nhat' }) }}" itemprop="url">
+                                <a href="{{ path('news_category', {'level1': 'xay-dung-nha' }) }}" itemprop="url">
                                     <span>⭐Xây dựng nhà</span>
                                 </a>
                             </h6>
@@ -47,17 +47,17 @@
                                 </div>
                             </div>
                             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                <meta content="{{ path('news_show', {'slug': 'bao-gia-sua-chua-nha-moi-nhat' }) }}" itemprop="url">
+                                <meta content="{{ path('news_category', {'level1': 'xay-dung-nha' }) }}" itemprop="url">
                                 <meta content="0" itemprop="price">
                                 <meta content="VND" itemprop="priceCurrency">
                                 <meta content="https://schema.org/InStock" itemprop="availability">
                                 <meta content="2021-09-09T4:00" itemprop="validFrom">
                             </div>
                             <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
-                                <meta content="Xây Dựng Kim Anh" itemprop="name">
+                                <meta content="{{ get_setting('siteName') }}" itemprop="name">
                             </div>
                             <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
-                                <meta content="Xây Dựng Kim Anh" itemprop="name">
+                                <meta content="{{ get_setting('siteName') }}" itemprop="name">
                                 <meta content="https://xaydungkimanh.com/" itemprop="url">
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                             <meta content="⭐Sửa chữa nhà" itemprop="name">
                             <meta content="⭐Sửa chữa nhà" itemprop="description">
                             <h6>
-                                <a href="{{ path('news_show', {'slug': 'bao-gia-xay-nha-tron-goi-moi-nhat' }) }}" itemprop="url">
+                                <a href="{{ path('news_category', {'level1': 'sua-chua-nha' }) }}" itemprop="url">
                                     <span>⭐Sửa chữa nhà</span>
                                 </a>
                             </h6>
@@ -84,17 +84,17 @@
                                 </div>
                             </div>
                             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                <meta content="{{ path('news_show', {'slug': 'bao-gia-xay-nha-tron-goi-moi-nhat' }) }}" itemprop="url">
+                                <meta content="{{ path('news_category', {'level1': 'sua-chua-nha' }) }}" itemprop="url">
                                 <meta content="4300000" itemprop="price">
                                 <meta content="VND" itemprop="priceCurrency">
                                 <meta content="https://schema.org/InStock" itemprop="availability">
                                 <meta content="2021-10-10T5:00" itemprop="validFrom">
                             </div>
                             <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
-                                <meta content="Xây Dựng Kim Anh" itemprop="name">
+                                <meta content="{{ get_setting('siteName') }}" itemprop="name">
                             </div>
                             <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
-                                <meta content="Xây Dựng Kim Anh" itemprop="name">
+                                <meta content="{{ get_setting('siteName') }}" itemprop="name">
                                 <meta content="https://xaydungkimanh.com/" itemprop="url">
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                             <meta content="⭐Thiết kế nhà" itemprop="name">
                             <meta content="⭐Thiết kế nhà" itemprop="description">
                             <h6>
-                                <a href="{{ path('news_show', {'slug': 'bang-bao-gia-xay-nha-phan-tho-moi-nhat' }) }}" itemprop="url">
+                                <a href="{{ path('news_category', {'level1': 'thiet-ke-nha' }) }}" itemprop="url">
                                     <span>⭐Thiết kế nhà</span>
                                 </a>
                             </h6>
@@ -121,17 +121,17 @@
                                 </div>
                             </div>
                             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                <meta content="{{ path('news_show', {'slug': 'bang-bao-gia-xay-nha-phan-tho-moi-nhat' }) }}" itemprop="url">
+                                <meta content="{{ path('news_category', {'level1': 'thiet-ke-nha' }) }}" itemprop="url">
                                 <meta content="4300000" itemprop="price">
                                 <meta content="VND" itemprop="priceCurrency">
                                 <meta content="https://schema.org/InStock" itemprop="availability">
                                 <meta content="2021-11-11T6:00" itemprop="validFrom">
                             </div>
                             <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
-                                <meta content="Xây Dựng Kim Anh" itemprop="name">
+                                <meta content="{{ get_setting('siteName') }}" itemprop="name">
                             </div>
                             <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
-                                <meta content="Xây Dựng Kim Anh" itemprop="name">
+                                <meta content="{{ get_setting('siteName') }}" itemprop="name">
                                 <meta content="https://xaydungkimanh.com/" itemprop="url">
                             </div>
                         </div>
@@ -142,19 +142,19 @@
                 <h3 class="text-uppercase">Dịch vụ</h3>
                 <ul class="about-us">
                     <li>
-                        <a href="{{ path('news_category', {'level1': 'xay-dung-nha-pho' }) }}" title="Xây nhà">Xây nhà</a>
+                        <a href="{{ path('news_category', {'level1': 'xay-dung-nha' }) }}" title="Xây nhà">Xây nhà</a>
                     </li>
                     <li>
-                        <a href="{{ path('news_category', {'level1': 'sua-chua-nha-dep' }) }}" title="Sửa chữa nhà">Sửa chữa nhà</a>
+                        <a href="{{ path('news_category', {'level1': 'sua-chua-nha' }) }}" title="Sửa chữa nhà">Sửa chữa nhà</a>
                     </li>
                     <li>
-                        <a href="{{ path('news_category', {'level1': 'thiet-ke-nha-pho' }) }}" title="Thiết kế nhà">Thiết kế nhà</a>
+                        <a href="{{ path('news_category', {'level1': 'thiet-ke-nha' }) }}" title="Thiết kế nhà">Thiết kế nhà</a>
                     </li>
                     <li>
-                        <a href="{{ path('news_category', {'level1': 'bang-gia' }) }}" title="Báo giá xây dựng">Báo giá xây dựng</a>
+                        <a href="{{ path('news_category', {'level1': 'bang-gia-xay-dung' }) }}" title="Bảng giá xây dựng">Bảng giá xây dựng</a>
                     </li>
                     <li>
-                        <a href="{{ path('news_category', {'level1': 'tu-van' }) }}" title="Tư vấn xây dựng">Tư vấn xây dựng</a>
+                        <a href="{{ path('news_category', {'level1': 'cam-nang-xay-dung' }) }}" title="Cẩm nang xây dựng">Cẩm nang xây dựng</a>
                     </li>
                     <li>
                         <a href="{{ path('news_category', {'level1': 'phong-thuy-xay-dung' }) }}" title="Phong thủy xây dựng">Phong thủy xây dựng</a>
@@ -170,7 +170,7 @@
                     <h3 class="text-uppercase">Fanpage</h3>
                     <div>
                         <div class="fb-page"
-                            data-href="https://www.facebook.com/xaydungkimanh/"
+                            data-href="https://www.facebook.com/xaydungnhapho379"
                             data-tabs="timeline"
                             data-width="555"
                             data-height="277"
@@ -179,7 +179,7 @@
                             data-hide-cover="true"
                             data-show-facepile="true"
                             data-lazy="true">
-                            <blockquote cite="https://www.facebook.com/xaydungkimanh/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/xaydungkimanh/">Xây Nhà, Sửa Chữa Nhà Kim Anh</a></blockquote>
+                            <blockquote cite="https://www.facebook.com/xaydungnhapho379" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/xaydungnhapho379">{{ get_setting('siteName') }}</a></blockquote>
                         </div>
                     </div>
                 </div>
@@ -195,7 +195,7 @@
         </div>
         <div class="row copyright">
             <div class="col-sm-12 text-center">
-                <p>Copyright © {{ "now"|date('Y') }} <a href="https://xaydungkimanh.com" title="Xây Dựng Kim Anh">Xây Dựng Kim Anh</a>, all rights reserved.</p>
+                <p>Copyright © {{ "now"|date('Y') }} <a href="{{ get_setting('website') }}" title="{{ get_setting('siteName') }}">{{ get_setting('siteName') }}</a>, all rights reserved.</p>
             </div>
         </div>
     </div>

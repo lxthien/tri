@@ -210,9 +210,9 @@
                         <div class="row project-hot">
                             <div class="col-md-12 title-list-news-items">
                                 <h1 class="text-center text-uppercase">
-                                    <img alt="{{ blockOnHomepage.category.getName() }}" src="{{ asset('assets/images/icon-logo.png') }}" />
-                                    <span>Kim </span> Anh <i class="fas fa-angle-right"></i> 
-                                    {{ blockOnHomepage.category.getName() }}
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <a href="{{ path('news_category', {'level1': blockOnHomepage.category.getUrl() }) }}" title="{{ blockOnHomepage.category.getName() }}">{{ blockOnHomepage.category.getName() }}</a>
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                 </h1>
                                 <p>{{ blockOnHomepage.description }}</p>
                             </div>

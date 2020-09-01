@@ -244,3 +244,83 @@
         }
     }
 }
+
+.project-hot {
+    margin: 0;
+
+    @media only screen and (max-width: 767.98px) {
+        margin: 0;
+    }
+
+    .title-list-news-items {
+        h1 {
+            margin: 30px 0 10px;
+
+            @media only screen and (max-width : 768px) {
+                font-size: 28px;
+                margin: 15px 0 15px;
+            }
+        }
+
+        .block-underline {
+            margin-bottom: 30px;
+        }
+    }
+
+    .list-news-items {
+        .bx-wrapper {
+            border: none;
+            margin-bottom: 0;
+
+            @media only screen and (min-width: 979.98px) {
+                max-width: 1260px !important;
+            }
+
+            .bx-viewport {
+                height: 100% !important;
+
+                .news-item {
+                    @media only screen and (min-width: 768px) {
+                        width: initial !important;
+                    }
+    
+                    .news-item-wrapper {
+                        width: 292.5px !important;
+    
+                        @media only screen and (max-width: 767.98px) {
+                            width: 100% !important;
+                        }
+    
+                        @media (min-width: 768px) and (max-width: 979.98px) {
+                            width: 220px !important;
+                        }
+                    }
+                }
+            }
+
+            .bx-controls {
+                .bx-controls-direction {
+                    .bx-prev {
+                        width: 40px;
+                        height: 120px;
+                        top: 35%;
+                        left: 0;
+                        background: url("../../../images/arrow-left.png") no-repeat;
+                        background-color: rgba(0, 0, 0, 0.3);
+                        background-size: 40px;
+                    }
+
+                    .bx-next {
+                        width: 40px;
+                        height: 120px;
+                        top: 35%;
+                        right: 0;
+                        background: url("../../../images/arrow-right.png") no-repeat;
+                        background-color: rgba(0, 0, 0, 0.3);
+                        background-size: 40px;
+                    }
+                }
+            }
+        }
+    }
+}

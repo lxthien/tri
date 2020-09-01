@@ -55,7 +55,7 @@ class Builder implements ContainerAwareInterface
 
         $menu->addChild('Sửa chữa nhà', [
             'route' => 'news_category',
-            'routeParameters' => ['level1' => 'sua-chua-nha-dep']
+            'routeParameters' => ['level1' => 'sua-chua-nha']
         ]);
 
         $menu->addChild('Bảng giá', [

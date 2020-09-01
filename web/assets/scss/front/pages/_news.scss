@@ -211,6 +211,17 @@
     margin: 10px 0 20px;
 
     .rating-container {
+        .rating {
+            .star-empty, .star-full  {
+                font-family: 'Font Awesome\ 5 Free';
+                font-size: 22px;
+
+                &:before {
+                    content: "\F005";
+                }
+            }
+        }
+
         a#rating {
             display: inline-block;
             font-size: 20px;
@@ -245,6 +256,19 @@
 }
 
 #form-rating-container {
+    .rating {
+        .rating-well {
+            .star, .star-full {
+                font-family: 'Font Awesome\ 5 Free';
+                font-size: 22px;
+
+                &:before {
+                    content: "\F005";
+                }
+            }
+        }
+    }
+
     .rating-message {
         color: $primaryColor;
         margin: 0;
@@ -272,10 +296,17 @@
     .row {
         .related-wrapper {
             margin-bottom: 0;
-
-            &.video-related {
-                margin-bottom: 10px;
-            }
+            box-sizing: border-box;
+            transition: all 200ms ease-out 0s;
+            -webkit-transition: all 200ms ease-out 0s;
+            -ms-transition: all 200ms ease-out 0s;
+            -o-transition: all 200ms ease-out 0s;
+            vertical-align: top;
+            word-wrap: break-word;
+            list-style: none;
+            margin: 0;
+            padding-bottom: 1px;
+            background: #1773c2;
 
             &:hover {
                 .related-img {
@@ -353,12 +384,13 @@
             }
     
             a.related-title {
-                margin: 15px 0px;
-                font-size: 17px;
+                margin: 15px 0px 10px;
+                font-size: 18px;
                 line-height: 22px;
                 height: 45px;
                 max-height: 45px;
-                color: #0053a5;
+                color: $white;
+                padding: 0 5px;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
@@ -378,9 +410,20 @@
                 }
             }
 
-            iframe {
-                max-width: 100% !important;
-                width: 100% !important;
+            p {
+                padding: 0 8px;
+                font-size: 15px;
+                text-align: center;
+                color: $white;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+
+                @media only screen and (max-width: 767.98px) {
+                    padding: 0px 10px;
+                }
             }
         }
     }

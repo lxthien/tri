@@ -1,69 +1,40 @@
 {% if category != NULL %}
-    {% if category.getUrl() != 'bang-gia' %}
-        {% if relatedNews|length > 0 %}
-            <div class="related-news">
-                <h3>{{ 'news.news_related'|trans }}</h3>
-                <div class="row">
-                    {% for row in relatedNews %}
-                        <div class="col-xs-12 col-sm-4 col-md-3">
-                            <div class="related-wrapper">
-                                <div class="related-img">
-                                    <img
-                                        class="img-thumbnail lazyload"
-                                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                        data-src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_406_280') }}"
-                                        alt="{{row.getTitle()}}" />
-                                    {% if category is defined %}
-                                        <a href="{{ path('news_show', {'slug': row.getUrl(), 'danh-muc': category.getUrl() }) }}" title="{{ row.getTitle() }}">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                    {% else %}
-                                        <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                    {% endif %}
-                                </div>
+    {% if relatedNews|length > 0 %}
+        <div class="related-news">
+            <h3>{{ 'news.news_related'|trans }}</h3>
+            <div class="row">
+                {% for row in relatedNews %}
+                    <div class="col-xs-12 col-sm-4 col-md-3">
+                        <div class="related-wrapper">
+                            <div class="related-img">
+                                <img
+                                    class="img-thumbnail lazyload"
+                                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                    data-src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_406_280') }}"
+                                    alt="{{row.getTitle()}}" />
                                 {% if category is defined %}
-                                    <a class="related-title" href="{{ path('news_show', {'slug': row.getUrl(), 'danh-muc': category.getUrl() }) }}" title="{{ row.getTitle() }}">
-                                        {{ row.getTitle() }}
+                                    <a href="{{ path('news_show', {'slug': row.getUrl(), 'danh-muc': category.getUrl() }) }}" title="{{ row.getTitle() }}">
+                                        <i class="fa fa-link"></i>
                                     </a>
                                 {% else %}
-                                    <a class="related-title" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
-                                        {{ row.getTitle() }}
+                                    <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
+                                        <i class="fa fa-link"></i>
                                     </a>
                                 {% endif %}
                             </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        {% endif %}
-    {% else %}
-        <div class="related-news">
-            <h3>Khách hàng đánh giá về chúng tôi</h3>
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="related-wrapper video-related">
-                        <div class="youtube-video-place embed-responsive embed-responsive-4by3" data-yt-url="https://www.youtube.com/embed/qZHPIqGX7pA?rel=0&showinfo=0&autoplay=1">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                data-src="https://img.youtube.com/vi/qZHPIqGX7pA/hqdefault.jpg"
-                                async
-                                class="play-youtube-video lazyload"
-                                alt="Ý kiến khách hàng về Xây Dựng Kim Anh">
+                            {% if category is defined %}
+                                <a class="related-title" href="{{ path('news_show', {'slug': row.getUrl(), 'danh-muc': category.getUrl() }) }}" title="{{ row.getTitle() }}">
+                                    {{ row.getTitle() }}
+                                </a>
+                            {% else %}
+                                <a class="related-title" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
+                                    {{ row.getTitle() }}
+                                </a>
+                            {% endif %}
+                            <p>{{ row.getDescription()|slice(0, 70) }}</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="related-wrapper video-related">
-                        <div class="youtube-video-place embed-responsive embed-responsive-4by3" data-yt-url="https://www.youtube.com/embed/Jw70fD5eZp4?rel=0&showinfo=0&autoplay=1">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                data-src="https://img.youtube.com/vi/Jw70fD5eZp4/hqdefault.jpg"
-                                async
-                                class="play-youtube-video lazyload"
-                                alt="Ý kiến khách hàng về Xây Dựng Kim Anh">
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     {% endif %}
