@@ -43,10 +43,10 @@
         "name": "Xây Dựng Kim Anh",
         "url": "https://xaydungkimanh.com/",
         "sameAs": [
-            "https://www.facebook.com/xaydungkimanh/",
-            "https://twitter.com/xaydungkimanh",
-            "https://www.linkedin.com/in/xaydungkimanh/",
-            "https://www.youtube.com/channel/UCwYmkaoSIRgpZo2Us4FzleQ"
+            "{{ get_setting('linkToFacebook') }}",
+            "{{ get_setting('linkToTwitter') }}",
+            "{{ get_setting('linkToLinkedin') }}",
+            "{{ get_setting('linkToYoutube') }}"
         ]
     }
     </script>
@@ -95,7 +95,7 @@
         <div class="wrapper-container-item why-choose-us">
             <div class="container">
                 <div class="row">
-                    <h2 class="text-center text-uppercase why-choose-us-title">Tại sao chọn chúng tôi</h2>
+                    <h2 class="text-center text-uppercase why-choose-us-title">{{ get_setting('siteName') }} cam kết</h2>
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-6">

@@ -59,6 +59,13 @@ class NewsController extends Controller
             $em->persist($news);
             $em->flush();
 
+            $em2 = $this->getDoctrine()->getManager();
+            $rating = new Rating();
+            $rating->setNewsId($news->getId());
+            $rating->setRating(5);
+            $em2->persist($rating);
+            $em2->flush();
+
             $this->addFlash('success', 'action.created_successfully');
 
             if ($form->get('saveAndCreateNew')->isClicked()) {

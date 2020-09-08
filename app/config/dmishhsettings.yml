@@ -41,7 +41,7 @@ dmishh_settings:
         numberRecordOnPage:
             type: Symfony\Component\Form\Extension\Core\Type\NumberType
             options:
-                required: true
+                required: false
         emailContact:
             type: Symfony\Component\Form\Extension\Core\Type\EmailType
             options:

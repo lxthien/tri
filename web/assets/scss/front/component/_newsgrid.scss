@@ -231,7 +231,7 @@
                     font-family: $robotoCondesed;
                     margin-bottom: 0;
                     line-height: 26px;
-                    min-height: 50px;
+                    min-height: 78px;
                     text-align: center;
                     color: $white;
                     overflow: hidden;
@@ -271,6 +271,7 @@
         .bx-wrapper {
             border: none;
             margin-bottom: 0;
+            box-shadow: none;
 
             @media only screen and (min-width: 979.98px) {
                 max-width: 1260px !important;
@@ -285,7 +286,7 @@
                     }
     
                     .news-item-wrapper {
-                        width: 292.5px !important;
+                        width: 277.5px !important;
     
                         @media only screen and (max-width: 767.98px) {
                             width: 100% !important;

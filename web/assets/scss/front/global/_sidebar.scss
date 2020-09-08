@@ -120,9 +120,30 @@
         .bx-wrapper {
             border: none;
             margin-bottom: 20px;
+            box-shadow: none;
 
-            a {
-                border-radius: 0;
+            .item {
+                a.list-group-item {
+                    border-radius: 0;
+                    height: auto;
+                    float: none;
+                    padding: 10px 10px;
+                    border-bottom: none;
+
+                    &:hover {
+                        background: none;
+                    }
+
+                    img {
+                        float: none;
+                    }
+
+                    span {
+                        text-align: center;
+                        padding: 15px 0 10px;
+                        font-size: 18px;
+                    }
+                }
             }
         }
     }

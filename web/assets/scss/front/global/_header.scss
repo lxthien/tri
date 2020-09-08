@@ -32,8 +32,7 @@
         }
 
         marquee {
-            font-size: 15px;
-            text-transform: uppercase;
+            font-size: 18px;
             font-family: $robotoCondesed;
             background-color: $white;
             color: #3c3950;
@@ -44,7 +43,8 @@
             span {
                 margin-right: 0;
                 display: contents;
-                font-size: 15px;
+                font-size: 18px;
+                color: $supernova;
             }
         }
     }
@@ -83,7 +83,6 @@
 .banner {
     height: 120px;
     font-family: $robotoCondesed;
-    background: #f1f1f1;
 
     #logo_top {
         padding: 0;
@@ -95,34 +94,15 @@
             a {
                 img {
                     padding: 10px 0;
-                    width: 69%;
+                    width: 100%;
                 }
             }
         }
     }
 
     .info-top {
-        margin-top: 35px;
+        margin-top: 20px;
         overflow: hidden;
-
-        &.hotline-top {
-            margin-top: 42px;
-
-            .wp90 {
-                .info-nd {
-                    background: #fff;
-                    border: 2px solid #FDC502;
-                    padding: 0 15px;
-                    border-radius: 30px;
-
-                    p {
-                        font-size: 20px;
-                        line-height: 20px;
-                        padding: 5px 0;
-                    }
-                }
-            }
-        }
 
         .wp10 {
             width: 9%;
@@ -131,9 +111,9 @@
             .fa,
             .fas {
                 font-size: 40px;
-                color: #3c3950;
+                color: $supernova;
                 padding-right: 10px;
-                border-right: 2px solid #FDC502;
+                border-right: 2px solid $primaryColor;
             }
         }
 
@@ -142,17 +122,14 @@
             float: left;
 
             .info-nd {
+                padding-left: 10px;
+
                 p {
                     margin-bottom: 0;
                     color: #3c3950;
                     font-family: $robotoCondesed;
-                    font-size: 17px;
-                    text-align: center;
+                    font-size: 16px;
                     font-weight: bold;
-
-                    &#header-address {
-                        text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-                    }
                 }
 
                 .tel {
@@ -161,16 +138,7 @@
                     font-size: 23px;
                     line-height: 27px;
                     color: #3c3950;
-
-                    &#header-company {
-                        text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-                    }
-
-                    a {
-                        &:hover {
-                            text-decoration: none;
-                        }
-                    }
+                    margin-bottom: 3px;
                 }
             }
         }

@@ -80,42 +80,11 @@ footer {
     .footer-middle {
         padding-top: 20px;
         margin-top: 20px;
-        border-top: 1px solid $supernova;
-
-        img {
-            margin: 0 auto;
-            display: block;
-            width: 25%;
-            padding: 20px 0;
-
-            @media only screen and (max-width: 768px) {
-                width: 90%;
-            }
-        }
 
         .footer-text-wrap {
             p {
-                margin-bottom: 5px;
-            }
-        }
-
-        .td-social-icon-wrap {
-            display: inline-block;
-            margin: 5px 5px 5px 0;
-            
-            a {
-                color: $black;
-
-                i {
-                    font-size: 14px;
-                    width: 40px;
-                    height: 40px;
-                    line-height: 40px;
-                    text-align: center;
-                    border: 1px solid $white;
-                    position: relative;
-                    color: $black;
-                }
+                margin: 0 auto 5px;
+                width: 75%;
             }
         }
     }
@@ -141,7 +110,6 @@ footer {
         height: 45px;
         line-height: 30px;
         color: $black;
-        border-top: 1px solid $supernova;
         margin-top: 8px;
         padding-top: 8px;
 
