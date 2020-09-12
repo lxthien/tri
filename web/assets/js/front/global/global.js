@@ -66,7 +66,8 @@ function initNewsSlider() {
         moveSlides: 1,
         slideWidth: 375,
         touchEnabled: false,
-        autoHover: true
+        autoHover: true,
+        adaptiveHeight: true
     });
 
     $('.post-sidebar-bxslider-recent').bxSlider({
@@ -77,12 +78,13 @@ function initNewsSlider() {
         stopAutoOnClick: true,
         pager: false,
         controls: false,
-        minSlides: 10,
-        maxSlides: 10,
+        minSlides: 5,
+        maxSlides: 5,
         moveSlides: 1,
         slideWidth: 375,
         touchEnabled: false,
-        autoHover: true
+        autoHover: true,
+        adaptiveHeight: true
     });
 }
 
@@ -280,7 +282,6 @@ exports.init = function () {
     initProtectedContent();
     initGoToTop();
     initFixedMenu();
-    initFixedSidebar();
     initCostConstruction();
     initFancybox();
     initTypewriterEffect();

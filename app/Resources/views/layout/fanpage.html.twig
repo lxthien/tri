@@ -3,13 +3,13 @@
         {{ 'sidebar.fanpage'|trans }}
     </h3>
     <div class="fb-page"
-        data-href="https://www.facebook.com/xaydungkimanh/"
+        data-href="{{ get_setting('linkToFacebook') }}"
         data-tabs="timeline"
         data-width="340"
         data-small-header="false"
         data-adapt-container-width="true"
         data-hide-cover="true"
         data-show-facepile="true">
-        <blockquote cite="https://www.facebook.com/xaydungkimanh/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/xaydungkimanh/">Xây Dựng Kim Anh</a></blockquote>
+        <blockquote cite="{{ get_setting('linkToFacebook') }}" class="fb-xfbml-parse-ignore"><a href="{{ get_setting('linkToFacebook') }}">{{ get_setting('siteName') }}</a></blockquote>
     </div>
 </div>

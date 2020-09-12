@@ -50,10 +50,10 @@
 
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:site" content="@xaydungkimanh">
+        <meta name="twitter:site" content="@kientrucnhapho">
         <meta name="twitter:title" content="{{ block('title') }}">
         <meta name="twitter:description" content="{{ block('description') }}">
-        <meta name="twitter:creator" content="@xaydungkimanh">
+        <meta name="twitter:creator" content="@kientrucnhapho">
         {% block twitterImage %}
         {% endblock %}
         <!-- Twitter Card data -->
@@ -73,7 +73,7 @@
         {{ get_setting('googleAnalytic')|raw }}
 
         <!-- Custom css -->
-        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}"  type='text/css' media='all' />
         {% block stylesheets %}
         {% endblock %}
     </head>

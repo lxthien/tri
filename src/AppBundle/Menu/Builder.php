@@ -27,20 +27,6 @@ class Builder implements ContainerAwareInterface
         $menu->addChild('Giới thiệu', [
             'route' => 'news_show',
             'routeParameters' => ['slug' => 'gioi-thieu']
-        ])
-        ->setAttribute('class', 'dropdown')
-        ->setLinkAttribute('class', 'dropdown-toggle')
-        ->setLinkAttribute('data-toggle', 'dropdown')
-        ->setChildrenAttribute('class', 'dropdown-menu');
-
-        $menu['Giới thiệu']->addChild('Về chúng tôi', [
-            'route' => 'news_show',
-            'routeParameters' => ['slug' => 'gioi-thieu']
-        ]);
-
-        $menu['Giới thiệu']->addChild('Tuyển dụng', [
-            'route' => 'news_show',
-            'routeParameters' => ['slug' => 'tuyen-dung-kien-truc-su-xay-dung']
         ]);
 
         $menu->addChild('Thiết kế', [

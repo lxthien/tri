@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('build/css/homepage.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/css/homepage.css') }}" type='text/css' media='all' />
 {% endblock %}
 
 {% block structuredOrganization %}
@@ -9,11 +9,11 @@
     {
         "@context": "http://schema.org",
         "@type": "Organization",
-        "url": "https://xaydungkimanh.com/",
-        "logo": "https://xaydungkimanh.com/assets/images/logo.png",
+        "url": "https://kientrucnhapho.vn/",
+        "logo": "https://kientrucnhapho.vn/assets/images/logo.png",
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+84 974776305",
+            "telephone": "+84 931284379",
             "contactType": "customer service"
         }
     }
@@ -25,10 +25,10 @@
     {
         "@context": "http://schema.org",
         "@type": "WebSite",
-        "url": "https://xaydungkimanh.com/",
+        "url": "https://kientrucnhapho.vn/",
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://xaydungkimanh.com/search?q={search_term_string}",
+            "target": "https://kientrucnhapho.vn/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
         }
     }
@@ -40,8 +40,8 @@
     {
         "@context": "http://schema.org",
         "@type": "Person",
-        "name": "Xây Dựng Kim Anh",
-        "url": "https://xaydungkimanh.com/",
+        "name": "Kiến Trúc Nhà Phố",
+        "url": "https://kientrucnhapho.vn/",
         "sameAs": [
             "{{ get_setting('linkToFacebook') }}",
             "{{ get_setting('linkToTwitter') }}",

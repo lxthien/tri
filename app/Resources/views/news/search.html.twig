@@ -1,5 +1,9 @@
 {% extends 'layout.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/list.css') }}">
+{% endblock %}
+
 {% block title %}
     {{ 'post.archives.title'|trans({'%title%': q, '%currentPage%': pagination.currentPageNumber, '%totalPage%': pagination.pageCount}) }}
 {% endblock %}
@@ -15,7 +19,7 @@
         { type: 'category', title: 'Kết quả tìm kiếm cho từ khoá: "' ~ q ~ '"', description: 'Vui lòng tìm lại nếu không đúng kết quả cần tìm' })
     }}
 
-    <div class="container wrapper-container">
+    <div class="container wrapper-container page-list">
         <div class="row category-list-items">
             <div class="col-12 col-md-12 col-lg-12">
                 {# List item on this page #}
@@ -42,7 +46,7 @@
         </div>
         
         {{ render(controller(
-            'AppBundle:News:listNewsByCategory', { 'categoryId': 5 }
+            'AppBundle:News:listNewsByCategory', { 'categoryId': 7 }
         )) }}
     </div>
 {% endblock %}

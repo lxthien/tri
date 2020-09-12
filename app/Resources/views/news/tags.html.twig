@@ -1,5 +1,9 @@
 {% extends 'layout.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/list.css') }}">
+{% endblock %}
+
 {% block title %}
     {{ 'post.archives.title'|trans({'%title%': tag.getPageTitle() is not null ? tag.getPageTitle() : tag.getName(), '%currentPage%': pagination.currentPageNumber, '%totalPage%': pagination.pageCount}) }}
 {% endblock %}
@@ -20,7 +24,7 @@
     {# breadcrumbs #}
     {{ include('news/components/breadcrumbs.html.twig', {type: 'category', title: tag.getName(), description: tag.getContents() }) }}
 
-    <div class="container wrapper-container">
+    <div class="container wrapper-container page-list">
         <div class="row category-list-items">
             <div class="col-12 col-md-12 col-lg-12">
                 {# List item on this page #}
