@@ -1,7 +1,8 @@
 {% extends 'layout.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('build/css/homepage.css') }}" type='text/css' media='all' />
+    <link href="{{ asset('build/css/homepage.css') }}" rel="preload stylesheet" as="style" onload="this.rel='stylesheet'" >
+    <noscript><link rel="stylesheet" href="{{ asset('build/css/homepage.css') }}" ></noscript>
 {% endblock %}
 
 {% block structuredOrganization %}
@@ -57,7 +58,7 @@
         <div class="wrapper-container-item slogin">
             <div class="container slogin-title">
                 <div class="row">
-                    <div class="col-12 col-md-10"><p>Bạn đang muốn thi công dự án xây dựng? Hãy liên hệ ngay với chúng tôi để được tư vấn miễn phí!</p></div>
+                    <div class="col-12 col-md-10"><p><span class="hidden-xs hidden-sm">Bạn đang muốn thi công dự án xây dựng?</span> <span>Hãy liên hệ ngay với chúng tôi để được tư vấn miễn phí!</span></p></div>
                     <div class="col-12 col-md-2 text-right"><a href="tel:{{ get_setting('hotLine1') }}"> <i class="fas fa-mobile-alt" aria-hidden="true"></i> {{ get_setting('hotLine1') }}</a></div>
                 </div>
             </div>
@@ -67,17 +68,25 @@
             <div class="container">
                 <div class="row marketing">
                     {% for priceOnHomepage in blockPricesOnHomepage %}
-                        <div class="col-md-3 col-sm-3">
+                        <div class="col-md-3 col-sm-3 wrapper-intro">
                             <div class="intro">
                                 <div class="img">
                                     <div class="mid-img">
                                         <a href="{{ path('news_show', {'slug': priceOnHomepage.getUrl() }) }}" title="{{ priceOnHomepage.getTitle() }}">
                                             <div class="center-img">
-                                                <img
-                                                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                                    alt="{{ priceOnHomepage.getTitle() }}"
-                                                    class="img-responsive lazyload"
-                                                    data-src="{{ (vich_uploader_asset(priceOnHomepage, 'imageFile') ? vich_uploader_asset(priceOnHomepage, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_218_218') }}" />
+                                                <picture>
+                                                    <source
+                                                        data-srcset="{{ (vich_uploader_asset(priceOnHomepage, 'imageFile') ? vich_uploader_asset(priceOnHomepage, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_330_220') }}"
+                                                        media="(max-width: 799px)" />
+                                                    <source
+                                                        data-srcset="{{ (vich_uploader_asset(priceOnHomepage, 'imageFile') ? vich_uploader_asset(priceOnHomepage, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_330_220') }}"
+                                                        media="(min-width: 800px)" />
+                                                    <img
+                                                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                        data-src="{{ (vich_uploader_asset(priceOnHomepage, 'imageFile') ? vich_uploader_asset(priceOnHomepage, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_330_220') }}"
+                                                        class="mr-3 img-thumbnail lazyload"
+                                                        alt="{{ priceOnHomepage.getTitle() }}" />
+                                                </picture>
                                             </div>
                                         </a>
                                     </div>

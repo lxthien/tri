@@ -6,15 +6,35 @@
                 <li data-target="#myCarousel" data-slide-to="{{ loop.index - 1 }}" class="{{ loop.first ? 'active' : '' }}"></li>
             {% endfor %}
         </ol>
-        <div class="carousel-inner" role="listbox">
+        <div class="carousel-inner">
             {% for row in banners %}
                 <div class="item {{ loop.first ? 'active' : '' }}">
                     {% if (row.getUrl() != '') %}
                         <a href="{{ row.getUrl() }}">
-                            <img src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) }}" alt="{{ row.alt }}">
+                            <picture>
+                                <source
+                                    srcset="{{ vich_uploader_asset(row, 'imageFile') | imagine_filter('banner_768_400') }}"
+                                    media="(max-width: 799px)" />
+                                <source
+                                    srcset="{{ vich_uploader_asset(row, 'imageFile') | imagine_filter('banner_1500_500') }}"
+                                    media="(min-width: 800px)" />
+                                <img
+                                    src="{{ vich_uploader_asset(row, 'imageFile') | imagine_filter('banner_1500_500') }}"
+                                    alt="{{ row.alt }}" />
+                            </picture>
                         </a>
                     {% else %}
-                        <img src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) }}" alt="{{ row.alt }}">
+                        <picture>
+                            <source
+                                srcset="{{ vich_uploader_asset(row, 'imageFile') | imagine_filter('banner_768_400') }}"
+                                media="(max-width: 799px)" />
+                            <source
+                                srcset="{{ vich_uploader_asset(row, 'imageFile') | imagine_filter('banner_1500_500') }}"
+                                media="(min-width: 800px)" />
+                            <img
+                                src="{{ vich_uploader_asset(row, 'imageFile') | imagine_filter('banner_1500_500') }}"
+                                alt="{{ row.alt }}" />
+                        </picture>
                     {% endif %}
                     <div class="container">
                         <div class="carousel-caption">

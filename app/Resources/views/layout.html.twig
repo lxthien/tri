@@ -2,15 +2,40 @@
 <html lang="{{ app.request.locale }}">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- dns prefetch -->
         <meta http-equiv="x-dns-prefetch-control" content="on">
-        <link rel="dns-prefetch" href="//facebook.com/">
-        <link rel="dns-prefetch" href="//www.google-analytics.com/">
-        <link rel="dns-prefetch" href="//www.youtube.com/">
-        <link rel="dns-prefetch" href="//s7.addthis.com/">
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com/" >
+        <link rel="preconnect" href="//facebook.com" crossorigin>
+        <link rel="dns-prefetch" href="//facebook.com">
+        <link rel="preconnect" href="//www.google-analytics.com" crossorigin>
+        <link rel="dns-prefetch" href="//www.google-analytics.com">
+        <link rel="preconnect" href="//www.youtube.com" crossorigin>
+        <link rel="dns-prefetch" href="//www.youtube.com">
+        <link rel="preconnect" href="//s7.addthis.com" crossorigin>
+        <link rel="dns-prefetch" href="//s7.addthis.com">
+        <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" >
+        <link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin>
+        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" >
+        <link rel="preconnect" href="//www.google.com" crossorigin>
+        <link rel="dns-prefetch" href="//www.google.com" >
+        <link rel="preconnect" href="//connect.facebook.net" crossorigin>
+        <link rel="dns-prefetch" href="//connect.facebook.net" >
+        <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+        <link rel="dns-prefetch" href="//www.gstatic.com" >
+        <link rel="preconnect" href="//z.moatads.com" crossorigin>
+        <link rel="dns-prefetch" href="//z.moatads.com" >
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" >
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" >
+        <link rel="dns-prefetch" href="//v1.addthisedge.com" >
+        <link rel="dns-prefetch" href="//m.addthis.com" >
+        <link rel="dns-prefetch" href="//www.facebook.com" >
+        <link rel="dns-prefetch" href="//graph.facebook.com" >
+        <link rel="dns-prefetch" href="//widgets.pinterest.com" >
+        <link rel="dns-prefetch" href="//api-public.addthis.com" >
+        <link rel="dns-prefetch" href="//scontent-ort2-2.xx.fbcdn.net" >
+        <link rel="dns-prefetch" href="//external-ort2-2.xx.fbcdn.net" >
 
         <!-- https://realfavicongenerator.net -->
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
@@ -89,11 +114,6 @@
             {{ include('layout/footer_UI.html.twig') }}
 
             {{ get_setting('facebookMessenger')|raw }}
-
-            <!-- Google Tag Manager (noscript) -->
-            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W23BJ8Q"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <!-- End Google Tag Manager (noscript) -->
         </div>
     </body>
 </html>

@@ -256,6 +256,9 @@ class NewsController extends Controller
         // Init breadcrum for the post
         $breadcrumbs = $this->buildBreadcrums(null, $post, null, $categoryPrimary);
 
+        // Filter content to support Lazy Loading
+        $contentsLazy = $this->lazyloadContent($post);
+
         if ($post->isPage()) {
             return $this->render('news/page.html.twig', [
                 'post'          => $post,
@@ -274,6 +277,7 @@ class NewsController extends Controller
 
             return $this->render('news/show.html.twig', [
                 'post'          => $post,
+                'contentsLazy'  => $contentsLazy,
                 'relatedNews'   => !empty($relatedNews) ? $relatedNews : NULL,
                 'form'          => $form->createView(),
                 'formRating'    => $formRating->createView(),
@@ -286,6 +290,32 @@ class NewsController extends Controller
                 'category'     => !empty($category) ? $category : NULL
             ]);
         }
+    }
+
+    private function lazyloadContent($post) {
+        $content = $post->getContents();
+        $dom = new \DOMDocument();
+
+        // set error level
+        $internalErrors = libxml_use_internal_errors(true);
+
+        $dom->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+
+        // Restore error level
+        libxml_use_internal_errors($internalErrors);
+
+        $imgs = $dom->getElementsByTagName('img');
+        
+        foreach ( $imgs as $img) {
+            $src = $img->getAttribute('src');
+            $alt = $img->getAttribute('alt');
+            $img->setAttribute('data-src', $src);
+            $img->setAttribute('alt', $alt);
+            $img->setAttribute('class', 'lazyload');
+            $img->setAttribute('src', 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+        }
+        
+        return $dom->saveHTML();
     }
 
     /**

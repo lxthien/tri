@@ -33,13 +33,18 @@
 
                     @media only screen and (max-width : 768px) {
                         padding-top: 5px;
+                        width: 85%;
+                        float: right;
+                        text-align: center;
                     }
     
                     img {
                         width: 100px;
     
                         @media only screen and (max-width : 768px) {
-                            width: 90px;
+                            width: 55px;
+                            margin: 0 auto;
+                            vertical-align: middle;
                         }
                     }
                 }

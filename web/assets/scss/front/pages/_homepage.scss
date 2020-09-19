@@ -192,6 +192,10 @@
         width: 100%;
         height: 100%;
         z-index: -1;
+
+        @media only screen and (max-width : 768px) {
+            background: #eee;
+        }
     }
 
     .marketing {
@@ -209,30 +213,24 @@
                 text-align: center;
     
                 .img {
-                    height: 250px;
-                    width: 250px;
-                    border: 1px solid $primaryColor;
-                    border-radius: 50%;
+                    width: 260px;
                     margin: 0 auto;
-                    padding: 10px;
 
                     @media (min-width: 768px) and (max-width: 991.98px) {
                         width: 180px;
                         height: 180px;
                         padding: 5px;
                     }
+
+                    @media only screen and (max-width : 767.98px) {
+                        width: 100%;
+                    }
     
                     .mid-img {
-                        width: 228px;
-                        height: 228px;
-                        border: 5px solid $primaryColor;
-                        border-right-color: $supernova;
-                        border-bottom-color: $supernova;
-                        border-radius: 50%;
+                        width: 250px;
                         -webkit-transition: all .5s ease-in-out;
                         -moz-transition: all .5s ease-in-out;
                         transition: all .5s ease-in-out;
-                        z-index: 2;
                         margin: auto;
                         overflow: hidden;
 
@@ -248,14 +246,23 @@
                             border-right-color: $supernova;
                             border-bottom-color: $supernova;
                         }
+
+                        @media only screen and (max-width : 767.98px) {
+                            width: 100%;
+                        }
     
                         .center-img {
-                            width: 218px;
-                            height: 218px;
+                            width: 250px;
+                            height: 200px;
 
                             @media (min-width: 768px) and (max-width: 991.98px) {
                                 width: 164px;
                                 height: 164px;
+                            }
+
+                            @media only screen and (max-width : 767.98px) {
+                                width: 100%;
+                                height: 220px;
                             }
     
                             img {
@@ -274,12 +281,18 @@
     
                 .text {
                     font-family: $robotoCondesed;
-                    padding: 15px 0;
-                    font-size: 22px;
-                    line-height: 26px;
+                    padding: 15px 10px;
+                    font-size: 25px;
+                    line-height: 28px;
 
                     @media only screen and (max-width : 767.98px) {
-                        padding: 15px 25px;
+                        padding: 15px 0px;
+                        text-transform: uppercase;
+                        font-size: 20px;
+
+                        a {
+                            color: #1773c2;
+                        }
                     }
 
                     @media (min-width: 768px) and (max-width: 991.98px) {
@@ -291,6 +304,29 @@
                             text-decoration: none;
                             color: $black;
                         }
+                    }
+                }
+            }
+        }
+
+        @media only screen and (min-width: 979.98px) {
+            .wrapper-intro {
+                &:after {
+                    content: "";
+                    width: 2px;
+                    height: 200px;
+                    background: $white;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    -webkit-transform: skew(-5deg);
+                    -ms-transform: skew(-5deg);
+                    transform: skew(-5deg);
+                }
+
+                &:last-child {
+                    &:after {
+                        content: none;
                     }
                 }
             }
@@ -310,7 +346,7 @@
     .row {
         .why-choose-us-title {
             padding: 30px 0;
-            color: #3c3950;
+            color: #1773c2;
             margin: 0;
 
             @media only screen and (max-width: 768px) {

@@ -1,7 +1,8 @@
 {% extends 'layout.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('build/css/news.css') }}">
+    <link href="{{ asset('build/css/news.css') }}" rel="preload stylesheet" as="style" onload="this.rel='stylesheet'" >
+    <noscript><link rel="stylesheet" href="{{ asset('build/css/news.css') }}" ></noscript>
 {% endblock %}
 
 {% block title %}{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}{% endblock %}
@@ -52,7 +53,7 @@
                     <h1 class="entry-title block-title">{{ post.getTitle() }}</h1>
                     
                     <div class="news-container">
-                        {{ post.getContents()|raw }}
+                        {{ contentsLazy|raw }}
                     </div>
 
                     {# List tags #}
