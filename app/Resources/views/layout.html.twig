@@ -98,7 +98,9 @@
         {{ get_setting('googleAnalytic')|raw }}
 
         <!-- Custom css -->
-        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}"  type='text/css' media='all' />
+        <style type="text/css">
+            {{ source('@web/css/app.css', ignore_missing = true) }}
+        </style>
         {% block stylesheets %}
         {% endblock %}
     </head>

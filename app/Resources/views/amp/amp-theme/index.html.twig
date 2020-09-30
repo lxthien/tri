@@ -1,0 +1,275 @@
+<!doctype html>
+<html ⚡ lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}</title>
+        <meta name="description" content="{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}">
+        <meta name="keywords" content="{{ post.getPageKeyword() }}">
+        <link rel="canonical" href="{{ url('news_show', { slug: post.getUrl() }) }}">
+        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org/",
+                "@type": "CreativeWorkSeries",
+                "name": "{{ post.getTitle() }}",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "{{ rating }}",
+                    "ratingCount": "{{ ratingCount ? ratingCount : 1 }}",
+                    "bestRating" : "5",
+                    "worstRating": "1"
+                }
+            }
+        </script><style amp-boilerplate>
+            {% include '@amp_theme/css/amp-boilerplate.html.twig' %}</style>
+        {% include '@amp_theme/css/amp-boilerplate-noscript.html.twig' %}
+        <style amp-custom>
+            {% include '@amp_theme/css/amp-custom.html.twig' %}</style>
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    </head>
+    <body>
+        <amp-analytics type="gtag" data-credentials="include">
+            <script type="application/json">
+            {
+                "vars" : {
+                    "gtag_id": "UA-177856660-1",
+                    "config" : {
+                        "UA-177856660-1": { "groups": "default" }
+                    }
+                }
+            }
+            </script>
+        </amp-analytics>
+        <div class="wrapper-container">
+            <header role="banner">
+                <a href="{{ path('homepage') }}" class="header-link">
+                    <amp-img
+                        alt="{{ get_setting('siteName') }}"
+                        src="{{ asset('assets/images/logo.png') }}"
+                        width="129"
+                        height="100"
+                        layout="responsive"
+                    >
+                    </amp-img>
+                </a>
+            </header>
+            <nav role="navigation">
+                <div id="menuToggle">
+                    <input type="checkbox"/>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    {{ knp_menu_render('AppBundle:Builder:mainMenu', {
+                        'allow_safe_labels': true,
+                    })|raw }}
+                </div>
+            </nav>
+            {{ include('news/components/breadcrumbs.html.twig') }}
+            <article role="article">
+                <h1>{{ post.title }}</h1>
+                <div class="article-content">
+                    {{ contentsAmp|raw }}
+                </div>
+            </article>
+            <footer>
+                <div class="container">
+                    <div class="row footer-top">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                            <h3 class="text-uppercase">{{ get_setting('siteName') }}</h3>
+                            <ul class="footer-company">
+                                <li>
+                                    <span>{{ get_setting('companyAddress') }}</span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <a href="tel:{{ get_setting('hotLine1') }}">{{ get_setting('hotLine1') }}</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <a href="mailto:{{ get_setting('emailContact') }}">{{ get_setting('emailContact') }}</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <a href="{{ get_setting('website') }}">{{ get_setting('website') }}</a>
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="event-footer">
+                                <div>
+                                    <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
+                                        <meta content="⭐Xây dựng nhà" itemprop="name">
+                                        <meta content="⭐Xây dựng nhà" itemprop="description">
+                                        <h6>
+                                            <a href="{{ path('news_category', {'level1': 'xay-dung-nha' }) }}" itemprop="url">
+                                                <span>⭐Xây dựng nhà</span>
+                                            </a>
+                                        </h6>
+                                        <meta content="2021-09-09T4:00-05:00" itemprop="startDate">
+                                        <meta content="2022-09-09T4:00-05:00" itemprop="endDate">
+                                        <meta content="https://schema.org/OnlineEventAttendanceMode" itemprop="eventAttendanceMode">
+                                        <meta content="https://schema.org/EventScheduled" itemprop="eventStatus">
+                                        <meta content="{{ asset('assets/images/logo.png') }}" itemprop="image">
+                                        <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+                                            <meta content="☎️ Báo Giá 0931.284.379" itemprop="name">
+                                            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                                <meta content="150 Phạm Văn Bạch, P. 15, Quận Tân Bình" itemprop="streetAddress">
+                                                <meta content="Ho Chi Minh" itemprop="addressLocality">
+                                                <meta content="VN" itemprop="addressRegion">
+                                                <meta content="70000" itemprop="postalCode">
+                                            </div>
+                                        </div>
+                                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                            <meta content="{{ path('news_category', {'level1': 'xay-dung-nha' }) }}" itemprop="url">
+                                            <meta content="0" itemprop="price">
+                                            <meta content="VND" itemprop="priceCurrency">
+                                            <meta content="https://schema.org/InStock" itemprop="availability">
+                                            <meta content="2021-09-09T4:00" itemprop="validFrom">
+                                        </div>
+                                        <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
+                                            <meta content="{{ get_setting('siteName') }}" itemprop="name">
+                                        </div>
+                                        <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
+                                            <meta content="{{ get_setting('siteName') }}" itemprop="name">
+                                            <meta content="https://kientrucnhapho.vn/" itemprop="url">
+                                        </div>
+                                    </div>
+                                    <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
+                                        <meta content="⭐Sửa chữa nhà" itemprop="name">
+                                        <meta content="⭐Sửa chữa nhà" itemprop="description">
+                                        <h6>
+                                            <a href="{{ path('news_category', {'level1': 'sua-chua-nha' }) }}" itemprop="url">
+                                                <span>⭐Sửa chữa nhà</span>
+                                            </a>
+                                        </h6>
+                                        <meta content="2021-10-10T5:00-05:00" itemprop="startDate">
+                                        <meta content="2022-10-10T5:00-05:00" itemprop="endDate">
+                                        <meta content="https://schema.org/OnlineEventAttendanceMode" itemprop="eventAttendanceMode">
+                                        <meta content="https://schema.org/EventScheduled" itemprop="eventStatus">
+                                        <meta content="{{ asset('assets/images/logo.png') }}" itemprop="image">
+                                        <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+                                            <meta content="☎️ Báo Giá 0931.284.379" itemprop="name">
+                                            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                                <meta content="150 Phạm Văn Bạch, P. 15, Quận Tân Bình" itemprop="streetAddress">
+                                                <meta content="Ho Chi Minh" itemprop="addressLocality">
+                                                <meta content="VN" itemprop="addressRegion">
+                                                <meta content="70000" itemprop="postalCode">
+                                            </div>
+                                        </div>
+                                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                            <meta content="{{ path('news_category', {'level1': 'sua-chua-nha' }) }}" itemprop="url">
+                                            <meta content="4300000" itemprop="price">
+                                            <meta content="VND" itemprop="priceCurrency">
+                                            <meta content="https://schema.org/InStock" itemprop="availability">
+                                            <meta content="2021-10-10T5:00" itemprop="validFrom">
+                                        </div>
+                                        <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
+                                            <meta content="{{ get_setting('siteName') }}" itemprop="name">
+                                        </div>
+                                        <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
+                                            <meta content="{{ get_setting('siteName') }}" itemprop="name">
+                                            <meta content="https://kientrucnhapho.vn/" itemprop="url">
+                                        </div>
+                                    </div>
+                                    <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
+                                        <meta content="⭐Thiết kế nhà" itemprop="name">
+                                        <meta content="⭐Thiết kế nhà" itemprop="description">
+                                        <h6>
+                                            <a href="{{ path('news_category', {'level1': 'thiet-ke-nha' }) }}" itemprop="url">
+                                                <span>⭐Thiết kế nhà</span>
+                                            </a>
+                                        </h6>
+                                        <meta content="2021-11-11T6:00-05:00" itemprop="startDate">
+                                        <meta content="2022-11-11T6:00-05:00" itemprop="endDate">
+                                        <meta content="https://schema.org/OnlineEventAttendanceMode" itemprop="eventAttendanceMode">
+                                        <meta content="https://schema.org/EventScheduled" itemprop="eventStatus">
+                                        <meta content="{{ asset('assets/images/logo.png') }}" itemprop="image">
+                                        <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+                                            <meta content="☎️ Báo Giá 0931.284.379" itemprop="name">
+                                            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                                <meta content="150 Phạm Văn Bạch, P. 15, Quận Tân Bình" itemprop="streetAddress">
+                                                <meta content="Ho Chi Minh" itemprop="addressLocality">
+                                                <meta content="VN" itemprop="addressRegion">
+                                                <meta content="70000" itemprop="postalCode">
+                                            </div>
+                                        </div>
+                                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                            <meta content="{{ path('news_category', {'level1': 'thiet-ke-nha' }) }}" itemprop="url">
+                                            <meta content="4300000" itemprop="price">
+                                            <meta content="VND" itemprop="priceCurrency">
+                                            <meta content="https://schema.org/InStock" itemprop="availability">
+                                            <meta content="2021-11-11T6:00" itemprop="validFrom">
+                                        </div>
+                                        <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
+                                            <meta content="{{ get_setting('siteName') }}" itemprop="name">
+                                        </div>
+                                        <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
+                                            <meta content="{{ get_setting('siteName') }}" itemprop="name">
+                                            <meta content="https://kientrucnhapho.vn/" itemprop="url">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                            <h3 class="text-uppercase">Dịch vụ</h3>
+                            <ul class="about-us">
+                                <li>
+                                    <a href="{{ path('news_category', {'level1': 'xay-dung-nha' }) }}" title="Xây nhà">Xây nhà</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('news_category', {'level1': 'sua-chua-nha' }) }}" title="Sửa chữa nhà">Sửa chữa nhà</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('news_category', {'level1': 'thiet-ke-nha' }) }}" title="Thiết kế nhà">Thiết kế nhà</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('news_category', {'level1': 'bang-gia-xay-dung' }) }}" title="Bảng giá xây dựng">Bảng giá xây dựng</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('news_category', {'level1': 'cam-nang-xay-dung' }) }}" title="Cẩm nang xây dựng">Cẩm nang xây dựng</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('news_category', {'level1': 'phong-thuy-xay-dung' }) }}" title="Phong thủy xây dựng">Phong thủy xây dựng</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                            <h3 class="text-uppercase">Từ khóa</h3>
+                            {{ get_setting('topKeyword')|raw }}
+                        </div>
+                    </div>
+                    <div class="row footer-middle">
+                        <div class="col-12 col-md-12 col-lg-12">
+                            <amp-img
+                                alt="{{ get_setting('siteName') }}"
+                                src="{{ asset('assets/images/logo.png') }}"
+                                width="129"
+                                height="100"
+                                layout="responsive"
+                            >
+                            </amp-img>
+                            <div class="footer-text-wrap  text-center">
+                                <p>{{ get_setting('siteName') }} : Công ty, nhà thầu xây dựng chuyên thi công xây dựng nhà phố, biệt thự, sửa chữa nhà uy tín và chất lượng tại Thành phố Hồ Chí Minh. Chúng tôi luôn mang đến sự hài lòng đến toàn thể quý khách hàng đã tin tưởng đến công ty. Công ty chúng tôi rất hân hạnh khi được làm việc với toàn thể quý khách hàng đã tin tưởng chúng tôi.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row copyright">
+                        <div class="col-sm-12 text-center">
+                            <p>Copyright © 2020 <a href="{{ get_setting('website') }}" title="{{ get_setting('siteName') }}">{{ get_setting('siteName') }}</a>, all rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <a href="tel:+84931284379">
+                <div class="hotline">
+                    <span class="before-hotline">Hotline:</span>
+                    <span class="hotline-number">0931.284.379</span>
+                </div>
+            </a>
+        </div>
+    </body>
+</html>
+
