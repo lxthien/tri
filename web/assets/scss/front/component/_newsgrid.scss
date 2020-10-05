@@ -16,8 +16,8 @@
             width: 180px;
             height: 1px;
             background-color: rgba(252,189,19,0);
-            background-image: -webkit-gradient(linear,left top,right top,from(rgba(252,189,19,0)),color-stop(50%,$selectiveYellow),to(rgba(252,189,19,0)));
-            background-image: linear-gradient(to right,rgba(252,189,19,0),$selectiveYellow 50%,rgba(252,189,19,0));
+            background-image: -webkit-gradient(linear,left top,right top,from(rgba(252,189,19,0)),color-stop(50%,$primaryColor),to(rgba(252,189,19,0)));
+            background-image: linear-gradient(to right,rgba(252,189,19,0),$primaryColor 50%,rgba(252,189,19,0));
             vertical-align: middle;
 
             @media only screen and (max-width: 767.98px) {
@@ -43,8 +43,8 @@
             width: 180px;
             height: 1px;
             background-color: rgba(252,189,19,0);
-            background-image: -webkit-gradient(linear,left top,right top,from(rgba(252,189,19,0)),color-stop(50%,$selectiveYellow),to(rgba(252,189,19,0)));
-            background-image: linear-gradient(to right,rgba(252,189,19,0),$selectiveYellow 50%,rgba(252,189,19,0));
+            background-image: -webkit-gradient(linear,left top,right top,from(rgba(252,189,19,0)),color-stop(50%,$primaryColor),to(rgba(252,189,19,0)));
+            background-image: linear-gradient(to right,rgba(252,189,19,0),$primaryColor 50%,rgba(252,189,19,0));
             vertical-align: middle;
 
             @media only screen and (max-width : 768px) {

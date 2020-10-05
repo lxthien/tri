@@ -42,7 +42,7 @@
                         width: 100px;
     
                         @media only screen and (max-width : 768px) {
-                            width: 55px;
+                            width: 47px;
                             margin: 0 auto;
                             vertical-align: middle;
                         }
@@ -178,10 +178,6 @@
     
                                 a {
                                     padding: 10px 0;
-    
-                                    &:focus, &:hover {
-                                        
-                                    }
                                 }
                             }
                         }
@@ -247,8 +243,6 @@
 
 #nav {
     &.navbar-fixed-top {
-        opacity: 0.9;
-
         .nav-container .navbar {
             min-height: auto;
         }
@@ -258,7 +252,7 @@
                 padding: 5px 0;
 
                 img {
-                    width: 56px;
+                    width: 47px;
                 }
             }
 

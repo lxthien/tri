@@ -5,12 +5,12 @@
     right: 25px;
     width: 35px;
     height: 35px;
-    background-color: $supernova;
+    background-color: #df0006;
     z-index: 100;
 
     @media only screen and (max-width: 767.98px) {
-        bottom: 75px;
-        right: 12px;
+        bottom: 40px;
+        right: 10px;
     }
 
     i {
