@@ -1,244 +1,651 @@
 {% extends 'layout.html.twig' %}
 
-{% block stylesheets %}
-    <link href="{{ asset('build/css/homepage.css') }}" rel="preload stylesheet" as="style" onload="this.rel='stylesheet'" >
-    <noscript><link rel="stylesheet" href="{{ asset('build/css/homepage.css') }}" ></noscript>
-{% endblock %}
-
-{% block structuredOrganization %}
-    <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "url": "https://kientrucnhapho.vn/",
-        "logo": "https://kientrucnhapho.vn/assets/images/logo.png",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+84 931284379",
-            "contactType": "customer service"
-        }
-    }
-    </script>
-{% endblock %}
-
-{% block structuredWebSite %}
-    <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "WebSite",
-        "url": "https://kientrucnhapho.vn/",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://kientrucnhapho.vn/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
-{% endblock %}
-
-{% block structuredPerson %}
-    <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "Person",
-        "name": "Kiến Trúc Nhà Phố",
-        "url": "https://kientrucnhapho.vn/",
-        "sameAs": [
-            "{{ get_setting('linkToFacebook') }}",
-            "{{ get_setting('linkToTwitter') }}",
-            "{{ get_setting('linkToLinkedin') }}",
-            "{{ get_setting('linkToYoutube') }}"
-        ]
-    }
-    </script>
-{% endblock %}
-
 {% block body %}
-    <div class="wrapper-container">
-        <div class="wrapper-container-item slogin">
-            <div class="container slogin-title">
-                <div class="row">
-                    <div class="col-12 col-md-10"><p><span class="hidden-xs hidden-sm">Bạn đang muốn thi công dự án xây dựng?</span> <span>Hãy liên hệ ngay với chúng tôi để được tư vấn miễn phí!</span></p></div>
-                    <div class="col-12 col-md-2 text-right"><a href="tel:{{ get_setting('hotLine1') }}"> <i class="fas fa-mobile-alt" aria-hidden="true"></i> {{ get_setting('hotLine1') }}</a></div>
+<div class="ladi-wraper">
+    <div id="SECTION2" class="ladi-section">
+        <div class="ladi-section-background"></div>
+        <div class="ladi-overlay"></div>
+        <div class="ladi-container">
+            <div id="GROUP8" class="ladi-element">
+                <div class="ladi-group">
+                    <div id="HEADLINE5" class="ladi-element">
+                        <h3 class="ladi-headline ladi-transition" data-id="SECTION554">
+                            <span>TRANG CHỦ</span>
+                        </h3>
+                    </div>
+                    <div id="HEADLINE6" class="ladi-element">
+                        <h3 class="ladi-headline ladi-transition" data-id="SECTION46">
+                            <span>VỊ TRÍ</span>
+                        </h3>
+                    </div>
+                    <div id="HEADLINE7" class="ladi-element">
+                        <h3 class="ladi-headline ladi-transition" data-id="ban-do-quy-hoach">
+                            <span>MẶT BẰNG</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div id="GROUP9" class="ladi-element">
+                <div class="ladi-group">
+                    <div data-action="true" id="HEADLINE10" class="ladi-element">
+                        <h3 class="ladi-headline ladi-transition" data-id="SECTION56">
+                            <span>TIỆN ÍCH</span>
+                        </h3>
+                    </div>
+                    <div data-action="true" id="HEADLINE11" class="ladi-element">
+                        <h3 class="ladi-headline ladi-transition" data-id="SECTION153">
+                            <span>HÌNH ẢNH</span>
+                        </h3>
+                    </div>
+                    <a href="tel:0786899928" id="HEADLINE12" class="ladi-element">
+                        <h3 class="ladi-headline ladi-transition do-click" data-id="SECTION46">
+                            <span>LIÊN HỆ</span>
+                        </h3>
+                    </a>
+                </div>
+            </div>
+            <div id="IMAGE260" class="ladi-element">
+                <div class="ladi-image">
+                    <div class="ladi-image-background">
+                        <img src="{{ asset('assets/images/banner/1.png') }}">
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="wrapper-container-item prices-table">
-            <div class="container">
-                <div class="row marketing">
-                    {% for priceOnHomepage in blockPricesOnHomepage %}
-                        <div class="col-md-3 col-sm-3 wrapper-intro">
-                            <div class="intro">
-                                <div class="img">
-                                    <div class="mid-img">
-                                        <a href="{{ path('news_show', {'slug': priceOnHomepage.getUrl() }) }}" title="{{ priceOnHomepage.getTitle() }}">
-                                            <div class="center-img">
-                                                <picture>
-                                                    <source
-                                                        data-srcset="{{ (vich_uploader_asset(priceOnHomepage, 'imageFile') ? vich_uploader_asset(priceOnHomepage, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_330_220') }}"
-                                                        media="(max-width: 799px)" />
-                                                    <source
-                                                        data-srcset="{{ (vich_uploader_asset(priceOnHomepage, 'imageFile') ? vich_uploader_asset(priceOnHomepage, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_330_220') }}"
-                                                        media="(min-width: 800px)" />
-                                                    <img
-                                                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                                        data-src="{{ (vich_uploader_asset(priceOnHomepage, 'imageFile') ? vich_uploader_asset(priceOnHomepage, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_330_220') }}"
-                                                        class="mr-3 img-thumbnail lazyload"
-                                                        alt="{{ priceOnHomepage.getTitle() }}" />
-                                                </picture>
-                                            </div>
-                                        </a>
+    <div id="SECTION554" class="ladi-section">
+        <div class="ladi-container">
+            <div id="IMAGE555" class="ladi-element">
+                <div class="ladi-image">
+                    <div class="ladi-image-background"></div>
+                </div>
+            </div>
+            <div class="section-content relative">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div>
+                                <p class="text-center">
+                                    <img src="{{ asset('assets/images/logo.jpg') }}" alt="" width="200" height="112">
+                                </p>
+                                <h2 class="elementor-heading-title">
+                                    <span>ĐĂNG KÝ NHẬN TÀI LIỆU</span>
+                                </h2>
+                                <div role="form" class="wpcf7">
+                                    {{ form_start(form, {'attr': {'id': 'form-comment'}}) }}
+                                        <div class="form-group">
+                                            {{ form_label(form.name) }}
+                                            {{ form_errors(form.name) }}
+                                            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ form_label(form.email) }}
+                                            {{ form_errors(form.email) }}
+                                            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ form_label(form.phone) }}
+                                            {{ form_errors(form.phone) }}
+                                            {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+                                        </div>
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="GROUP245" class="ladi-element">
+                <div class="ladi-group">
+                    <div id="IMAGE14" class="ladi-element">
+                        <div class="ladi-image">
+                            <div class="ladi-image-background"></div>
+                        </div>
+                    </div>
+                    <div id="HEADLINE16" class="ladi-element">
+                        <h3 class="ladi-headline-1">KHU ĐÔ THỊ THƯƠNG MẠI GIẢI TRÍ ĐẲNG CẤP 5*</h3>
+                        <h3 class="ladi-headline-2">GEM SKY WORLD</h3>
+                        <h3 class="ladi-headline-3">CÁCH SÂN BAY LONG THÀNH 5 PHÚT</h3>
+                        <div class="ladi-group-box">
+                            <div id="BOX18" class="ladi-element">
+                                <div class="ladi-box"></div>
+                            </div>
+                            <div id="GROUP25" class="ladi-element">
+                                <div class="ladi-group">
+                                    <span class="ladi-group-box-1">ƯU TIÊN<br>GIỮ CHỖ</span>
+                                    <span class="ladi-group-box-2">50</span>
+                                    <span class="ladi-group-box-3">TRIỆU<br>CĂN</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="ladi-headline-4">12 ĐỢT THANH TOÁN</h3>
+                        <h3 class="ladi-headline-5">
+                            <span class="ladi-headline-5-1">NGÂN HÀNG BẢO<br>LÃNH CHO VAY</span>
+                            <span class="ladi-headline-5-2">70%</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="SECTION556" class="ladi-section">
+        <div class="ladi-section-background"></div>
+        <div class="ladi-container">
+            <div id="IMAGE558" class="ladi-element">
+                <div class="ladi-image">
+                    <div class="ladi-image-background"></div>
+                </div>
+            </div>
+            <div id="BOX32" class="ladi-element">
+                <div class="ladi-box">
+                    <div class="ladi-list-paragraph">
+                        <ul>
+                            <li><i class="far fa-gem"></i>Tổ hợp khu thương mại - giải trí 5* đầu tiên ở Long Thành đặc biệt trong đó quy hoạch dãy shophouse xây sẵn nội khu nằm dọc đại lộ dài 2km</li>
+                            <li><i class="far fa-gem"></i>GEM SKY WORLD cách Sân Bay quốc tế Long Thành chỉ 5 km</li>
+                            <li><i class="far fa-gem"></i>Cách trung tâm hồ chí minh 35 phút di chuyển qua cao tốc Long Thành-HCM</li>
+                            <li><i class="far fa-gem"></i>Cách trung tâm hành chính huyện Long Thành 4 km</li>
+                            <li><i class="far fa-gem"></i>Liền kề KCN Long Đức, KCN Long Thành, tòa nhà quốc hội phía nam, các trường đại học: đại học an ninh,đại học y dược...</li>
+                            <li><i class="far fa-gem"></i>Nằm trong quần thể quy hoạch cụm khu dân cư của huyện long thành&nbsp;</li>
+                            <li><i class="far fa-gem"></i>Thanh toán 12 đợt cực dãn - tiến độ cực chiều lòng nhà đầu tư</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="GROUP202" class="ladi-element hidden">
+                <div class="ladi-group">
+                    <div id="BOX35" class="ladi-element">
+                        <div class="ladi-box"></div>
+                    </div>
+                    <div id="FORM36" class="ladi-element">
+                        <form autocomplete="off" method="post" class="ladi-form">
+                            <div id="BUTTON37" class="ladi-element">
+                                <div class="ladi-button">
+                                    <div class="ladi-button-background"></div>
+                                    <div id="BUTTON_TEXT37" class="ladi-element">
+                                        <p class="ladi-headline">LIÊN HỆ VỚI CHÚNG TÔI NGAY</p>
                                     </div>
                                 </div>
-                                <div class="text">
-                                    <a href="{{ path('news_show', {'slug': priceOnHomepage.getUrl() }) }}" title="{{ priceOnHomepage.getTitle() }}">{{ priceOnHomepage.getTitle() }}</a>
+                            </div>
+                            <div id="FORM_ITEM38" class="ladi-element">
+                                <div class="ladi-form-item-container">
+                                    <div class="ladi-form-item-background"></div>
+                                    <div class="ladi-form-item"><input autocomplete="off" tabindex="1" name="name" required="" class="ladi-form-control" type="text" placeholder="Họ và tên" value=""></div>
                                 </div>
                             </div>
+                            <div id="FORM_ITEM40" class="ladi-element">
+                                <div class="ladi-form-item-container">
+                                    <div class="ladi-form-item-background"></div>
+                                    <div class="ladi-form-item"><input autocomplete="off" tabindex="3" name="phone" required="" class="ladi-form-control" type="tel" placeholder="Số điện thoại" pattern="(\+84|0){1}(9|8|7|5|3){1}[0-9]{8}" value=""></div>
+                                </div>
+                            </div>
+                            <button type="submit" class="ladi-hidden"></button>
+                        </form>
+                    </div>
+                    <div id="HEADLINE42" class="ladi-element">
+                        <h3 class="ladi-headline">ĐĂNG KÝ</h3>
+                    </div>
+                    <div id="LINE43" class="ladi-element">
+                        <div class="ladi-line">
+                            <div class="ladi-line-container"></div>
                         </div>
-                    {% endfor %}
+                    </div>
+                    <div id="HEADLINE44" class="ladi-element">
+                        <h3 class="ladi-headline">ĐỂ NHẬN BÁO GIÁ &amp; TƯ VẤN MIỄN PHÍ</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div id="IMAGE272" class="ladi-element">
+                <div class="ladi-image">
+                    <div class="ladi-image-background"></div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="wrapper-container-item why-choose-us">
+    <div id="SECTION46" class="ladi-section">
+        <div class="ladi-container">
+            <div id="HEADLINE48" class="ladi-element">
+                <h3 class="ladi-headline">
+                    <span>TỔNG QUAN DỰ ÁN</span>
+                </h3>
+            </div>
+            <img src="{{ asset('assets/images/home/phan-khu-gem-sky-world-cong-vien.jpg') }}">
+        </div>
+    </div>
+
+    <div id="SECTION588" class="ladi-section">
+        <div class="ladi-container">
+            <div id="BOX52" class="ladi-element">
+                <div class="ladi-box"></div>
+            </div>
+            <div id="LIST_PARAGRAPH54" class="ladi-element">
+                <div class="ladi-list-paragraph">
+                    <ul>
+                        <li>
+                            <i class="far fa-check-circle"></i><span>Vị trí: Xã</span> <span>Long đức, Huyện Long Thành, Tỉnh Đồng Nai</span>
+                        </li>
+                        <li>
+                            <i class="far fa-check-circle"></i><span>Chủ đầu tư: Công ty Hà An</span>
+                        </li>
+                        <li>
+                            <i class="far fa-check-circle"></i><span>Đơn vị phát triển dự án: Đất Xanh Group</span>
+                        </li>
+                        <li>
+                            <i class="far fa-check-circle"></i><span>Quy mô: 92,2 ha</span>
+                        </li>
+                        <li>
+                            <i class="far fa-check-circle"></i><span>Tổng sản phẩm: 4026 nền</span>
+                        </li>
+                        <li>
+                            <i class="far fa-check-circle"></i><span>Mật độ xây dựng: 50,5%</span>
+                        </li>
+                        <li>
+                            <i class="far fa-check-circle"></i><span>Tiện ích: 7 công viên bao phủ và hơn 50 tiện ích nội khu đẳng cấp 5*: khu trung tâm thương mại, trường học quốc tế, bệnh viện, khu giải trí...</span>
+                        </li>
+                        <li>
+                            <i class="far fa-check-circle"></i><span>Loại hình sản phẩm: Nhà phố liền kề, biệt thự, shophouse xây sẵn</span>
+                        </li>
+                        <li>
+                            <i class="far fa-check-circle"></i><span>Khởi công dự án: Quý III/2020</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="SECTION47" class="ladi-section">
+        <div class="ladi-container">
+            <div class="ladi-element">
+                <p class="ladi-paragraph">Bản đồ dự án và tiện ích xung quanh</p>
+                <img src="{{ asset('assets/images/home/ban-do-quy-hoach-gem-sky-world.jpg') }}">
+            </div>
+        </div>
+    </div>
+
+    <div id="SECTION55" class="ladi-section">
+        <div class="ladi-container">
+            <div id="HEADLINE58" class="ladi-element">
+                <h3 class="ladi-headline">
+                    <span>THẾ MẠNH ĐẦU TƯ</span>
+                </h3>
+            </div>
+            <div id="LIST_PARAGRAPH61" class="ladi-element">
+                <img src="{{ asset('assets/images/home/lien-ket-vung-gem-sky-world.jpg') }}">
+                <div class="ladi-list-paragraph">
+                    <ul>
+                        <li><i class="far fa-gem"></i>Là tổ hợp khu thương mại - giải trí 5* đầu tiên ở Long Thành, Đồng Nai</li>
+                        <li><i class="far fa-gem"></i>Mạng lưới hạ tầng giao thông dày đặt hết sức thuận lợi có những tuyến cao tốc do chính phủ làm như cao tốc HCM - LONG THÀNH chỉ mất 30 phút là liên kết được với trung tâm sài gòn, cao tốc BIÊN HÒA - VŨNG TÀU nối về cảng nước sâu lớn nhất việt nam CÁI MÉP –THỊ VẢI chỉ mất một giờ,cao tốc BẾN LỨC - LONG THÀNH nối các tỉnh miền tây đặc biệt con đường huyết mạch QL 51</li>
+                        <li><i class="far fa-gem"></i>Vi trí độc tôn: Dự án Gem Sky World sở hữu vị trí vàng khi liền kề cảng hàng không quốc tế Long Thành, liền kề hàng loạt các KCN lớn như KCN Long Đức, KCN Long Thành, vị trí giao thương 3 vùng kinh tế HCM – Đồng Nai – Bà Rịa Vũng Tàu.</li>
+                        <li><i class="far fa-gem"></i>Được phát triển bởi Tập đoàn Đất Xanh - Top 1 trong những công ty uy tín và năng lực phát triển dự án nhất Việt Nam</li>
+                        <li><i class="far fa-gem"></i>Sở hữu hơn 50 dịch vụ Giải trí - Tiện ích thời thượng, sở hữu đại lộ dài 2km với khu thương mại sầm uất</li>
+                        <li><i class="far fa-gem"></i>Pháp lý an toàn: Dự án được đấu giá công khai của tỉnh đồng nai với pháp lý minh bạch, hiện tại dự án đã có quy hoạch chi tiết 1/500 phê duyệt vào ngày 20/3/2020.</li>
+                        <li><i class="far fa-gem"></i>Ngân hàng bảo lãnh dễ dàng sở hữu: Ngân hàng VP Bank bảo lãnh hỗ trợ cho vay 70% vay tối đa 20 năm, năm đầu tiên hỗ trợ 0 trả lãi 0 trả gốc.</li>
+                        <li><i class="far fa-gem"></i>Quy hoạch đồng bộ: Dự án quy mô 92,2 ha được quy hoạch đồng bộ với đầy đủ các tiện ích đẳng cấp theo quy chuẩn của khu đại đô thị sân bay.</li>
+                        <li><i class="far fa-gem"></i>Tích hợp rất nhiều trò chơi giải trí lần đầu tiên có mặt tại việt nam.</li>
+                        <li><i class="far fa-gem"></i>Nằm trong cụm quy hoạch khu dân cư của long thành sau này.</li>
+                        <li><i class="far fa-gem"></i>Thanh toán được chia thành 12 đợt linh hoạt.</li>
+                        <li><i class="far fa-gem"></i>Mức giá đầu tư ban đầu chỉ từ 600tr/căn.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="SECTION56" class="ladi-section">
+        <div class="ladi-section-background"></div>
+        <div class="ladi-container">
+            <div id="HEADLINE84" class="ladi-element">
+                <h3 class="ladi-headline">
+                    <span>TIỆN ÍCH 5* ĐẲNG CẤP</span>
+                </h3>
+            </div>
+            <div id="HEADLINE87" class="ladi-element">
+                <h3>
+                    Bên cạnh phục vụ nhu cầu sức khỏe cho khách hàng, tổ hợp khu đô thị thương mại giải trí GEM SKY WORLD sở hữu khu dịch vụ rộng 50ha với đầy đủ các tiện ich giải trí 5 sao như:
+                    <br>Trung tâm triển lãm hội nghị đa chức năng | Trung tâm thương mại – dịch vụ | Khu liên hợp thể thao | Trường học quốc tế | Công viên ánh sáng | Khu công viên nước | Khu Nhà hàng BBQ ngoài trời,…
+                </h3>
+            </div>
+            <div id="IMAGE295" class="ladi-element">
+                <div class="ladi-image">
+                    <div class="ladi-image-background">
+                        <!--
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/banner/tien-ich-cong-vien-1.jpg') }}">
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/banner/tien-ich-cong-vien-2.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/banner/tien-ich-cong-vien-3.jpg') }}">
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/banner/tien-ich-cong-vien-4.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/home/khu-trung-tam.jpg') }}">
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/home/cv-xanh.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img src="{{ asset('assets/images/home/s10.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img src="{{ asset('assets/images/home/s11.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container bank-support">
+                            <div class="row">
+                                <div class="col-md-12 text-center" style="margin-top: 20px; margin-bottom: 20px">
+                                    <p style="font-size: 32px; font-weight: bold;">NGÂN HÀNG HỖ TRỢ CHO VAY 75%</p>
+                                    <p><i class="far fa-gem" style="color: #f4f19c;"></i> <b>Khách hàng đặt trước 31/3/2021: Tặng 2 lượng vàng (trị giá 120 triệu đồng)/ 1 sản phẩm</b></p>
+                                    <p><i class="far fa-gem" style="color: #f4f19c;"></i> <b>Khách hàng đặt trước 1/4/2021 - 30/4/2021: Tặng 1.5 lượng vàng (trị giá 90 triệu đồng)/ 1 sản phẩm</b></p>
+                                    <p><i class="far fa-gem" style="color: #f4f19c;"></i> <b>Khách hàng đặt trước 1/5/2021 - 31/5/2021: Tặng 1 lượng vàng (trị giá 60 triệu đồng)/ 1 sản phẩm</b></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <iframe src="https://www.youtube.com/embed/ktiNbTayqzw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container" id="ban-do-quy-hoach">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img src="{{ asset('assets/images/home/ban-do-quy-hoach.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="SECTION153" class="ladi-section">
+        <div class="ladi-container">
+            <div id="GROUP247" class="ladi-element">
+                <div class="ladi-group">
+                    <div id="HEADLINE165" class="ladi-element">
+                        <h2 class="ladi-headline">BẤT ĐỘNG SẢN</h2>
+                    </div>
+                    <div id="HEADLINE166" class="ladi-element">
+                        <h2 class="ladi-headline">HÌNH ẢNH THỰC TẾ<br>TIẾN ĐỘ THI CÔNG<br></h2>
+                    </div>
+                </div>
+            </div>
+            <div id="IMAGE266" class="ladi-element">
+                <div class="ladi-image">
+                    <div class="ladi-image-background">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img src="{{ asset('assets/images/home/tien-do-thi-cong-2-1.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/home/tien-do-thi-cong-1.jpg') }}">
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/home/tien-do-thi-cong-4.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/home/tien-do-thi-cong-5.jpg') }}">
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/home/tien-do-thi-cong-6.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/home/tien-do-thi-cong-7.jpg') }}">
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <img src="{{ asset('assets/images/home/tien-do-thi-cong-8.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="HEADLINE301" class="ladi-element">
+                <h3 class="ladi-headline">TIỀM NĂNG LONG THÀNH</h3>
+            </div>
+
+            <div id="IMAGE303" class="ladi-element">
+                <div class="ladi-image">
+                    <div class="ladi-image-background">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <iframe src="https://www.youtube.com/embed/ktiNbTayqzw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="SECTION173" class="ladi-section">
+        <div class="ladi-container">
+            <div id="HEADLINE177" class="ladi-element">
+                <h3 class="ladi-headline">
+                    <span>LOẠI HÌNH SẢN PHẨM</span>
+                </h3>
+            </div>
+            <div id="PARAGRAPH406" class="ladi-element">
+                <p class="ladi-paragraph">Với mục tiêu trở thành khu đô thị thương mại giải trí kiểu mẫu vệ tinh sân bay quốc tế Long Thành GEM SKY WORLD được thiết kế xây dựng theo khuôn mẫu đồng bộ hiện đại phong cách châu âu với nhiều loại hình sản phẩm đa dạng như: nhà phố liền kề, biệt thự đơn lập, biệt thự song lập, shophouse xây sẵn</p>
+                <div class="ladi-image">
+                    <div class="ladi-image-background">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img src="{{ asset('assets/images/home/loai-hinh-san-pham.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="SECTION279" class="ladi-section">
+        <div class="ladi-container">
+            <div id="HEADLINE280" class="ladi-element">
+                <h3 class="ladi-headline">
+                    <span>PHÁP LÝ DỰ ÁN</span>
+                </h3>
+            </div>
+            <div id="PARAGRAPH292" class="ladi-element">
+                <p class="ladi-paragraph">Dự án được đấu giá công khai của tỉnh Đồng Nai với pháp lý minh bạch, hiện tại dự án đã có quy hoạch chi tiết 1/500 phê duyệt vào ngày 20/3/2020, sổ riêng từng nền, 100% thổ cư<br></p>
+                <div class="ladi-image">
+                    <div class="ladi-image-background">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img src="{{ asset('assets/images/home/phap-ly.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="SECTION285" class="ladi-section">
+        <div class="ladi-container">
+            <div id="IMAGE544" class="ladi-element">
+                <div>
+                    <div class="ladi-image-background">
+                        <div class="container ladi-image">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img src="{{ asset('assets/images/home/phap-ly-1.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container ladi-image">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img src="{{ asset('assets/images/home/phap-ly-2.jpg') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container ladi-285">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="ladi-paragraph">
+                                        <span class="font-weight-bold">GIÁ ƯU ĐÃI</span>
+                                        <br>
+                                        <br>» Giá sản phẩm thị trường 22 triệu/m2
+                                        <br>
+                                        <br>» Giá gốc chỉ từ 19 triệu/m2
+                                        <br>
+                                        <br>» Thanh toán chỉ 540 triệu là sở hữu
+                                        <br>
+                                        <br>» Phần còn lại được hỗ trợ lãi suất và ân hạn nợ gốc
+                                        <br>
+                                        <br>
+                                        <span class="font-weight-bold">TẠI SAO NÊN SỞ HỮU GEM SKY WORLD Ở THỜI ĐIỂM NÀY?</span>
+                                        <br>
+                                        <br>» Giá gốc Chủ đầu tư và rẻ hơn thị trường
+                                        <br>
+                                        <br>» Thanh toán linh hoạt, ngân hàng hỗ trợ lãi suất và ân hạn nợ gốc 12 tháng
+                                        <br>
+                                        <br>» Pháp lý hoàn chỉnh, Tiềm năng tăng giá cực tốt<br>
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="ladi-paragraph">
+                                        <span class="font-weight-bold">ĐẶC BIỆT ƯU ĐÃI CHÍNH SÁCH KHỦNG:</span>
+                                        <br>
+                                        <br>
+                                        <span>» Chiết khấu 6% cho khách hàng thanh toán nhanh
+                                            <br>
+                                            <br>» Chiết khấu 3% cho khách hàng đã sở hữu sản phẩm của Đất Xanh từng làm Chủ đầu tư hoặc phát triển
+                                            <br>
+                                            <br>» Chiết khấu 3% cho khách hàng mua sỉ 5 lô hoặc hộ khẩu ở Long Thành
+                                            <br>
+                                            <br>» Chiết khấu 2% cho khách hàng mua sỉ từ 3 lô hoặc hộ khẩu Đồng Nai
+                                            <br>
+                                            <br>» Chiết khấu 40 triệu cho khách hàng mua đợt này
+                                            <br>
+                                            <br>» Ngoài ra còn nhiều chính sách ưu đãi cho quý khách hàng Booking sớm
+                                            <br>
+                                        </span>
+                                        <br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="SECTION595" class="ladi-section hidden">
+        <div class="ladi-container">
+            <div id="PARAGRAPH569" class="ladi-element">
+                <p class="ladi-paragraph">Hình ảnh khách hàng tham gia sự kiện</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-background">
+        </div>
+        
+        <div class="ladi-overlay"></div>
+
+        <div class="ladi-container">
             <div class="container">
                 <div class="row">
-                    <h2 class="text-center text-uppercase why-choose-us-title">{{ get_setting('siteName') }} cam kết</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="media">
-                            <div class="media-left">
-                                <span><i class="fa fa-globe"></i></span>
-                            </div>
-                            <div class="media-body">
-                                <h2 class="media-heading text-uppercase">Báo giá miễn phí, tận nơi</h2>
-                                <div class="marketing-container">
-                                    <p>Báo giá xây dựng nhà phố, biệt thự, sửa chữa nhà miễn phí, nhanh chóng, tận nơi, làm việc 24/7</p>
-                                </div>
-                            </div>
+                    <div class="col-md-4 footer-left">
+                        <h2>TẬP ĐOÀN ĐẤT XANH</h2>
+                        <div class="footer-left-item">
+                            <p class="footer-left-item-cl"><i class="fas fa-map-marker-alt"> </i>Địa chỉ TP Hồ Chí Minh:</p>
+                            <p>2W Ung Văn Khiêm, Phường 25, Quận Bình Thạnh</p>
+                        </div>
+                        <div class="footer-left-item">
+                            <p class="footer-left-item-cl"><i class="fas fa-map-marker-alt"></i> Vị trí dự án:</p>
+                            <p>Xã Long Đức, Long Thành, Đồng Nai</p>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="media">
-                            <div class="media-left">
-                                <span><i class="fa fa-balance-scale"></i></span>
-                            </div>
-                            <div class="media-body">
-                                <h2 class="media-heading text-uppercase">Giá cả hợp lý, cạnh tranh</h2>
-                                <div class="marketing-container">
-                                    <p>Bảng báo giá xây dựng nhà, sửa chữa nhà của chúng tôi hợp lý, rõ ràng từng vấn đề, cạnh tranh</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-md-4 footer-center">
+                        <img src="{{ asset('assets/images/logo-dat-xanh-group.png') }}" >
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="media">
-                            <div class="media-left">
-                                <span><i class="fas fa-users"></i></span>
-                            </div>
-                            <div class="media-body">
-                                <h2 class="media-heading text-uppercase">Đội ngũ chuyên nghiệp</h2>
-                                <div class="marketing-container">
-                                    <p>Bạn sẽ được làm việc cùng đội ngũ kiến trúc sư, kĩ sư, tổ thợ chuyên nghiệp, nhiều kinh nghiệm</p>
-                                </div>
-                            </div>
+                    <div class="col-md-4 footer-right">
+                        <div class="footer-left-item">
+                            <p class="footer-left-item-cl"><i class="fa fa-phone"></i> Hotline: <a href="tel:0786899928">078.68.99928</a></p>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="media">
-                            <div class="media-left">
-                                <span><i class="fas fa-gem"></i></span>
-                            </div>
-                            <div class="media-body">
-                                <h2 class="media-heading text-uppercase">Cam kết bảo hành</h2>
-                                <div class="marketing-container">
-                                    <p>Chúng tôi luôn cam kết bảo hành công trình thi công lâu dài, đồng hành cùng quý khách hàng</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="media">
-                            <div class="media-left">
-                                <span><i class="fas fa-lightbulb"></i></span>
-                            </div>
-                            <div class="media-body">
-                                <h2 class="media-heading text-uppercase">Sáng tạo trong thiết kế</h2>
-                                <div class="marketing-container">
-                                    <p>Những kỹ sư thiết kế về kiến trúc và nội thất có kinh nghiệm sẽ đưa đến những ý tưởng sáng tạo cho ngôi nhà của bạn</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="media">
-                            <div class="media-left">
-                                <span><i class="fa fa-bullhorn"></i></span>
-                            </div>
-                            <div class="media-body">
-                                <h2 class="media-heading text-uppercase">Không phát sinh phí</h2>
-                                <div class="marketing-container">
-                                    <p>Chúng tôi cam kết đến toàn thể quý khách hàng không phát sinh phí trong quá trình xây dựng</p>
-                                </div>
-                            </div>
+                        <div class="footer-left-item">
+                            <p class="footer-left-item-cl"><i class="far fa-envelope"></i> Email: <a href="mailto:team5san3dxs@gmail.com">team5san3dxs@gmail.com</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        {% for blockOnHomepage in blocksOnHomepage %}
-            {% if blockOnHomepage.category.getId() != 8 and blockOnHomepage.category.getId() != 7 and blockOnHomepage.category.getId() != 6 %}
-                <div class="wrapper-container-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 title-list-news-items">
-                                <h1 class="text-center text-uppercase">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <a href="{{ path('news_category', {'level1': blockOnHomepage.category.getUrl() }) }}" title="{{ blockOnHomepage.category.getName() }}">{{ blockOnHomepage.category.getName() }}</a>
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </h1>
-                                <p>{{ blockOnHomepage.description }}</p>
-                            </div>
-
-                            <div class="col-md-12 list-news-items">
-                                <div class="row">
-                                    {% for row in blockOnHomepage.posts %}
-                                        {{ include('news/components/itemsGridHomepage.html.twig') }}
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% else %}
-                <div class="wrapper-container-item project-hot">
-                    <div class="container">
-                        <div class="row project-hot">
-                            <div class="col-md-12 title-list-news-items">
-                                <h1 class="text-center text-uppercase">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <a href="{{ path('news_category', {'level1': blockOnHomepage.category.getUrl() }) }}" title="{{ blockOnHomepage.category.getName() }}">{{ blockOnHomepage.category.getName() }}</a>
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </h1>
-                                <p>{{ blockOnHomepage.description }}</p>
-                            </div>
-
-                            <div class="clearfix"></div>
-
-                            <div class="list-news-items">
-                                <div class="bxslider">
-                                    {% for row in blockOnHomepage.posts %}
-                                        {{ include('news/components/itemsGridSlide.html.twig') }}
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-        {% endfor %}
+        <div class="td-scroll-up go-to-top td-scroll-up-visible hidden">
+            <i class="fa fa-chevron-up"></i>
+        </div>
     </div>
+
+    <ul class="giuseart-pc-contact-bar">
+        <li class="facebook">
+            <a href="https://m.me/100008968184895" target="_blank" rel="nofollow"></a>
+        </li>
+        <li class="zalo">
+            <a href="https://zalo.me/0786899928" target="_blank" rel="nofollow"></a>
+        </li>
+    </ul>
+
+    <div class="hotline">
+        <div class="inner">
+            <a href="tel:0786899928"><div class="phonering-alo-ph-img-circle"></div>078.68.99928</a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

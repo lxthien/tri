@@ -4,39 +4,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- dns prefetch -->
-        <meta http-equiv="x-dns-prefetch-control" content="on">
-        <link rel="preconnect" href="//facebook.com" crossorigin>
-        <link rel="dns-prefetch" href="//facebook.com">
-        <link rel="preconnect" href="//www.google-analytics.com" crossorigin>
-        <link rel="dns-prefetch" href="//www.google-analytics.com">
-        <link rel="preconnect" href="//www.youtube.com" crossorigin>
-        <link rel="dns-prefetch" href="//www.youtube.com">
-        <link rel="preconnect" href="//s7.addthis.com" crossorigin>
-        <link rel="dns-prefetch" href="//s7.addthis.com">
-        <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" >
-        <link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin>
-        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" >
-        <link rel="preconnect" href="//www.google.com" crossorigin>
-        <link rel="dns-prefetch" href="//www.google.com" >
-        <link rel="preconnect" href="//connect.facebook.net" crossorigin>
-        <link rel="dns-prefetch" href="//connect.facebook.net" >
-        <link rel="preconnect" href="//www.gstatic.com" crossorigin>
-        <link rel="dns-prefetch" href="//www.gstatic.com" >
-        <link rel="preconnect" href="//z.moatads.com" crossorigin>
-        <link rel="dns-prefetch" href="//z.moatads.com" >
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" >
-        <link rel="dns-prefetch" href="//www.googletagmanager.com" >
-        <link rel="dns-prefetch" href="//v1.addthisedge.com" >
-        <link rel="dns-prefetch" href="//m.addthis.com" >
-        <link rel="dns-prefetch" href="//www.facebook.com" >
-        <link rel="dns-prefetch" href="//graph.facebook.com" >
-        <link rel="dns-prefetch" href="//widgets.pinterest.com" >
-        <link rel="dns-prefetch" href="//api-public.addthis.com" >
-        <link rel="dns-prefetch" href="//scontent-ort2-2.xx.fbcdn.net" >
-        <link rel="dns-prefetch" href="//external-ort2-2.xx.fbcdn.net" >
-
         <!-- https://realfavicongenerator.net -->
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
@@ -55,64 +22,20 @@
         <meta name="google" content="notranslate" />
         <meta http-equiv="content-language" content="vi">
 
-        {% if app.request.attributes.get('_route') is not null %}
-        <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
-        {% endif %}
-        
-        <!-- Open Graph data -->
-        <meta property="og:locale" content="vi_VN" />
-        {% block structuredOpenGraph %}
-            <meta property="og:type" content="website" />
-            <meta property="og:title" content="{{ block('title') }}" />
-            <meta property="og:description" content="{{ block('description') }}" />
-        {% endblock %}
-        {% if app.request.attributes.get('_route') is not null %}
-            <meta property="og:url" content="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" />
-        {% endif %}
-        <meta property="og:site_name" content="{{ get_setting('siteName') }}" />
-        <meta property="fb:app_id" content="1384538691837107" />
-        <!-- Open Graph data -->
-
-        <!-- Twitter Card data -->
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:site" content="@kientrucnhapho">
-        <meta name="twitter:title" content="{{ block('title') }}">
-        <meta name="twitter:description" content="{{ block('description') }}">
-        <meta name="twitter:creator" content="@kientrucnhapho">
-        {% block twitterImage %}
-        {% endblock %}
-        <!-- Twitter Card data -->
-
-        {% block structuredOrganization %}
-        {% endblock %}
-
-        {% block structuredWebSite %}
-        {% endblock %}
-
-        {% block structuredPerson %}
-        {% endblock %}
-
-        {% block structuredReview %}
-        {% endblock %}
-
         {{ get_setting('googleAnalytic')|raw }}
 
         <!-- Custom css -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
         <style type="text/css">
             {{ source('@web/css/app.css', ignore_missing = true) }}
         </style>
-        {% block stylesheets %}
-        {% endblock %}
     </head>
     <body>
         <div class="container-fluid wrapper">
-            {{ include('layout/header.html.twig') }}
-            {{ include('layout/menu.html.twig') }}
-            {{ include('layout/slide.html.twig') }}
-
             {% block body %}{% endblock %}
 
-            {{ include('layout/footer.html.twig') }}
             {{ include('layout/footer_UI.html.twig') }}
 
             {{ get_setting('facebookMessenger')|raw }}

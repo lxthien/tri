@@ -6,8 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 
-use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
-
 /**
  * Contact
  *
@@ -32,12 +30,6 @@ class Contact
      */
     private $name;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255, nullable=true)
-     */
-    private $title;
 
     /**
      * @var string
@@ -54,13 +46,6 @@ class Contact
     private $email;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="contents", type="text")
-     */
-    private $contents;
-
-    /**
      * @var \DateTime
      *
      * @Gedmo\Timestampable(on="create")
@@ -75,11 +60,6 @@ class Contact
      * @ORM\Column(name="updatedAt", type="datetime")
      */
     private $updatedAt;
-
-    /**
-     * @Recaptcha\IsTrue
-     */
-    public $recaptcha;
 
     /**
      * Get id
@@ -113,30 +93,6 @@ class Contact
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Contact
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
     }
 
     /**
@@ -185,30 +141,6 @@ class Contact
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * Set contents
-     *
-     * @param string $contents
-     *
-     * @return Contact
-     */
-    public function setContents($contents)
-    {
-        $this->contents = $contents;
-
-        return $this;
-    }
-
-    /**
-     * Get contents
-     *
-     * @return string
-     */
-    public function getContents()
-    {
-        return $this->contents;
     }
 
     /**

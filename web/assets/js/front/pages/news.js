@@ -49,7 +49,6 @@ function intHandleFormReplyComment() {
 exports.init = function () {
 
     $('#form-comment').validate();
-
-    intHandleFormComment();
+    
     intHandleFormReplyComment();
 };

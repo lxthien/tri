@@ -1,15 +1,15 @@
 .td-scroll-up {
     cursor: pointer;
     position: fixed;
-    bottom: 30px;
-    right: 25px;
+    bottom: 90px;
+    right: 10px;
     width: 35px;
     height: 35px;
-    background-color: #df0006;
+    background-color: #223455;
     z-index: 100;
 
     @media only screen and (max-width: 767.98px) {
-        bottom: 40px;
+        bottom: 90px;
         right: 10px;
     }
 
@@ -27,146 +27,113 @@
 .hotline {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 10px;
     text-align: center;
-    background-color: $primaryColor;
+    background-color: $white;
     color: $white;
     z-index: 100;
     font-family: $robotoCondesed;
     font-size: 20px;
     text-transform: uppercase;
-    padding: 0px 15px;
+    padding: 0px;
     font-weight: bold;
+    border-radius: 30px;
 
-    a {
-        color: $white;
+    .inner > a {
+        display: inline-block;
+        font-size: 21px;
+        font-weight: 700;
+        color: $primaryColor;
+        background: url(../../../images/icon-phone.svg) no-repeat 17px center;
+        background-size: 25px;
+        position: relative;
+        border: 1px solid #1289b3;
+        border-radius: 40px;
+        padding: 6px 19px 6px 58px;
+        -webkit-background-clip: text;
+        -webkit-animation: color-change 1s infinite;
+        -moz-animation: color-change 1s infinite;
+        -o-animation: color-change 1s infinite;
+        -ms-animation: color-change 1s infinite;
+        animation: color-change 1s infinite;
 
-        &:hover {
-            text-decoration: none;
+        .phonering-alo-ph-img-circle {
+            width: 25px;
+            height: 25px;
+            top: 8px;
+            left: 16px;
+            position: absolute;
+            background: url(../../../images/icon-phone.svg) no-repeat 0px center;
+            -webkit-animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
+            animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
+            -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            background-size: 25px;
         }
     }
 }
 
-.hotline {
-    -webkit-animation-duration: 1s;
-    -webkit-animation-name: tada_keyframe;
-    -webkit-animation-fill-mode: both;
-    animation-duration: 1s;
-    animation-name: tada_keyframe;
-    animation-fill-mode: both;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-}
-
-@keyframes tada_keyframe {
+@-webkit-keyframes phonering-alo-circle-anim {
     0% {
-        -webkit-transform: translate(0, 0) scale(1, 1);
-        transform: translate(0, 0) scale(1, 1)
+        -webkit-transform:rotate(0) scale(.5) skew(1deg);
+        -webkit-opacity:.1
     }
-    10%,
-    20% {
-        -webkit-transform: translate(0, 0) scale(.9, .9) rotateZ(-3deg);
-        transform: translate(0, 0) scale(.9, .9) rotateZ(-3deg)
+
+    30% {
+        -webkit-transform:rotate(0) scale(.7) skew(1deg);
+        -webkit-opacity:.5
     }
-    30%,
-    50%,
-    70%,
-    90% {
-        -webkit-transform: translate(0, 0) scale(1.1, 1.1) rotateZ(3deg);
-        transform: translate(0, 0) scale(1.1, 1.1) rotateZ(3deg)
-    }
-    40%,
-    60%,
-    80% {
-        -webkit-transform: translate(0, 0) scale(1.1, 1.1) rotateZ(-3deg);
-        transform: translate(0, 0) scale(1.1, 1.1) rotateZ(-3deg)
-    }
+
     100% {
-        -webkit-transform: translate(0, 0) scale(1, 1) rotateZ(0);
-        transform: translate(0, 0) scale(1, 1) rotateZ(0)
+        -webkit-transform:rotate(0) scale(1) skew(1deg);
+        -webkit-opacity:.1
     }
 }
 
-@-webkit-keyframes tada_keyframe {
+@-webkit-keyframes phonering-alo-circle-fill-anim {
     0% {
-        -webkit-transform: translate(0, 0) scale(1, 1)
+        -webkit-transform:rotate(0) scale(.7) skew(1deg);
+        opacity:.2
     }
-    10%,
-    20% {
-        -webkit-transform: translate(0, 0) scale(.9, .9) rotateZ(-3deg)
+
+    50% {
+        -webkit-transform:rotate(0) scale(1) skew(1deg);
+        opacity:.2
     }
-    30%,
-    50%,
-    70%,
-    90% {
-        -webkit-transform: translate(0, 0) scale(1.1, 1.1) rotateZ(3deg)
-    }
-    40%,
-    60%,
-    80% {
-        -webkit-transform: translate(0, 0) scale(1.1, 1.1) rotateZ(-3deg)
-    }
+
     100% {
-        -webkit-transform: translate(0, 0) scale(1, 1) rotateZ(0)
+        -webkit-transform:rotate(0) scale(.7) skew(1deg);
+        opacity:.2
     }
 }
 
-.floating {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    background-color: #f37022;
-
-    .inside {
-        .call-now,
-        .chat-us {
-            float: left;
-            border-right: 1px dotted $mercury;
-            vertical-align: middle;
-            color: $white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            font-size: 16px;
-
-            div {
-                text-align: center;
-                line-height: 24px;
-                position: relative;
-
-                i {
-                    position: absolute;
-                    font-size: 20px;
-                    top: 12px;
-                    left: 15px;
-                }
-
-                span, strong {
-                    display: block;
-                }
-            }
-        }
-
-        .chat-us {
-            border-right: none;
-        }
+@-webkit-keyframes phonering-alo-circle-img-anim {
+    0% {
+        -webkit-transform:rotate(0) scale(1) skew(1deg)
     }
-}
 
-#fb-root > div.fb_dialog.fb_dialog_advanced.fb_customer_chat_bubble_animated_no_badge {
-    bottom: 90px !important;
-}
-#fb-root > div.fb_dialog.fb_dialog_mobile.fb_customer_chat_bubble_animated_no_badge {
-    bottom: 120px!important;
-    right: 10px !important;
-}
-.fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
-    bottom: 160px !important;
+    10% {
+        -webkit-transform:rotate(-25deg) scale(1) skew(1deg)
+    }
 
-    @media only screen and (max-width: 767.98px) {
-        bottom: 180px !important;
-        right: 0px !important;
+    20% {
+        -webkit-transform:rotate(25deg) scale(1) skew(1deg)
+    }
+
+    30% {
+        -webkit-transform:rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    40% {
+        -webkit-transform:rotate(25deg) scale(1) skew(1deg)
+    }
+
+    50% {
+        -webkit-transform:rotate(0) scale(1) skew(1deg)
+    }
+
+    100% {
+        -webkit-transform:rotate(0) scale(1) skew(1deg)
     }
 }
